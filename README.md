@@ -13,4 +13,7 @@ It is necessary to run Python 3.6 or later for the script to run!
 - Unicast / Broadcast
 - Make an Input-Patch for every single address
 
+# Upcoming features
+- E1.33 and E1.59 packets as soon it gets ratified by ESTA
+
 ## Please send me a message with feature requests and post some issues you have!
