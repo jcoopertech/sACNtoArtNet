@@ -6,12 +6,12 @@ import socket_settings
 import threading
 
 '''EXECUTABLE CODE VARS'''
-universe_min = 1
-universe_max = 10
+universe_min = 255
+universe_max = 256
 
 
 def calculate_hibit(byte: int):
-    hibyte = (byte >> 4)
+    hibyte = (byte >> 8)
     lobyte = (byte & 0xFF)
     return hibyte, lobyte
 
@@ -20,7 +20,6 @@ input_data = {}  # Create an empty byte for the merge function
 for i in range(universe_max+1):
     uni = calculate_hibit(i)
     input_data[uni[0], uni[1]] = {}
-    print(input_data)
 
 
 def set_fps(fps=45):
@@ -48,19 +47,23 @@ def merge_sacn_inputs(sacn_data):   # Input Universe, CID and DMX data
     return sacn_data["dmx_data"], sacn_data["universe"]
 
 
-def identify_sacn_packet(input):
+def identify_sacn_packet(sacn_input):
     # Extracts the type of sACN packet and will return the type of packet and the packet itself.
-    if len(input) < 126:
-        raise TypeError("Unknown Package. The minimum length for a sACN package is 126.")
-    if tuple(input[40:44]) == sACN.VECTOR_E131_DATA_PACKET:     # sACN Data Packet
+    try:
+        len(sacn_input) < 126
+        if len(sacn_input) < 126:
+            raise TypeError("Unknown Package. The minimum length for a sACN package is 126.")
+    except TypeError as error_message:
+        print("LENGHT ERROR:", error_message)
+    if tuple(sacn_input[40:44]) == sACN.VECTOR_E131_DATA_PACKET:     # sACN Data Packet
         sacn_data = sACN.sacn_data_input(sacn_input_packet)     # Extract all data we can get
         sacn_data["dmx_data"], sacn_data["input_data"] = merge_sacn_inputs(sacn_data)
         # Merge DMX data from multiple sources.
         return "sACN_DATA_PACKET", sacn_data
-    elif tuple(input[40:44]) == sACN.VECTOR_E131_EXTENDED_SYNCHRONIZATION:  # sACN Sync Packet
+    elif tuple(sacn_input[40:44]) == sACN.VECTOR_E131_EXTENDED_SYNCHRONIZATION:  # sACN Sync Packet
         sacn_sync = sACN.sacn_sync_input(sacn_input_packet)  # Extract all data we can get
         return "sACN_EXTENDED_SYNCHRONIZATION", sacn_sync
-    elif tuple(input[40:44]) == sACN.VECTOR_E131_EXTENDED_DISCOVERY:  # sACN Discovery Packet
+    elif tuple(sacn_input[40:44]) == sACN.VECTOR_E131_EXTENDED_DISCOVERY:  # sACN Discovery Packet
         sacn_discovery = sACN.sacn_discovery_input(sacn_input_packet)  # Extract all data we can get
         return "sACN_EXTENDED_DISCOVERY", sacn_discovery
 
@@ -90,8 +93,7 @@ while True:
     '''Receive ArtNet packets and send corresponding sACN packets'''
     try:
         artnet_input_packet, artnet_ip_input = set_artnet_sock.recvfrom(1143)
-        # Don't know what the maximum length is yet.
-        print(artnet_input_packet)
+        # Don't know what the maximum length is yet. <- To Do
     except socket.timeout:
         print("Timeout")
         continue

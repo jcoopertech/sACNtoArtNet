@@ -64,8 +64,15 @@ def sacn_data_input(sacn_packet):
     # 123-124:  Property value count, Indicates +1 the number of slots in packet (0x0001 -- 0x0201)
     # 125-637:  Property values, DMX Start Code and data (Start Code + data)                        <- DMX DATA
 
-
-    # The following IF-Statement discards the package if it does not comply with E1.31 standards
+    # The following IF-Statements discard the package if it does not comply with E1.31 standards
+    try:
+        sacn_packet[125] == 0x00
+        if sacn_packet[125] == 0xDD:
+            raise TypeError("0xDD code for per channel priority")
+        if sacn_packet[125] != 0x00:
+            raise TypeError("Unknown Start Code!")
+    except TypeError as error_text:
+        print("Start Code Error:", error_text)
     if tuple(sacn_packet[0:2]) != PREAMBLE_SIZE or tuple(sacn_packet[2:4]) != POST_AMBLE_SIZE or \
             tuple(sacn_packet[4:16]) != ACN_PACKET_IDENTIFIER or \
             tuple(sacn_packet[18:22]) != VECTOR_ROOT_E131_DATA or \
@@ -92,10 +99,7 @@ def sacn_data_input(sacn_packet):
                  "option_flags": sacn_packet[112], "universe": tuple(sacn_packet[113:115]),
                  "start_code": sacn_packet[125],
                  "dmx_data": sacn_packet[126:638], "universe_hibyte": sacn_packet[113],
-                 "universe_lobyte": sacn_packet[114], #"IP": main.ip_input
-    }
-    if sACN_data["start_code"] != 0:
-        raise TypeError("Unknown Start Code!")
+                 "universe_lobyte": sacn_packet[114]}
     return sACN_data
 
 def sacn_sync_input(sacn_packet):
