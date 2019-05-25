@@ -6,7 +6,7 @@ import socket_settings
 import threading
 
 '''EXECUTABLE CODE VARS'''
-universe_min = 255
+universe_min = 1
 universe_max = 256
 
 
@@ -85,7 +85,7 @@ while True:
         ArtNet.artdmx_output(sACN_data[1])          # Send corresponding ArtNet packet.
     elif sACN_data[0] == "sACN_EXTENDED_SYNCHRONIZATION":
         print("Sync Packet detected")
-        # ArtNet.artpoll_output(sACN_data[1])         # Send corresponding ArtPoll packet. (<-To Do)
+        ArtNet.artpoll_output()         # Send corresponding ArtPoll packet. (<-To Do)
     elif sACN_data[0] == "sACN_EXTENDED_DISCOVERY":
         print("Discovery Packet detected")
         # ArtNet.artpollreply_output(sACN_data[1])    # Send corresponding ArtPollReply packet. (<-To Do)

@@ -29,7 +29,7 @@ def artpoll_output(target_ip="255.255.255.255", art_poll_reply=1, diagnostics=0,
     #           5-7: Unused, transmit as zero, do not test upon receipt
     # 6:        Priority (The lowest priority of diagnostics message that should be sent)
 
-    talk_to_me = int(f"000{vlc}{unicast}{diagnostics}{art_poll_reply}0",2)  # Flags, Bit 0 and 5-7 unused
+    talk_to_me = int(f"000{vlc}{unicast}{diagnostics}{art_poll_reply}0", 2)  # Flags, Bit 0 and 5-7 unused
 
     artnet_packet = bytearray()
     artnet_packet.extend(ID)

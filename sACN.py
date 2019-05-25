@@ -162,7 +162,6 @@ def sacn_discovery_input(sacn_packet):
     # 119:      Final page (Page number N of the final page to be transmitted
     # 120-1143: List of Universes (Sorted list of up to 512 16-bit universes)
 
-
     # The following IF-Statement discards the package if it does not comply with E1.31 standards
     if tuple(sacn_packet[0:2]) != PREAMBLE_SIZE or tuple(sacn_packet[2:4]) != POST_AMBLE_SIZE or \
             tuple(sacn_packet[4:16]) != ACN_PACKET_IDENTIFIER or \
