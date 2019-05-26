@@ -9,6 +9,7 @@ It is necessary to run Python 3.6 or later for the script to run!
 
 # Work in progress:
 - Convert ArtNet to sACN
+- sACN priorities
 - Universe shifting
 - GUI for the settings
 - Unicast / Broadcast
@@ -16,5 +17,6 @@ It is necessary to run Python 3.6 or later for the script to run!
 
 # Upcoming features:
 - E1.33 packets, as soon it gets ratified by ESTA
+- In the future, IPv6 shall be supported
 
 ## Please send me a message with feature requests and post some issues you have!
