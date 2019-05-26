@@ -4,8 +4,15 @@ It is a simple python script that is not using a single class. It converts sACN 
 ## Please Note:
 It is necessary to run Python 3.6 or later for the script to run!
 
+
+# Installation:
+Download or clone the repository. Run **main.py** Thats it. 
+
+The script will print out the type of received packet. Edit **socket_settings.py** to change the input universes (*universe_min* and *universe_max*) or the IP addresses to listen and send to. Please note: sACNtoArtNet will automatically bind to the needed multicast addresses for the universes between *universe_min* and *universe_max*.
+
 # Currently working features:
 - Convert sACN to ArtNet
+- Answer to ArtPoll packets
 
 # Work in progress:
 - Convert ArtNet to sACN
