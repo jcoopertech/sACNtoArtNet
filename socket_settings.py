@@ -3,9 +3,11 @@ import sACN
 import ArtNetParams
 
 
+'''GLOBAL PARAMS'''
+universe_min = 1
+universe_max = 256
+
 '''SACN SOCKET'''
-
-
 def sacn_socket_setup(UDP_IP="127.0.0.1", universe_min=1, universe_max=1, sacn_port=sACN.ACN_SDT_MULTICAST_PORT):
     sacn_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)  # Set up socket
     try:
@@ -28,6 +30,7 @@ def sacn_socket_setup(UDP_IP="127.0.0.1", universe_min=1, universe_max=1, sacn_p
     return sacn_sock
 
 
+'''ART-NET SOCKET'''
 def artnet_socket_setup(UDP_IP="127.0.0.1", artnet_port=ArtNetParams.UDP_PORT):
     artnet_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)  # Set up socket
     artnet_sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, True)  # Broadcast for ArtNet-Broadcast sending

@@ -1,29 +1,19 @@
-'''E131 DEFINED PARAMETERS'''
-PREAMBLE_SIZE = (0, 0x10)
-POST_AMBLE_SIZE = (0, 0)
-ACN_PACKET_IDENTIFIER = (0x41, 0x53, 0x43, 0x2d, 0x45, 0x31, 0x2e, 0x31, 0x37, 0x00, 0x00, 0x00)
+from sACNParams import *
+import socket_settings
 
-VECTOR_ROOT_E131_DATA = (0, 0, 0, 0x4)
-VECTOR_ROOT_E131_EXTENDED = (0, 0, 0, 0x8)
+'''GLOBAL FUNCTION PARAMETERS'''
 
-VECTOR_DMP_SET_PROPERTY = 0x02
-ADDRESS_TYPE_DATA_TYPE = 0xa1
-FIRST_PROPERTY_ADDRESS = (0, 0)
-ADDRESS_INCREMENT = (0, 0x1)
 
-VECTOR_E131_DATA_PACKET = (0, 0, 0, 0x02)
+def calculate_hibit(byte: int):
+    hibyte = (byte >> 8)
+    lobyte = (byte & 0xFF)
+    return hibyte, lobyte
 
-VECTOR_E131_EXTENDED_SYNCHRONIZATION = (0, 0, 0, 0x1)
-VECTOR_E131_EXTENDED_DISCOVERY = (0, 0, 0, 0x2)
 
-VECTOR_UNIVERSE_DISCOVERY_UNIVERSE_LIST = (0, 0, 0, 0x1)
-
-E131_E131_UNIVERSE_DISCOVERY_INTERVAL = 10  # 10 seconds
-E131_NETWORK_DATA_LOSS_TIMEOUT = 2.5  # 2.5 seconds
-E131_DISCOVERY_UNIVERSE = 64214
-
-ACN_SDT_MULTICAST_PORT = 5568
-
+input_data = {}  # Create an empty byte for the merge function
+for i in range(socket_settings.universe_max+1):
+    uni = calculate_hibit(i)
+    input_data[uni[0], uni[1]] = {}
 
 
 def calculate_multicast_addr(universemin: int):
@@ -32,7 +22,38 @@ def calculate_multicast_addr(universemin: int):
     return F"239.255.{hibyte}.{lobyte}"
 
 
+def merge_sacn_inputs(sacn_data):   # Input Universe, CID and DMX data
+    output = bytearray()            # Reset DMX output
+    for i in range(512):
+        output.append(0)
+    input_data[sacn_data["universe"]][sacn_data["cid"]] = sacn_data["dmx_data"]  # Store input Universe, CID and DMX
+    for cids in input_data[sacn_data["universe"]]:  # Loop for every CID input on this universe
+        for dmx_length in range(512):               # Loop for every position of the DMX packet
+            if output[dmx_length] < input_data[sacn_data["universe"]][cids][dmx_length]:
+                output[dmx_length] = input_data[sacn_data["universe"]][cids][dmx_length]
+    sacn_data["dmx_data"] = output
+    return sacn_data["dmx_data"], sacn_data["universe"]
 
+
+def identify_sacn_packet(sacn_input):
+    # Extracts the type of sACN packet and will return the type of packet and the packet itself.
+    try:
+        len(sacn_input) < 126
+        if len(sacn_input) < 126:
+            raise TypeError("Unknown Package. The minimum length for a sACN package is 126.")
+    except TypeError as error_message:
+        print("LENGHT ERROR:", error_message)
+    if tuple(sacn_input[40:44]) == VECTOR_E131_DATA_PACKET:     # sACN Data Packet
+        sacn_data = sacn_data_input(sacn_input)     # Extract all data we can get
+        sacn_data["dmx_data"], sacn_data["input_data"] = merge_sacn_inputs(sacn_data)
+        # Merge DMX data from multiple sources.
+        return "sACN_DATA_PACKET", sacn_data
+    elif tuple(sacn_input[40:44]) == VECTOR_E131_EXTENDED_SYNCHRONIZATION:  # sACN Sync Packet
+        sacn_sync = sacn_sync_input(sacn_input)  # Extract all data we can get
+        return "sACN_EXTENDED_SYNCHRONIZATION", sacn_sync
+    elif tuple(sacn_input[40:44]) == VECTOR_E131_EXTENDED_DISCOVERY:  # sACN Discovery Packet
+        sacn_discovery = sacn_discovery_input(sacn_input)  # Extract all data we can get
+        return "sACN_EXTENDED_DISCOVERY", sacn_discovery
 
 
 def sacn_data_input(sacn_packet):
