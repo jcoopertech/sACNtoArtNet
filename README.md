@@ -1,4 +1,4 @@
-# sACNtoArtNet_v2
+# sACNtoArtNet
 This is the rewritten version of the decrecated sACNtoArtNet converter. 
 It is a simple python script that is not using a single class. It converts sACN (aka. ANSI E1.31) to ArtNet (and vice versa in the future)
 ## Please Note:
