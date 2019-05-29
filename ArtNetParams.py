@@ -1,10 +1,4 @@
-'''SOCKET PARAMETER'''
-UDP_PORT = 6454
-LIMITED_BROADCAST_ADDRESS = "255.255.255.255"
-PRIMARY_ARTNET_ADDRESS = "2.255.255.255"
-SECONDARY_ARTNET_ADDRESS = "10.255.255.255"
-
-'''PORT ADDRESS FOR DMX512 UNIVERSES'''
+"""PORT ADDRESS FOR DMX512 UNIVERSES"""
 #   Bit 15  Bits 14-8   Bits 7-4    Bits 3-0
 #   0       Net         Sub Net     Universe
 
@@ -62,7 +56,7 @@ OP_FILE_FN_MASTER = (0xf5, 0x00)  # Downloads user file from node.
 OP_FILE_FN_REPLY = (0xf6, 0x00)   # Server to Node acknowledge for download packets.
 OP_IP_PROG = (0xf8, 0x00)         # This is an ArtIpProg packet.
 # It is used to reprogramme the IP address and Mask of the Node.
-OP_IP_RPOG_REPLY = (0xf9, 0x00)   # This is an ArtIpProgReply packet.
+OP_IP_PROG_REPLY = (0xf9, 0x00)   # This is an ArtIpProgReply packet.
 # It is returned by the node to acknowledge receipt of an ArtIpProg packet.
 OP_MEDIA = (0x90, 0x00)           # This is an ArtMedia packet.
 # It is Unicast by a Media Server and acted upon by a Controller.
@@ -113,3 +107,7 @@ DP_HIGH = 0x80              # High priority message
 DP_CRITICAL = 0xe0          # Critical priority message
 DP_VOLATILE = 0xf0          # Volatile message. Messages of this type are displayed on a single line
 #                           # in the DMX-workshop diagnostics display. All other types are displayed in a list box.
+
+'''Command Codes'''
+SW_OUT_TEXT = "SwoutText=Playback&"     # Re-Programme the label associated with the ArtPollReply->Swout Fields
+SW_IN_TEXT = "SwinText=Record&"         # Re-Programme the label associated with the ArtPollReply->Swin Fields

@@ -1,965 +1,966 @@
-0000h 	ESTA 	ESTA 	Y
-0000h 	PLASA 	PLASA 	Y
-0001h 	 	GEE 	Y
-0002h 	 	Abstract AVR Ltd. 	Y
-0081h 	 	Pino Solutions 	Y
-0082h 	 	LKE Lasershowtechnik GmbH 	Y
-0083h 	 	Guangzhou Bright Moon Technology Co., Ltd. 	Y
-0084h 	 	LEDIXIS (Exalux brand) 	Y
-0085h 	 	Guangzhou Nanshi Light Equipment Co., Ltd. 	Y
-0086h 	 	Intella System Co., Ltd. 	Y
-0087h 	 	LMBD 	Y
-0088h 	 	Guangzhou YaFeng Optoelectronic Equipment Co., Ltd. 	Y
-0089h 	 	The Production Warehouse (Vulcan Lighting) 	Y
-008Ah 	 	Guangzhou Lees Electronics Co., Ltd. 	Y
-008Bh 	 	Opto Tech Corporation 	Y
-008Ch 	 	LRX Lighting (Dwight Crane Ltd.) 	Y
-008Dh 	 	Guangzhou Minghao Electronic Technology Co., Ltd. 	Y
-008Eh 	 	Guangzhou Ao Mei Di Stage Lighting Equipment Co.,Ltd. 	Y
-008Fh 	 	Jiangmen Coolfish Technology Co., Ltd. 	Y
-0090h 	 	Cyclops Lighting 	Y
-0091h 	 	Guangzhou Shuozhi Optoelectronic Technology Co., Ltd. (Konelite) 	Y
-0092h 	 	digiLED (UK) Ltd. 	Y
-0093h 	LUMINOUS 	Luminous Show Technology Ltd. 	Y
-0094h 	 	Joinmax Display Technology Co., Ltd. 	Y
-009Ah 	 	Guangzhou Haoyang Electronic Co., Ltd. 	Y
-009Bh 	 	Guangzhou Jiawei Electronic Technology Co., Ltd. 	Y
-009Ch 	 	LuxBalance Lighting 	Y
-009Eh 	 	Guangzhou Flying Butterfly Stage Lighting Equipment Co., Ltd. 	Y
-009Fh 	 	Efore SpA 	Y
-00A0h 	 	Shenzhen Dicolor Optoelectronics Co., Ltd. 	Y
-00A1h 	 	Creative Lighting And Sound Systems Pty Ltd. 	Y
-00A2h 	 	EMP Designs Ltd. 	Y
-00A3h 	 	GuangZhou Huanshi Lighting Equipment Co., Limited 	Y
-00A4h 	 	SAKMA Electronica Industrial S.A.U.  	Y
-00A7h 	 	Syncronorm GmbH 	Y
-00A8h 	 	Iwasaki Electric Co., Ltd. 	Y
-00A9h 	 	Richter Lighting Technologies GmbH  	Y
-00AAh 	 	Hangzhou Easun Technology Co., Ltd. 	Y
-00ABh 	 	MFX Asia Co., Ltd 	Y
-00ACh 	 	ZhouChuang Industrial Co. Limited 	Y
-00ADh 	 	ColorDeve Co. Limited 	Y
-00AEh 	 	Vitrulux Ltd 	Y
-00AFh 	 	NanoPLC LLC 	Y
-00B0h 	 	ARENA LUCI s.r.l. 	Y
-00B1h 	 	Guangzhou Omarte Lighting Co., Ltd. 	Y
-00B2h 	 	unonovesette srl 	Y
-00B3h 	 	LANTERN 	Y
-00B4h 	 	Lumos Design 	Y
-00B5h 	 	Suga koubou Co., Ltd. 	Y
-00B6h 	 	DiGidot Technologies BV 	Y
-00B7h 	 	Bron Elektronik AG 	Y
-00B8h 	 	Shenzhen Singba Light Technology Co., Ltd. 	Y
-00B9h 	 	Guangzhou Baiyun District Sanjie Eletronic Stage Lighting Audio Equipment Factory 	Y
-00BAh 	 	LiteGear Inc. 	Y
-00BBh 	 	Digital Lighting Engineering & Design, LLC 	Y
-00BCh 	 	Ambion GmbH (Ambrain) 	Y
-00BDh 	 	numeo GmbH 	Y
-00BEh 	 	The Light Luminary for Cine and TV S.L. (VELVET LIGHT)  	Y
-00BFh 	 	GTR Industries 	Y
-00C0h 	 	Foshan Yinhe Lanjing Lighting & Electrical Co., Ltd. 	Y
-00C1h 	 	Jingchuang Water Technology 	Y
-00C2h 	 	Ledogen 	Y
-00C3h 	 	Xicato 	Y
-00C4h 	 	Guangzhou Dahe Electronic Technology Co. Ltd. 	Y
-00C5h 	 	DAGE Stage Lighting Master Co., Ltd. 	Y
-00C6h 	 	Guangzhou Lantian Electronic Technology Co., Ltd. 	Y
-00C7h 	 	THOR 	Y
-0101h 	 	St. Anne Engineering GmbH 	Y
-0102h 	 	Bortis Elektronik 	Y
-0103h 	 	Fontana Technologies 	Y
-0104h 	 	Blizzard Lighting, LLC 	Y
-0105h 	 	LIGHTHOW (SHANGHAI) Ltd. 	Y
-0107h 	 	Inventronics (Hangzhou), Inc. 	Y
-0108h 	 	Haya Lighting Equipment Limited 	Y
-0109h 	 	V-Productions 	Y
-010Ah 	 	Elektralite 	Y
-010Bh 	 	DesignLED Technology (HK) Co., Ltd. 	Y
-010Ch 	 	SES (Entertainment Services) Ltd. 	Y
-010Dh 	 	Lumos / DMLite 	Y
-010Eh 	 	Guangzhou ATON Lighting Technology Co.,Ltd 	Y
-010Fh 	 	Saco Technologies Inc. 	Y
-0110h 	 	APF S.r.l. 	Y
-0111h 	 	Radig Hard & Software 	Y
-0112h 	 	RGB Lighting Equipment Co., Ltd. 	Y
-0113h 	 	Airstar SAS 	Y
-0114h 	 	BSL Lighting 	Y
-0115h 	 	Kontrolcla Show Control S.L. 	Y
-0116h 	 	SmoothLUX B.V. 	Y
-0117h 	 	AD Toyo Lighting (Guangzhou) Co.,Ltd 	Y
-0118h 	 	Vello Light Co., Ltd. 	Y
-0119h 	 	Peter Schneyder Design Management GmbH 	Y
-011Ah 	 	Guangzhou Hotion Technology Co., Ltd. 	Y
-011Bh 	 	Jumptronic GmbH 	Y
-011Ch 	 	Letong Electronic (Guangzhou) Co., Ltd. 	Y
-011Dh 	 	Yangzhou Zhituo Lighting Vision Technology Co., Ltd.  	Y
-016Ch 	 	LGR 	Y
-016Dh 	 	Hive Lighting 	Y
-016Eh 	 	Artled Technology Corp. 	Y
-016Fh 	 	SQD Lighting Co. Ltd  	Y
-0190h 	 	Wizlogics Co., Ltd. 	Y
-0191h 	 	Sycra Technologies 	Y
-0199h 	 	Ocean LED Marine Ltd. 	Y
-019Ah 	 	TwoGain Electronics 	Y
-019Bh 	 	ElectroTAS Soluciones Profesionales 	Y
-019Fh 	 	DaisaLed Ltd. 	Y
-01A0h 	 	Light With LED 	Y
-01A1h 	 	Yuesheng Stage Light Limited 	Y
-01A2h 	 	Art Lighting Production, s.r.o. 	Y
-01A3h 	 	Dongguan Yongya Technology Co., Ltd 	Y
-01A4h 	 	Custom Effects LED Solutions Inc. 	Y
-01A5h 	 	MJ Lighting Co., Ltd. 	Y
-01A6h 	 	Hengmei Lighting Technology Co., Ltd. 	Y
-01A8h 	 	ZongDa Photoelectricity Science and Technology Co., Ltd. 	Y
-01A9h 	 	Shenzhen Uniview LED Ltd. Co. 	Y
-01AAh 	 	Vitec Videocom Inc. 	Y
-01ABh 	 	Shanghai Euchips Industrial Co., Ltd. 	Y
-01ACh 	 	DongGuan Phcistar Optoelectronics Technology Co., Ltd. 	Y
-01AFh 	 	Hunan Minghe Opto Tech Co., Ltd. 	Y
-01B1h 	 	Lightcare A/S 	Y
-01B2h 	 	DJSI Schinstad ANS (Northern Light) 	Y
-01B3h 	 	Ricardo Dias 	Y
-01B4h 	 	Inventeq B.V. 	Y
-01B5h 	 	Beijing Soft Rock Technology Development Co., Ltd. 	Y
-01BEh 	 	BEN-RI Electronica S.A. 	Y
-01C7h 	 	SCHIEDERWERK GmbH  	Y
-01C8h 	 	Guangzhou JINLIN Stage Lighting Equipment Co., Ltd.  	Y
-01C9h 	 	ALPHA LITE Inc. 	Y
-01CAh 	 	CASCADE s.a.s. 	Y
-01CBh 	 	I-Light USA, Inc. 	Y
-01CCh 	 	Portman Custom Lights 	Y
-01CDh 	 	Compulite Systems (2000) LTD 	Y
-01CEh 	 	Railiks Enterprises 	Y
-01CFh 	 	SRM Technik GmbH 	Y
-01D0h 	 	Shanghai Semping Electronics Co., Ltd. 	Y
-01D1h 	 	Yarilo Pro 	Y
-01D2h 	 	GIP Innovation Tools GmbH 	Y
-01D3h 	AKSERA 	JSC Aksera 	Y
-01D4h 	 	x-labs 	Y
-01D5h 	 	Shenzhen Liantronics Co., Ltd 	Y
-01D6h 	 	Argent Data Systems, Inc. 	Y
-01D7h 	 	LIMEDIA 	Y
-01D8h 	 	Daniel Large Lighting 	Y
-01D9h 	 	Lightronics Inc. 	Y
-01DAh 	 	Guangzhou Daisy Electronic Technology Co., Ltd.  	Y
-01DBh 	 	Logen Ltd. 	Y
-01DCh 	 	LED Linear GmbH 	Y
-01DDh 	 	Photonia srl 	Y
-01DEh 	 	Guangzhou Baiyun Xinxiang Lighting Equipment Factory (XPRO LIGHT) 	Y
-01DFh 	 	GuangZhou Dream Lighting Equipment Co., Ltd. 	Y
-01E0h 	 	IBN Labs Ltd. 	Y
-0202h 	 	Paul Heuts 	Y
-0203h 	 	Artemide S.p.A 	Y
-0204h 	 	LIGHTLINE Lasertechnik GmbH 	Y
-0205h 	 	SmartShow UK 	Y
-0206h 	 	Studio Due Light S.r.l. 	Y
-0207h 	 	SILL LIGHTS GmbH 	Y
-0208h 	 	Shenzhen Yuming Vision Technology Co., Ltd. 	Y
-0209h 	 	ER Productions 	Y
-0235h 	 	Company 235, LLC 	Y
-0242h 	 	ABLELITE INTERNATIONAL 	Y
-025Bh 	 	Imlight-Showtechnic 	Y
-026Fh 	 	Acuity Brands Lighting Inc. 	Y
-0280h 	 	Arrigo Lighting 	Y
-02A0h 	 	LLC Likhoslavl Plant of Lighting Engineering (Svetotehnika) 	Y
-02A1h 	 	LLC Moscow Experimental Lighting Plant (TeleMechanic) 	Y
-02A2h 	 	OJSC Kadoshkinsky electrotechnical  	Y
-02A3h 	 	Big Bang Lightning 	Y
-02A4h 	 	McNicoll Entertainment Systems 	Y
-02AAh 	 	Jinnax Opto Technology Co., Ltd.  	Y
-02ABh 	 	Rift Labs 	Y
-02AC 	 	PSL Electronik Sanayi ve Ticaret A.S. 	Y
-02B0h 	 	DMXControl-Projects e.V. 	Y
-02BDh 	 	RE-Engineering 	Y
-02C8h 	 	Growflux LLC 	Y
-02C9h 	 	Theatrixx Technologies 	Y
-02CAh 	 	Acclaim Lighting 	Y
-02CBh 	 	GVA Lighting, Inc. 	Y
-02CCh 	 	Brightix 	Y
-02D0h 	 	Winona Lighting 	Y
-02D1h 	 	Hoffmeister Leuchten GmbH 	Y
-02E1h 	 	Tait Towers Manufacturing Inc. 	Y
-02E2h 	 	CLF Lighting BV. 	Y
-02EAh 	 	d3 Technologies Ltd. 	Y
-02EBh 	AMOLVIN RESEARCH LAB 	Amolvin Research & Development Lab. 	Y
-02ECh 	 	Lutron Electronics 	Y
-02EDh 	 	OpenLX SP Ltd. 	Y
-02EEh 	 	Firma GUTKOWSKI - Gutkowski Jan 	Y
-02EFh 	 	ABLETECH Co., Ltd. 	Y
-02F0h 	 	iColor LED Shenzhen Co., Ltd. 	Y
-02FFh 	 	Guangzhou Eway Stage Equipment Technology Co., Ltd. 	Y
-0302h 	 	Swefog Technology Group AB 	Y
-0303h 	 	Shanghai Moons' Automation Control Co., Ltd 	Y
-0305h 	 	DiCon Fiberoptics, Inc. 	Y
-0306h 	 	feno GmbH 	Y
-0307h 	 	Ledium Kft. 	Y
-0308h 	 	ImageCue LLC  	Y
-030Fh 	 	Guangzhou Litewise Lighting Equipments Co., Ltd. dba "EK Lights" 	Y
-032Ch 	 	Carallon Ltd. 	Y
-033Ah 	 	Lux Lumen 	Y
-034Bh 	 	Rosstech Signals Inc. 	Y
-038Fh 	 	Strich Labs 	Y
-0391h 	 	Alcorn McBride Inc. 	Y
-0393h 	 	i2Systems 	Y
-0394h 	 	Prism Projection 	Y
-039Bh 	 	Lightforce Lasertechnik 	Y
-03A1h 	 	INAREX INC. 	Y
-03A2h 	 	licht.team 	Y
-03AAh 	 	AIGA Electronic (GuangZhou) Co., Ltd. 	Y
-03D5h 	 	eX Systems 	Y
-03D6h 	 	i-Lumen 	Y
-0404h 	 	Luminxa 	Y
-0424h 	 	FLUX ECLAIRAGE 	Y
-0440h 	 	Guangzhou VAS Lighting Co., Ltd. 	Y
-044Eh 	 	Ben Peoples Industries, LLC 	Y
-044Fh 	 	B2 Co., Ltd. 	Y
-0455h 	 	Lamp & Pencil 	Y
-048Eh 	 	Krisledz Pte. Ltd. 	Y
-048Fh 	 	Grand Canyon LED Lighting System (Suzhou) Co., Ltd.  	Y
-04A6h 	 	MEB Veranstaltungstechnik GmbH 	Y
-04A9h 	 	Edward J. Keefe Jr. 	Y
-04B5h 	 	Major 	Y
-04B6h 	 	IntiLED 	Y
-04B8h 	 	Guangzhou Hongcai Stage Equipment Co., Ltd. 	Y
-04C4h 	 	Ephesus Lighting, Inc. 	Y
-04D7h 	 	Targetti Sankey Spa 	Y
-04D8h 	 	Guangzhou Hong Yuan Electronic Technology Co., LTD. 	Y
-04DDh 	 	Topstriving Photoelectricity Technology Co., Ltd. 	Y
-04FCh 	 	Syncrolite LLC 	Y
-050Ah 	 	ChamSys Ltd. 	Y
-051Ch 	 	Ambitsel, Inc. 	Y
-0529h 	 	OSRAM 	Y
-0537h 	 	TERMINAL-COM 	Y
-0540h 	 	EverBrighten Co., Ltd. 	Y
-0556h 	 	RAYSYS 	Y
-055Fh 	 	PRO-SOLUTIONS 	Y
-056Bh 	 	COSMOLIGHT SRL 	Y
-056Ch 	 	Lumascape Lighting Industries 	Y
-0573h 	 	JIAXING XINHUALI LIGHTING & SOUNDING CO., LTD. 	Y
-0580h 	 	Innovation LED Limited 	Y
-0586h 	 	K 5600, Inc. 	Y
-0588h 	 	GuangZhou XiangMing Light Limited  	Y
-05A0h 	 	Stage Smarts AB 	Y
-05ABh 	 	Shenzhen Lesan Lighting Co., Ltd.  	Y
-05B5h 	 	Turkowski GmbH  	Y
-05CFh 	 	Brighten Technology Development Co., Ltd. 	Y
-05D3h 	 	D-LED Illumination Technologies Ltd. 	Y
-05EBh 	 	GUANGZHOU BO WEI TE LIGHTING CO.LTD 	Y
-05EFh 	 	Guangzhou Chai Yi Light Co., Ltd. 	Y
-05F7h 	 	Immersive Design Studios Inc.  	Y
-0606h 	 	Guangzhou YiGuang Stage Lighting Co., Ltd. 	Y
-0609h 	 	Diginet Control Systems Pty Ltd 	Y
-060Ah 	 	Kindwin Opto Electronic (ShenZhen) Co. Ltd 	Y
-060Bh 	 	Lighting Science Group (formerly LED Effects, Inc.) 	Y
-062Bh 	 	CKC Lighting Co., Ltd. 	Y
-063Ah 	 	AVM Belgium BVBA 	Y
-0644h 	 	COLEDER DISPLAY CO., LTD. 	Y
-0645h 	 	MATSUMURA ELECTRIC MFG. CO. , LTD. 	Y
-0650h 	 	RDC, Inc. d.b.a. LynTec 	Y
-0653h 	 	USAI, LLC 	Y
-0654h 	 	HUNAN XIANG CAIXU FILM AND TELEVISION CULTURE CO.LTD 	Y
-065Eh 	 	OFilms 	Y
-066Fh 	 	GUANGZHOU CY LIGHTING EQUIPMENT CO.,LTD 	Y
-067Ch 	 	LOTRONIC SA 	Y
-0682h 	 	Beijing Ming Rui Lighting Technology Co., Ltd.  	Y
-0684h 	 	LEDART LLC 	Y
-0685h 	 	IBL/ESD-Datentechnik GmbH 	Y
-068Eh 	 	GUANGZHOU TEANMA STAGE LIGHTING FACTORY 	Y
-06A0h 	 	Light.Audio.Design 	Y
-06A1h 	 	ProTec GmbH 	Y
-06A3h 	 	RODLIGHT ALBRECHT SILBERBERGER 	Y
-06AEh 	 	CANARA LIGHTING INDUSTRIES PVT LTD 	Y
-06B9h 	 	GUANGZHOU DASEN LIGHTING CORPORATION LIMITED 	Y
-06C4h 	 	RHENAC Systems GmbH 	Y
-06C7h 	 	L&L Luce&Light 	Y
-06CEh 	 	American-Pro International 	Y
-06E6h 	 	Equipson S.A. 	Y
-06ECh 	 	SISTEMA Jsc 	Y
-06F0h 	 	CTG sp. z o.o. 	Y
-0702h 	 	Drinelec 	Y
-0707h 	 	Conceptinetics Technologies and Consultancy Ltd. 	Y
-0708h 	 	AK-LIGHT 	Y
-070Fh 	 	Theatrelight New Zealand 	Y
-0710h 	 	D.T.S. Illuminazione srl 	Y
-0712h 	 	Laser Imagineering GmbH 	Y
-071Fh 	 	Moss LED Inc 	Y
-0724h 	 	PHC Lighting & BMS Sp. z o.o. 	Y
-072Ch 	 	SGM A/S 	Y
-072Fh 	 	RayComposer - R. Adams 	Y
-0732h 	 	Galaxia Electronics 	Y
-0734h 	 	CPOINT 	Y
-073Bh 	 	Corsair Technology Ltd. 	Y
-074Fh 	 	Panasonic Corporation 	Y
-0758h 	 	IMPOLUX GmbH 	Y
-075Fh 	 	LEDEngin Inc. 	Y
-076Ah 	 	BeamZ (Tronios B.V.) 	Y
-0776h 	 	lumenetix 	Y
-078Ah 	DMXTOOLBOX 	FATEC sarl 	Y
-0792h 	 	MY-Semi Inc. 	Y
-07A3h 	 	Guangzhou GBR PROLIGHT GROUP CO.,LTD (GBR PROLIGHT) 	Y
-07ADh 	 	CLS LED BV 	Y
-07AEh 	 	A-LITE B.V. 	Y
-07B0h 	 	ADDiCTiON BoX GbR 	Y
-07B1h 	 	TBF-PyroTec GmbH  	Y
-07B5h 	 	ARM Automation, Inc 	Y
-07C0h 	 	Code Mercenaries GmbH 	Y
-07C2h 	 	BOOQlight BV 	Y
-07CCh 	 	Griven S.r.l. 	Y
-07CFh 	 	MH-Sound 	Y
-07DA 	 	Flytech s.r.l. 	Y
-07EAh 	 	Le Maitre Ltd 	Y
-07F3h 	 	Sam Light 	Y
-07FDh 	 	THELIGHT Luminary for Cine and TV S.L. 	Y
-07FFh 	 	Guangzhou HOMEI LIGHT Manufacturer 	Y
-0800h 	 	Hongyeah Light 	Y
-0807h 	 	Event Lighting Pty, Ltd. 	Y
-0808h 	 	Eaton - Zero 88 	Y
-0809h 	 	mumoco GmbH 	Y
-080Ah 	 	Shenzhen FantaLED Electronics Co., Ltd 	Y
-080Dh 	 	HBJ Elektronik 	Y
-080Fh 	 	Navo Corp. 	Y
-0823h 	 	Opito Labs GmbH 	Y
-083A 	 	Bright Ideas Custom Electronics Inc. 	Y
-083Fh 	 	Shenzhen LeiFei Lighting Technologies Co.,Ltd. 	Y
-0845h 	 	Cush Light LLC 	Y
-084Bh 	 	Neon Circus Ltd 	Y
-084Ch 	 	Guangzhou Ba Lin Electronic Technology Co., Ltd. 	Y
-084Dh 	 	Guangzhou NECO Stage Lighting Factory 	Y
-0851h 	 	Junction Inc. Ltd 	Y
-0858h 	 	Juno Lighting Group  	Y
-085Ah 	 	Guangzhou Ming Jing Stage Light Equipment Co., Ltd. 	Y
-085Fh 	 	Media Visions, Inc. 	Y
-0865h 	 	Contrade GmbH 	Y
-0869h 	 	Club Cannon LLC 	Y
-086Eh 	 	Guangzhou Hi-LTTE Electronics Technology Co.,Ltd  	Y
-0870h 	 	Hunan YESTECH Optoelectronic Co., Ltd 	Y
-0874h 	 	Snow Professional Lighting 	Y
-0875h 	 	ARC Solid-State Lighting Corp. 	Y
-0876h 	 	Power Gems LTD 	Y
-0878h 	 	OTTEC Technology GmbH 	Y
-0880h 	 	GuangZhou LiDang Technology Inc. 	Y
-0884h 	 	Bright Group 	Y
-0885h 	 	SIRS-E 	Y
-088Ah 	 	Highendled Electronics Company Limited 	Y
-088Dh 	 	Guangzhou Ling Yang lighting Science and Technology Co.,Ltd 	Y
-088Eh 	 	Stage One International Co., Ltd.  	Y
-088Fh 	 	First Design System Inc. 	Y
-0890h 	 	Taurus Light Co.,Limited 	Y
-0891h 	 	Feiner Lichttechnik GMBH 	Y
-089Ah 	 	ADL Electronics Ltd. 	Y
-089Dh 	 	gobo.ws 	Y
-08A2h 	 	Guangzhou Gesida Light Equipment Co., Ltd. 	Y
-08A4h 	 	Adam Hall GmbH 	Y
-08A7h 	 	GuangZhou Deliya Opto-electronic Tech Co., Ltd 	Y
-08AAh 	 	PiXL Factory 	Y
-08ABh 	 	Qdot Lighting Limited  	Y
-08ACh 	 	Bushveld Labs 	Y
-08ADh 	 	Optical Productions LLC 	Y
-08AFh 	 	AAdyn Technology 	Y
-08B0h 	 	KIM Lighting 	Y
-08B2h 	 	MCI Group 	Y
-08B3h 	 	Stealth Light srl 	Y
-08B6h 	 	Graf Lichttechnik UG 	Y
-08BAh 	 	Meteor Lighting 	Y
-08BBh 	 	Guangzhou CHEN Electronic Technology Co., Ltd. 	Y
-08BDh 	 	Lug Light Factory Sp. z o. o. 	Y
-08BFh 	 	Times Square Stage Lighting Inc. 	Y
-08C1h 	 	Project SSSHH Incorporated 	Y
-08C3h 	 	Guangzhou Spark Stage Equipment Co. Ltd 	Y
-08C5h 	 	EHRGEIZ Lichttechnik GmbH 	Y
-08D3h 	 	SVI Public Company Limited  	Y
-08D4h 	 	Sensa-Lite Ltd. 	Y
-08D6h 	 	Guangzhou Precision Vision Intelligent Equipment Co, Ltd 	Y
-08D7h 	 	PatternAgents, LLC 	Y
-08D8h 	 	W.A. Benjamin Electric Co. 	Y
-08D9h 	 	STILED 	Y
-08DAh 	 	PLC Intelligent Technology (Shanghai) Co., Ltd. 	Y
-08DDh 	 	Matthew Tong 	Y
-08E0h 	 	Red Arrow Controls 	Y
-08E1h 	 	Shenzhen CLT Electronics Co.,LTD  	Y
-08E3h 	 	Guangzhou JinZhiHui Electronic Technology Co.,Ltd. 	Y
-08E7h 	 	3A Guangzhou Electronics Co., Ltd 	Y
-08ECh 	 	Marvin Nadrowski 	Y
-08EDh 	 	ShowLED 	Y
-08EEh 	 	Spacelights 	Y
-08F0 	 	Guang Dong LMJ Lighting Co., Ltd 	Y
-08F1h 	 	SanDevices, LLC 	Y
-08F3h 	 	Outdoor Lasers Ltd. 	Y
-08F6h 	 	Eulum Design, LLC 	Y
-08F9h 	 	ACS - Ackerman Computer Sciences 	Y
-08FAh 	 	Phaton Lighting Co., Ltd. 	Y
-08FEh 	 	Zhuhai Shengchang Electronics Co., Ltd. 	Y
-0900h 	 	nox multimedia GmbH 	Y
-0901h 	CaveLighting 	GermTec GmbH & Co. KG 	Y
-0902h 	 	DongGuan Betterway Lighting Co.,Ltd 	Y
-0903h 	 	Shenzhen INFiLED Electronics, Ltd. 	Y
-0904h 	 	Bigbear Co., Ltd. 	Y
-090Ch 	 	GRE Alpha 	Y
-090Eh 	 	Sichuan esRadio Technology Co., Ltd 	Y
-0911h 	 	Guangzhou Aceda Professional Lighting Co., Ltd. 	Y
-0912h 	 	ags - Wissenschaftliche Arbeitsgemeinschaft fur Studio- und Senderfragen 	Y
-0914h 	 	Xenio 	Y
-0916h 	 	ACTOR-MATE CO., LTD. 	Y
-0918h 	 	David O Smith Design 	Y
-091Ah 	 	Celex LED Technology Ltd. 	Y
-091Bh 	 	Krislite Pte. Ltd. 	Y
-091Dh 	 	TouchPlate Technologies Inc. 	Y
-0920h 	 	Vexica Technology Limited 	Y
-0923h 	 	Hangzhou Roleds Lighting System Co., Ltd. 	Y
-0925h 	 	Guangzhou Aiweidy Lighting Acoustics Equipment Co.,Ltd. 	Y
-0926h 	 	Elumeros Lighting Limited  	Y
-092Fh 	 	Guangzhou Shinelight Stage Equipment Factory  	Y
-0930h 	 	jiaozuo shengguang film &equipment Co. Ltd 	Y
-0931h 	 	Cristal Controles 	Y
-0935h 	 	Guangzhou Huadu District Richa Lighting Equipment Factory 	Y
-0936h 	 	AquaTronic 	Y
-0938h 	 	Guangzhou Vanray Lighting Equipment CO.,Ltd. 	Y
-0939h 	 	Edelmann Electronics 	Y
-093Ah 	 	HDT impex s.r.o. 	Y
-093Fh 	 	Guangzhou Julong Platform Lighting Equipment Factory 	Y
-0940h 	 	Shenzhen CreateLED Electronics Co., Ltd 	Y
-0941h 	 	Shenzen Zhuoyang Intelligent Technology Co., Ltd. 	Y
-0945h 	 	Guangzhou Lin Xiang Stage Lighting Equipment CO.,LTD 	Y
-0946h 	 	TBE Srl 	Y
-0951h 	 	Guangzhou GTD Lighting Technology Co., Ltd  	Y
-0952h 	 	Guangzhou Sunway Entertainment Equipment Co., Ltd. 	Y
-0958h 	VDI 	Illum Technology LLC (previously Verde Designs, Inc.) 	Y
-0959h 	 	Urbs Lighting, LLC 	Y
-095Ah 	 	kLabs Research UK 	Y
-095Fh 	ElabNET 	Elaborated Networks GmbH 	Y
-0960h 	 	Fineline Solutions Ltd. 	Y
-0965h 	 	Fontana Fountains 	Y
-096Dh 	 	Guangzhou Xin Yilong Stage Lighting Equipment Co., Limited 	Y
-0974h 	 	Marumo Electric Co., Ltd. 	Y
-0975h 	 	KB Design 	Y
-0977h 	 	Guangzhou HuaYong Intelligent Technology Co., Ltd. 	Y
-097Ah 	 	Teamboyce Limited 	Y
-097Dh 	 	Brink Electronics 	Y
-097Fh 	 	RaumZeitLabor e.V. 	Y
-0980h 	 	Moog Animatics 	Y
-0981h 	 	Luxam, Ltd. 	Y
-0982h 	 	AC Entertainment Products Ltd. 	Y
-0986h 	 	ROE Visual Co. Ltd. 	Y
-0987h 	 	mathertel.de 	Y
-098Bh 	 	Glow Motion Technologies, LLC. 	Y
-098Ch 	 	Shenzhen Longrich Energy Sources Technology Co., Ltd.  	Y
-098Dh 	 	Batmink Ltd. 	Y
-098Eh 	 	Ecosense Lighting Company Limited  	Y
-098Fh 	 	Digital Sputnik Lighting 	Y
-0996h 	 	CCI Power Supplies, LLC 	Y
-099Ah 	 	Aixz International (S) 	Y
-099Eh 	 	LLC Lighting Technologies production 	Y
-09A0h 	Rnet 	Rnet Lighting Technology Limited 	Y
-09A2h 	 	Fountain People 	Y
-09A5h 	 	Prolight Concepts Ltd. 	Y
-09AEh 	 	Robert Juliat 	Y
-09AFh 	 	Autotech Co. 	Y
-09B3h 	 	Aquatique Show Int. 	Y
-09B4h 	 	Brompton Technology Ltd. 	Y
-09B8h 	 	Prolites S.A.L. 	Y
-09C1h 	 	Argetron Elektrik Elektronik Organizasyon Gida San. ve Dis Tic. Ltd. Sti. 	Y
-09C3h 	 	Velleman nv 	Y
-09C8h 	 	Crystal Fountains Inc. 	Y
-09CCh 	 	Motomuto Aps 	Y
-09D3h 	 	WLPS Wodielite Production Services 	Y
-09D6h 	 	Mittomakers 	Y
-09D7h 	 	Unilumin Group 	Y
-09DEh 	 	Matthias Bauch Software 	Y
-09E9h 	 	Starway 	Y
-09FCh 	 	deskontrol electronics 	Y
-0A01h 	 	Star-Reach Corporation 	Y
-1112h 	 	Zhuhai Bincolor Electronic Technology Co., Ltd. 	Y
-1113h 	 	SiliconCore Technology, Inc. 	Y
-1200h 	 	Seekway Technology Limited 	Y
-1212h 	 	HPL Light Company 	Y
-1234h 	 	ESTA 	Y
-12DAh 	 	Newlab S.r.l. 	Y
-12E0h 	 	Luxlight Skandinavien AB 	Y
-12EAh 	 	Kolberg Percussion GmbH 	Y
-12F4h 	 	Stage Services Ltd. 	Y
-12FAh 	 	Hollywood Rentals LLC 	Y
-12FEh 	 	City Design S.p.A. 	Y
-131Eh 	 	Blossom Communications Corp. 	Y
-1337h 	 	Raven Systems Design, Inc. 	Y
-134Dh 	 	VT-Control 	Y
-1370h 	 	Ingenieurbuero Stahlkopf 	Y
-13AEh 	 	Smartpark Creative Solutions 	Y
-1460h 	 	SEIKO Epson Corporation 	Y
-1464h 	 	HUMAL Elektroonika OU 	Y
-1490h 	 	Grid Show Systems Inc. 	Y
-14A0h 	 	Intense Lighting, LLC 	Y
-14ACh 	 	Zaklad Elektroniczny AGAT s.c. 	Y
-1506h 	 	v2 Lighting Group, Inc. 	Y
-150Ch 	 	ACASS SYSTEMS LLC 	Y
-152Ah 	 	SHOWTACLE Ltd. 	Y
-154Eh 	 	Fire & Magic 	Y
-15A0h 	MCSWE 	GuangZhou MCSWE Technologies, INC  	Y
-15A2h 	 	FEIMEX 	Y
-15D0h 	 	Music & Lights S.r.l. 	Y
-161Ah 	 	techKnow Design Ltd. 	Y
-1626h 	 	LEDsistem Teknolojileri Tic. Ltd. Sti. 	Y
-162Ah 	 	Nerd's Meter 	Y
-1690h 	 	awaptec GmbH 	Y
-16AEh 	 	Electrone Americas Ltd. Co. 	Y
-16DCh 	 	Traxon Technologies Ltd.  	Y
-16E4h 	 	Aboutshow Color Light Co., LTD 	Y
-16FAh 	 	Lite Puter Enterprise Co., Ltd. 	Y
-170Eh 	SERVA 	Serva Transport Systems GmbH 	Y
-174Eh 	 	Nordgas SNe-lightingsystem 	Y
-1750h 	YUESHENG 	Yuesheng International Limited 	Y
-1808h 	 	Guangzhou Jinye Electronic Technology Co., Ltd. 	Y
-1809h 	 	Rotolight 	Y
-1888h 	 	GUANZHOU KAVON STAGE EQUIPMENT CO., LTD. 	Y
-18A6h 	 	Steadfast Technology 	Y
-1938h 	 	Solid State Luminaires 	Y
-1998h 	 	PLS Electronics Ltd. 	Y
-19B9h 	 	Duralamp S.p.A. 	Y
-19BAh 	 	Guangzhou Xinzhijie Photoelectric Co., Ltd. 	Y
-19BBh 	 	Panalux Ltd. 	Y
-19F8h 	 	CEZOS Spolka z ograniczona odpowiedzialnoscia, sp.k. 	Y
-1A0Dh 	 	Cineo Lighting 	Y
-1A16h 	 	WADAK GmbH 	Y
-1A3Dh 	 	Red Lighting s.r.l. 	Y
-1AFAh 	 	TMB 	Y
-1BB1h 	 	PH Lightning AB 	Y
-1BC0h 	 	ALS Stanislaw Binkiewicz 	Y
-1BC6h 	 	Studio S Music City 	Y
-1C80h 	Vehtec 	Vehtec Tecnologia Ltda 	Y
-1E8Dh 	 	Moda Light 	Y
-1ECFh 	 	Masiero s.r.l. 	Y
-1ED8h 	 	Antari Lighting And Effects Ltd. 	Y
-2009h 	 	Zboxes Intelligent Technology (Shanghai) Co., Ltd.  	Y
-2011h 	 	Gantom Lighting & Controls 	Y
-207Fh 	 	Padura Elektronik GmbH 	Y
-20A6h 	 	ALADIN Architekturlicht GmbH 	Y
-20ADh 	 	AZ e-lite Pte Ltd 	Y
-20B6h 	 	Alkalite LED Technology Corp 	Y
-20B9h 	 	ARRI -- Arnold & Richter Cine Technik GmbH & Co. Betriebs KG 	Y
-20BAh 	 	AusChristmasLighting 	Y
-2121h 	 	Brother,Brother & Sons Aps 	Y
-2122h 	 	BEGLEC NV 	Y
-2130h 	 	Bart van Stiphout Electronics & Software 	Y
-21A1h 	 	Culture Crew bvba 	Y
-21A4h 	 	CHAUVET Lighting 	Y
-21A9h 	 	CaptSystemes 	Y
-21B3h 	 	Coolon Pty Ltd 	Y
-21B4h 	 	CHROMLECH 	Y
-21B5h 	 	ChromaCove LLC 	Y
-2208h 	 	C.I.M.E.S. (Conception Installation Maintenance En Eclairage & Sonorisation) 	Y
-2216h 	 	D-Light Designs, LLC 	Y
-2222h 	 	D.E.F. Srl 	Y
-2224h 	 	DAS Integrator Pte Ltd 	Y
-2239h 	 	Dream Solutions Ltd. 	Y
-22A0h 	 	EAS SYSTEMS 	Y
-22A6h 	 	Elation Lighting 	Y
-22A9h 	 	Engineering Solutions Inc. 	Y
-22AAh 	 	EUTRAC - Intelligent Lighting GmbH 	Y
-22ABh 	 	EVC 	Y
-22B9h 	 	Etherlight 	Y
-2337h 	 	Focon Showtechnic 	Y
-23B2h 	 	Gekko Technology Ltd. 	Y
-2421h 	 	HB-Laserkomponenten GmbH 	Y
-242Ah 	 	Hungaroflash 	Y
-2432h 	 	Helvar Ltd 	Y
-2470h 	 	Hale Microsystems LLC 	Y
-24A3h 	 	Lighting Innovation Group AG 	Y
-24AAh 	 	IT Ihme 	Y
-2621h 	 	LEADER LIGHT s.r.o. 	Y
-2622h 	 	LDDE Vertriebs Gmbh 	Y
-2623h 	 	Leonh Hardware Enterprise Inc. 	Y
-2624h 	 	Lisys Fenyrendszer Zrt. 	Y
-2626h 	 	LLT Lichttechnik GmbH&CO.KG 	Y
-2630h 	 	Laservision Pty Ltd 	Y
-2632h 	 	Lehigh Electric Products 	Y
-2635h 	 	LjusDesign AB 	Y
-2636h 	 	Lumonic Limited 	Y
-2637h 	 	Loxone Electronics GmbH 	Y
-263Ah 	 	Lumenec Pty. Ltd. 	Y
-263Ch 	 	I-Pix Digital Light Ltd. 	Y
-26A2h 	 	MEGATECHNICS Ltd. 	Y
-26B4h 	 	Milford Instruments Ltd. 	Y
-2724h 	 	Nila Inc. 	Y
-2734h 	 	Nixer Ltd. 	Y
-27A8h 	 	Callegenix LLC 	Y
-2821h 	 	Pioneer Corporation 	Y
-2826h 	 	Peter Maes Technology 	Y
-2827h  	 	Peternet Electronics BVBA  	Y
-2829h 	 	PR-Electronic 	Y
-2836h 	 	Planungsbuero 	Y
-28E1h 	 	MTC maintronic GmbH 	Y
-2927h 	 	ROAL Electronics SpA 	Y
-2984h 	 	Getlux Ltd. 	Y
-2999h 	 	ALL-DO INTERNATIONAL CO., LTD. 	Y
-29A1h 	 	Sturdy Corporation 	Y
-29A9h 	 	SRS Light Design 	Y
-29AAh 	 	Steinigke Showtechnic GmbH 	Y
-29B2h 	 	Selectron Bvba 	Y
-29B4h 	 	Showtec (Highlite International B.V.) 	Y
-29B7h 	 	Sundrax, LLC 	Y
-29B8h 	 	Spotlight s.r.l. 	Y
-29BAh 	 	State Automation Pty Ltd. 	Y
-29E8h 	 	Stroytsirk LLC 	Y
-2A25h 	 	Thorn Lighting Limited 	Y
-2A26h 	 	Toni Maroni Gmb 	Y
-2AABh 	 	Urban Visuals & Effects Ltd. 	Y
-2B28h 	 	Visual Productions 	Y
-2BA2h 	 	WERPAX bvba 	Y
-2BA9h 	 	The White Rabbit Company, Inc. 	Y
-2BB4h 	 	Williams Electronic Design Ltd. 	Y
-2C1Ah 	 	DMX4ALL GmbH 	Y
-2C2Ah 	 	XTBA 	Y
-2CE0h 	 	Lighting Services Inc. 	Y
-2DC8h 	 	Stellascapes 	Y
-3235h 	 	de koster Special Effects 	Y
-3331h 	 	DMG Lumiere 	Y
-3332h 	 	Teclumen s.r.l. 	Y
-3333h 	 	NightStarry Electronics Co., LTD. 	Y
-3388h 	 	Macostar International Ltd. 	Y
-3434h 	 	Global Design Solutions, Ltd. 	Y
-3534h 	 	Five4, LLC 	Y
-361Dh 	 	Lumishore Ltd. UK 	Y
-3638h 	 	Lumenpulse Lighting Inc. 	Y
-37D7h 	 	Lichttechnik & Sonderbau 	Y
-3805h 	 	Yifeng Lighting Co., Ltd. 	Y
-3806h 	 	ACME EFFECTS LTD. 	Y
-3868h 	 	LanBolight Technology Co., LTD. 	Y
-3888h 	 	Fly Dragon Lighting Equipment Co.,ltd 	Y
-388Ah 	 	Guangzhou Yajiang (Yagang - Silver Star) Photoelectric Equipment Ltd. 	Y
-3A37h 	 	TheOlymp - Networking & InterNet Services 	Y
-3AFCh 	 	Black Tank Engineering 	Y
-3B10 	 	NXP Semiconductors B.V. 	Y
-3B88h 	 	Shenzhen Eastar Electronic Co., Ltd. 	Y
-3D30h 	 	zactrack Lighting Technologies Gmbh 	Y
-400Dh 	 	Quasar Science LLC 	Y
-4051h 	 	SAN JACK ANALOG HOUSE CO., LTD. 	Y
-4131h 	 	Altman Stage Lighting 	Y
-4141h 	 	AVAB America, Inc. 	Y
-4142h 	 	Filmgear, Inc. 	Y
-4143h 	 	AC Lasers 	Y
-4144h 	 	ADB - TTV Technologies nv 	Y
-4145h 	 	ADE ELETTRONICA srl  	Y
-4146h 	 	AUS FX 	Y
-4149h 	 	Anidea Engineering, Inc. 	Y
-414Ch 	 	Artistic Licence Engineering Ltd. 	Y
-414Dh 	 	Amptown Lichttechnik GmbH 	Y
-414Eh 	 	Anytronics Ltd. 	Y
-4150h 	 	Apogee Lighting 	Y
-4151h 	 	Aquarii, Inc. 	Y
-4153h 	 	Audio Scene 	Y
-4154h 	 	Arnold Tang Productions 	Y
-4156h 	 	Audio Visual Devices P/L 	Y
-4164h 	 	Adelto Limited 	Y
-416Ch 	 	Alenco BV 	Y
-4172h 	 	ARNOLD LICHTTECHNIK 	Y
-4173h 	 	Astera LED Technology GmbH 	Y
-4179h 	 	AYRTON 	Y
-4241h 	 	BECKHOFF Automation GmbH 	Y
-4243h 	 	Bill Coghill Company : Bill Coghill Design 	Y
-4245h 	 	Bytecraft Entertainment Pty Ltd 	Y
-424Fh 	 	BOTEX 	Y
-4253h 	 	Barco 	Y
-42A2h 	 	Birket Engineering, Inc. 	Y
-4321h 	 	Design Partners of Canada 	Y
-4344h 	 	CDCA Ltd. 	Y
-4347h 	 	CAST Software 	Y
-4349h 	 	C.I.Tronics Lighting Designers Ltda 	Y
-434Bh 	 	Color Kinetics Inc. 	Y
-434Dh 	 	Coemar Spa 	Y
-4350h 	 	CLAY PAKY S.p.A 	Y
-4353h 	 	Capricorn Software 	Y
-4354h 	 	City Theatrical, Inc. 	Y
-4358h 	 	Connex GmbH 	Y
-4369h 	 	Cinetix Medien u. Interface GmbH 	Y
-436Fh 	 	CODEM MUSIC S.r.l. 	Y
-4441h 	 	DIGITAL ART SYSTEM 	Y
-4442h 	 	ELETTROLAB S.r.l. 	Y
-4443h 	 	Claudio Dal Cero Engineering 	Y
-4444h 	 	D.O.M. Datenverarbeitung GmbH 	Y
-4445h 	 	Dezelectric Kft. 	Y
-4446h 	 	Doug Fleenor Design, Inc. 	Y
-4449h 	 	Durand Interstellar, Inc. 	Y
-444Ch 	 	Dove Lighting Systems, Inc. 	Y
-444Dh 	 	Digimedia Multimedia Lighting Solutions 	Y
-444Eh 	 	DALCNET SRL 	Y
-4450h 	 	DMXPROFI.EU GmbH i.G. 	Y
-4453h 	 	Guangzhou Desheng Lighting Industrial Co., Ltd. 	Y
-4456h 	 	Devantech Ltd. 	Y
-4466h 	 	DF elettronica s.r.l. 	Y
-4469h 	 	Diamante Lighting Srl 	Y
-453Ah 	 	E:cue Control GmbH 	Y
-4541h 	ENGARTS 	Engineering Arts 	Y
-4543h 	 	EC Elettronica Srl 	Y
-4544h 	 	Electronics Diversified LLC 	Y
-4545h 	 	EastSun Technology Co. Ltd. 	Y
-454Ch 	 	Ingenieurbuero fuer Nachrichtentechnik in der Studio und Veranstaltungstechnik 	Y
-454Dh 	 	ELM Video Technology, Inc. 	Y
-454Eh 	 	ENTTEC Pty Ltd 	Y
-4552h 	 	EREA 	Y
-4553h 	 	ERAL srl 	Y
-4554h 	 	Entertainment Technology 	Y
-4563h 	 	Les Eclairages Lou Inc. 	Y
-456Ch 	 	Element Labs Inc. 	Y
-4631h 	 	OKEROAB AB 	Y
-464Ch 	 	Flashlight/Ampco Holding 	Y
-4656h 	 	Flexvisual 	Y
-4658h 	 	MAGIC FX B.V. 	Y
-4678h 	 	Global Special Effects 	Y
-4744h 	 	Goddard Design Co. 	Y
-4745h 	 	GPE srl 	Y
-4747h 	 	G&G LED Lighting 	Y
-474Ch 	 	G-LEC Europe GmbH 	Y
-4750h 	 	DES 	Y
-4753h 	 	Golden Sea Disco Light Manufacturer 	Y
-476Ch 	 	General Luminaire (Shanghai) Ltd. 	Y
-4843h 	 	Horizon Control Inc. 	Y
-4844h 	 	HxDx 	Y
-4845h 	 	Howard Eaton Lighting Ltd. 	Y
-484Ch 	 	HBE Lighting Systems 	Y
-484Fh 	 	Hollywood Controls Inc. 	Y
-4856h 	 	Enfis Ltd 	Y
-4881h 	 	Rena Electronica B.V. 	Y
-4941h 	 	inoage GmbH 	Y
-4942h 	 	IBEX UK Limited 	Y
-4944h 	 	Ingham Designs 	Y
-4945h 	 	Insta Elektro GmbH 	Y
-4947h 	 	IGuzzini illuminazione spa 	Y
-4948h 	 	Ice House Productions 	Y
-494Ch 	 	I-Lum 	Y
-494Eh 	 	Interactive Technologies, Inc. 	Y
-4950h 	 	Interesting Products, Inc. 	Y
-4951h 	 	IQAir AG 	Y
-4952h 	 	Invisible Rival Incorporated 	Y
-4953h 	 	Integrated System Technologies Ltd. 	Y
-4954h 	 	Integrated Theatre, Inc. 	Y
-4973h 	 	Innovation Solutions Ltd. 	Y
-4A31h 	 	Joshua 1 Systems Inc. 	Y
-4A41h 	 	JANUS srl 	Y
-4A42h 	 	JB-lighting GmbH 	Y
-4A48h 	 	James Harris 	Y
-4A4Ch 	 	Johnsson Lighting Technologies AB 	Y
-4A53h 	 	JSC 'MFG' 	Y
-4A54h 	 	James Thomas Engineering 	Y
-4A61h 	 	Jands Pty Ltd. 	Y
-4ACCh 	 	RVL techniek 	Y
-4B42h 	 	KissBox 	Y
-4B46h 	 	Kino Flo, Inc. 	Y
-4B4Ch 	 	KLH Electronics PLC 	Y
-4B4Dh 	 	KMX Inc. 	Y
-4B55h 	 	kuwatec, Inc. 	Y
-4C20h 	 	LAM32 srl 	Y
-4C41h 	 	LaserAnimation Sollinger GmbH 	Y
-4C45h 	 	Leviton Manufacturing Co., Inc. 	Y
-4C47h 	 	LightGeist Ltd. 	Y
-4C4Ch 	 	LUMINEX Lighting Control Equipment bvba 	Y
-4C4Dh 	 	Ultratec Special Effects 	Y
-4C50h 	 	LightProcessor Ltd 	Y
-4C52h 	 	High End Systems Inc. 	Y
-4C53h 	 	Licht-, Steuer- und Schaltanlagenbau GmbH (LSS GmbH) 	Y
-4C54h 	 	Licht-Technik 	Y
-4C55h 	 	LumenRadio AB 	Y
-4C56h 	 	LEDValley Technologies Sdn Bhd 	Y
-4C57h 	 	LightWild LC 	Y
-4C58h 	 	Lex Products Corp. 	Y
-4C59h 	 	Laser Technology Ltd. 	Y
-4C5Ah 	 	LightMinded Industries, Inc. 	Y
-4C5Ah 	 	Sumolight GmbH 	Y
-4C5Bh 	 	LightLife, Gesellschaft fur audiovisuelle Erlebnisse mbH 	Y
-4C64h 	 	LED Team 	Y
-4C65h 	 	Legargeant and Associates 	Y
-4C69h 	 	LIGHTOLIER 	Y
-4C6Ch 	 	Lampo Lighting Designers 	Y
-4C73h 	 	LSC Lighting Systems (Aust) Pty. Ltd. 	Y
-4CDCh 	 	acdc LED Ltd. 	Y
-4CE5h 	 	LED Company s.r.o. 	Y
-4D41h 	 	MA Lighting Technology GmbH 	Y
-4D42h 	 	LAN Systems--Midibox project 	Y
-4D44h 	 	Les Generateurs de brouillard MDG Fog Generators Ltd. 	Y
-4D4Ch 	 	Mode Lighting (UK) Ltd. 	Y
-4D50h 	 	Martin Professional A/S 	Y
-4D54h 	 	medien technik cords 	Y
-4D56h 	 	Avolites Ltd. 	Y
-4D58h 	 	MX design 	Y
-4D61h 	 	MARTINI S.p.A. 	Y
-4D77h 	 	Mueller Elektronik 	Y
-4E41h 	 	Company NA 	Y
-4E4Ah 	 	NJD Electronics 	Y
-4E4Ch 	 	NOVALIGHT S.r.l. 	Y
-4E57h 	 	AIM Northwest 	Y
-4E69h 	 	Niko 	Y
-4F41h 	 	Oase GmbH 	Y
-4F43h 	 	Obsidian Controls 	Y
-4F4Ch 	 	DDS Elettronica 	Y
-4F75h 	 	Outsight Pty Ltd. 	Y
-5041h 	 	Philips Entertainment Lighting Asia 	Y
-5043h 	 	Pathway Connectivity Inc. 	Y
-504Ch 	 	Peperoni Lighting-Solutions 	Y
-504Dh 	 	Peter Meyer Project Management Adviser GmbH 	Y
-5051h 	 	PDQ Manufacturing, Inc 	Y
-5052h 	 	Production Resource Group 	Y
-5053h 	 	Philips Selecon 	Y
-5058h 	 	PXM s.c. 	Y
-5062h 	 	LED, Inc. 	Y
-5065h 	 	Peradise 	Y
-5066h 	 	Pfannenberg GmbH 	Y
-5068h 	 	Philips Lighting BV 	Y
-5075h 	 	Pulsar Light of Cambridge Ltd. 	Y
-5099h 	 	Altec Di Gregorio Andrea 	Y
-512Dh 	 	DJPOWER ELECTRONIC STAGE LIGHTING FIXTURE FACTORY (GUANGZHOU) 	Y
-5149h 	 	JAP Optoelectronic Ltd. 	Y
-514Dh 	 	QMAXZ lighting 	Y
-5153h 	 	QuickSilver Controls, Inc. 	Y
-5168h 	 	Shenzhen Sunricher Technology Co.,Ltd. 	Y
-516Ch 	 	Quicklights 	Y
-51D7h 	 	Innovative Dimmers LLC 	Y
-5244h 	 	Revolution Display 	Y
-524Ch 	 	Radical Lighting Ltd. 	Y
-524Dh 	 	RUIZ TECH 	Y
-524Eh 	 	RNC Systems Inc. 	Y
-5250h 	 	RootPath Ltd. 	Y
-5252h 	 	RoscoLab Ltd. 	Y
-5253h 	 	Robe Show Lighting s.r.o. 	Y
-5341h 	 	Stage Technologies Limited 	Y
-5342h 	 	Industrias Sola Basic S.A. de C.V. 	Y
-5343h 	 	Ocean Thin Films Inc. 	Y
-5344h 	 	Stardraw.com Ltd. 	Y
-5345h 	 	Selador 	Y
-5346h 	 	Synthe FX, LLC 	Y
-5347h 	 	SGM Technology For Lighting SPA 	Y
-5348h 	 	Schreder 	Y
-5349h 	 	Soundsculpture Incorporated 	Y
-534Ah 	 	SAS Productions 	Y
-534Bh 	 	SK-Software 	Y
-534Ch 	 	SOUNDLIGHT 	Y
-534Eh 	 	Sand Network Systems 	Y
-5353h 	 	Sean Sill 	Y
-5354h 	 	Stagetronics Ltda 	Y
-5356h 	 	OOO SAMLIGHT 	Y
-5363h 	 	SpaceCannon vH 	Y
-5368h 	 	ShowCAD Control Systems Ltd. 	Y
-536Ch 	 	StageLine Electronic 	Y
-5370h 	 	Chroma-Q 	Y
-5374h 	 	STG-Beikirch Industrieelektronik + Sicherheitstechnik GmbH & Co. KG 	Y
-5376h 	 	SV-wtu eU 	Y
-5377h 	 	SWISSON AG 	Y
-53A8h 	 	Simon Tech 	Y
-5431h 	 	AUTOLUX Handels- und ProduktionsgmbH 	Y
-5441h 	 	TecArt Lighting  	Y
-5444h 	 	Technographic Displays Ltd. 	Y
-5445h 	 	TESI Elettronica srl 	Y
-544Ch 	 	Tempest Lighting Inc. 	Y
-5453h 	 	TalentStorm Enterprises, Inc. 	Y
-5454h 	 	TamaTech Labo Company Ltd, 	Y
-5550h 	 	UP-LUX Eletronica Ltda. 	Y
-5555h 	 	Martin Sukale Medientechnik GbR 	Y
-564Ch 	 	Vari-Lite, Inc. 	Y
-5651h 	 	Vision Quest Lighting Inc. 	Y
-5652h 	 	Megapixel Visual Reality 	Y
-5653h 	 	Viso Systems Aps 	Y
-5655h 	 	Shenzhen CAS VU Technologies Co., Ltd. 	Y
-5744h 	 	W-DEV 	Y
-5746h 	 	Wildfire, Inc. 	Y
-5747h 	 	Wenger / JR Clancy 	Y
-5753h 	 	Wireless Solution Sweden AB 	Y
-5759h 	 	Wybron, Inc. 	Y
-584Ch 	 	X-Laser 	Y
-584Dh 	 	Xtraordinary Musical Accolade Systems 	Y
-5858h 	 	Illuminance Technologies 	Y
-5865h 	 	XENON ARCHITECTURAL LIGHTING 	Y
-586Ch 	 	Eurolumen (Shanghai) Lighting Co., LTD 	Y
-586Dh 	 	www.doityourselfchristmas.com hobbyists 	Y
-5888h 	 	Plsao Optoelectronics Technology Co., Ltd. 	Y
-5A53h 	 	Zingerli Show Engineering 	Y
-5C40h 	 	OXO 	Y
-5DACh 	 	Mediatec Group 	Y
-614Ch 	 	Alektra AB 	Y
-6154h 	 	Advatek Lighting 	Y
-6164h 	 	AVID Labs 	Y
-616Ch 	 	Advanced Lighting Systems 	Y
-6200h 	 	LUCITAG Ltd.  	Y
-6201h 	 	NuDelta Digital, LLC 	Y
-6202h 	 	ESCO Sp. z o.o. 	Y
-6203h 	 	Flektor  	Y
-6204h 	 	Shenzhen Absen Optoelectronic Co., Ltd 	Y
-6205h 	 	Zhuhai Ltech Technology Co., Ltd. 	Y
-6206H 	 	Lighting Innovation Company, LLC 	Y
-6273h 	 	B&S Elektronische Geräte GmbH 	Y
-6342h 	 	Mega Systems Inc. 	Y
-6364h 	 	CDS advanced technology bv 	Y
-641Ah 	 	Heliospectra AB 	Y
-6461h 	 	Digilin Australia 	Y
-6464h 	 	Dangeross Design 	Y
-646Ch 	 	dilitronics GmbH 	Y
-646Fh 	 	eldoLED BV 	Y
-64B9h 	FINELITE 	Finelite, Inc. 	Y
-6542h 	 	eBrain GmbH 	Y
-6547h 	 	euroGenie 	Y
-656Ch 	 	ELC lighting 	Y
-6573h 	 	Environmental Lighting Solutions 	Y
-6574h 	 	Electronic Theatre Controls, Inc. 	Y
-6576h 	 	eventa Aktiengesellschaft 	Y
-6644h 	 	Sunlab Technologies S.L. 	Y
-666Dh 	 	MAD-Effects 	Y
-6673h 	 	Freescale Semiconductor U.K. Ltd. 	Y
-6756h 	 	Lumisia Co., Ltd. 	Y
-676Ch 	 	GLP German Light Products GmbH 	Y
-67F0h 	 	Toshiba Lighting & Technology Corporation 	Y
-6816h 	 	ChamberPlus Co., Ltd 	Y
-6864h 	 	James Embedded Systems Engineering (JESE Ltd) 	Y
-6865h 	 	Hubbell Entertainment, Inc. 	Y
-686Ch 	 	HERA LED 	Y
-694Ch 	 	iLight Technologies Inc 	Y
-6974h 	 	Ittermann electronic GmbH 	Y
-6A6Bh 	 	JPK Systems Limited 	Y
-6B64h 	 	Key Delfin 	Y
-6B69h 	 	Magical Fountain SA de CV (Magic Fountain) 	Y
-6BEEh 	 	Ephesus Lighting 	Y
-6C6Dh 	 	Zumtobel Lighting GmbH 	Y
-6C78h 	 	Claude Heintz Design 	Y
-6C92h 	 	Ambra Elettronica s.r.l. 	Y
-6D61h 	 	MAL Effekt-Technik GmbH 	Y
-6D62h 	 	MBN GmbH 	Y
-6D63h 	 	Sein & Schein GmbH 	Y
-6FEAh 	 	Lumina Visual Productions 	Y
-7068h 	 	Pharos Architectural Controls 	Y
-7070h 	 	SBT GmbH 	Y
-7072h 	 	Pr-Lighting Ltd. 	Y
-7078h 	 	PixelRange Inc. 	Y
-70F0h 	 	Pangolin Laser Systems, Inc.  	Y
-7151h 	 	The Light Source, Inc. 	Y
-7363h 	 	Sean Christopher FX 	Y
-7365h 	 	Ballantyne Strong Inc. 	Y
-736Ch 	 	Strand Lighting Ltd. 	Y
-7764h 	 	WET 	Y
-7788h 	 	DigitaLicht AG 	Y
-780Eh 	 	Mole-Richardson Co. 	Y
-783Ah 	 	Audiolux Devices LLC 	Y
-786Ch 	 	XLN-t bvba 	Y
-78B4h 	 	LED Flex Limited 	Y
-79BCh 	 	DC Reactive 	Y
-7A70h 	 	Open Lighting 	Y
-7AA0h 	 	Anaren Inc. 	Y
-7B1Bh 	 	DimLight Ltd. 	Y
-7D61h 	 	HMB|TEC GmbH 	Y
-7DE8h 	 	Shenzhen LAMP Technology Co., Ltd. 	Y
-7EE7h 	 	Arthur Digital Solutions Kft 	Y
-7EE8h 	 	Guangzhou Yingfeng Lighting Equipment Co., Ltd. 	Y
-7EE9h 	 	Technology Kitchen 	Y
-7EEAh 	 	Cartwright Engineering  	Y
-7EEBh 	 	mylaserpage 	Y
-7FF0h 	 	RESERVED FOR PROTOTYPING/EXPERIMENTAL USE ONLY 	Y
-7FF1h 	 	RESERVED FOR PROTOTYPING/EXPERIMENTAL USE ONLY 	Y
-7FF2h 	 	RESERVED FOR PROTOTYPING/EXPERIMENTAL USE ONLY 	Y
-7FF3h 	 	RESERVED FOR PROTOTYPING/EXPERIMENTAL USE ONLY
-7FF4h 	 	RESERVED FOR PROTOTYPING/EXPERIMENTAL USE ONLY 	Y
-7FF5h 	 	RESERVED FOR PROTOTYPING/EXPERIMENTAL USE ONLY 	Y
-7FF6h 	 	RESERVED FOR PROTOTYPING/EXPERIMENTAL USE ONLY 	Y
-7FF7h 	 	RESERVED FOR PROTOTYPING/EXPERIMENTAL USE ONLY 	Y
-7FF8h 	 	RESERVED FOR PROTOTYPING/EXPERIMENTAL USE ONLY 	Y
-7FF9h 	 	RESERVED FOR PROTOTYPING/EXPERIMENTAL USE ONLY 	Y
-7FFAh 	 	RESERVED FOR PROTOTYPING/EXPERIMENTAL USE ONLY 	Y
-7FFBh 	 	RESERVED FOR PROTOTYPING/EXPERIMENTAL USE ONLY 	Y
-7FFCh 	 	RESERVED FOR PROTOTYPING/EXPERIMENTAL USE ONLY 	Y
-7FFDh 	 	RESERVED FOR PROTOTYPING/EXPERIMENTAL USE ONLY 	Y
-7FFEh 	 	RESERVED FOR PROTOTYPING/EXPERIMENTAL USE ONLY 	Y
-7FFFh 	 	RESERVED FOR PROTOTYPING/EXPERIMENTAL USE ONLY 	Y
-FFFFh 	 	ESTA 	Y
+sACN_manufacturer_ID = {}
+
+sACN_manufacturer_ID[0x0000] = "ESTA/PLASA"
+sACN_manufacturer_ID[0x0001] = "GEE"
+sACN_manufacturer_ID[0x0002] = "Abstract AVR Ltd. 	"
+sACN_manufacturer_ID[0x0081] = "Pino Solutions 	"
+sACN_manufacturer_ID[0x0082] = "LKE Lasershowtechnik GmbH 	"
+sACN_manufacturer_ID[0x0083] = "Guangzhou Bright Moon Technology Co., Ltd. 	"
+sACN_manufacturer_ID[0x0084] = "LEDIXIS (Exalux brand) 	"
+sACN_manufacturer_ID[0x0085] = "Guangzhou Nanshi Light Equipment Co., Ltd. 	"
+sACN_manufacturer_ID[0x0086] = "Intella System Co., Ltd. 	"
+sACN_manufacturer_ID[0x0087] = "LMBD 	"
+sACN_manufacturer_ID[0x0088] = "Guangzhou YaFeng Optoelectronic Equipment Co., Ltd. 	"
+sACN_manufacturer_ID[0x0089] = "The Production Warehouse (Vulcan Lighting) 	"
+sACN_manufacturer_ID[0x008A] = "Guangzhou Lees Electronics Co., Ltd. 	"
+sACN_manufacturer_ID[0x008B] = "Opto Tech Corporation 	"
+sACN_manufacturer_ID[0x008C] = "LRX Lighting (Dwight Crane Ltd.) 	"
+sACN_manufacturer_ID[0x008D] = "Guangzhou Minghao Electronic Technology Co., Ltd. 	"
+sACN_manufacturer_ID[0x008E] = "Guangzhou Ao Mei Di Stage Lighting Equipment Co.,Ltd. 	"
+sACN_manufacturer_ID[0x008F] = "Jiangmen Coolfish Technology Co., Ltd. 	"
+sACN_manufacturer_ID[0x0090] = "Cyclops Lighting 	"
+sACN_manufacturer_ID[0x0091] = "Guangzhou Shuozhi Optoelectronic Technology Co., Ltd. (Konelite) 	"
+sACN_manufacturer_ID[0x0092] = "digiLED (UK) Ltd. 	"
+sACN_manufacturer_ID[0x0093] = "LUMINOUS 	Luminous Show Technology Ltd. 	"
+sACN_manufacturer_ID[0x0094] = "Joinmax Display Technology Co., Ltd. 	"
+sACN_manufacturer_ID[0x009A] = "Guangzhou Haoyang Electronic Co., Ltd. 	"
+sACN_manufacturer_ID[0x009B] = "Guangzhou Jiawei Electronic Technology Co., Ltd. 	"
+sACN_manufacturer_ID[0x009C] = "LuxBalance Lighting 	"
+sACN_manufacturer_ID[0x009E] = "Guangzhou Flying Butterfly Stage Lighting Equipment Co., Ltd. 	"
+sACN_manufacturer_ID[0x009F] = "Efore SpA 	"
+sACN_manufacturer_ID[0x00A0] = "Shenzhen Dicolor Optoelectronics Co., Ltd. 	"
+sACN_manufacturer_ID[0x00A1] = "Creative Lighting And Sound Systems Pty Ltd. 	"
+sACN_manufacturer_ID[0x00A2] = "EMP Designs Ltd. 	"
+sACN_manufacturer_ID[0x00A3] = "GuangZhou Huanshi Lighting Equipment Co., Limited 	"
+sACN_manufacturer_ID[0x00A4] = "SAKMA Electronica Industrial S.A.U.  	"
+sACN_manufacturer_ID[0x00A7] = "Syncronorm GmbH 	"
+sACN_manufacturer_ID[0x00A8] = "Iwasaki Electric Co., Ltd. 	"
+sACN_manufacturer_ID[0x00A9] = "Richter Lighting Technologies GmbH  	"
+sACN_manufacturer_ID[0x00AA] = "Hangzhou Easun Technology Co., Ltd. 	"
+sACN_manufacturer_ID[0x00AB] = "MFX Asia Co., Ltd 	"
+sACN_manufacturer_ID[0x00AC] = "ZhouChuang Industrial Co. Limited 	"
+sACN_manufacturer_ID[0x00AD] = "ColorDeve Co. Limited 	"
+sACN_manufacturer_ID[0x00AE] = "Vitrulux Ltd 	"
+sACN_manufacturer_ID[0x00AF] = "NanoPLC LLC 	"
+sACN_manufacturer_ID[0x00B0] = "ARENA LUCI s.r.l. 	"
+sACN_manufacturer_ID[0x00B1] = "Guangzhou Omarte Lighting Co., Ltd. 	"
+sACN_manufacturer_ID[0x00B2] = "unonovesette srl 	"
+sACN_manufacturer_ID[0x00B3] = "LANTERN 	"
+sACN_manufacturer_ID[0x00B4] = "Lumos Design 	"
+sACN_manufacturer_ID[0x00B5] = "Suga koubou Co., Ltd. 	"
+sACN_manufacturer_ID[0x00B6] = "DiGidot Technologies BV 	"
+sACN_manufacturer_ID[0x00B7] = "Bron Elektronik AG 	"
+sACN_manufacturer_ID[0x00B8] = "Shenzhen Singba Light Technology Co., Ltd. 	"
+sACN_manufacturer_ID[0x00B9] = "Guangzhou Baiyun District Sanjie Eletronic Stage Lighting Audio Equipment Factory 	"
+sACN_manufacturer_ID[0x00BA] = "LiteGear Inc. 	"
+sACN_manufacturer_ID[0x00BB] = "Digital Lighting Engineering & Design, LLC 	"
+sACN_manufacturer_ID[0x00BC] = "Ambion GmbH (Ambrain) 	"
+sACN_manufacturer_ID[0x00BD] = "numeo GmbH 	"
+sACN_manufacturer_ID[0x00BE] = "The Light Luminary for Cine and TV S.L. (VELVET LIGHT)  	"
+sACN_manufacturer_ID[0x00BF] = "GTR Industries 	"
+sACN_manufacturer_ID[0x00C0] = "Foshan Yinhe Lanjing Lighting & Electrical Co., Ltd. 	"
+sACN_manufacturer_ID[0x00C1] = "Jingchuang Water Technology 	"
+sACN_manufacturer_ID[0x00C2] = "Ledogen 	"
+sACN_manufacturer_ID[0x00C3] = "Xicato 	"
+sACN_manufacturer_ID[0x00C4] = "Guangzhou Dahe Electronic Technology Co. Ltd. 	"
+sACN_manufacturer_ID[0x00C5] = "DAGE Stage Lighting Master Co., Ltd. 	"
+sACN_manufacturer_ID[0x00C6] = "Guangzhou Lantian Electronic Technology Co., Ltd. 	"
+sACN_manufacturer_ID[0x00C7] = "THOR 	"
+sACN_manufacturer_ID[0x0101] = "St. Anne Engineering GmbH 	"
+sACN_manufacturer_ID[0x0102] = "Bortis Elektronik 	"
+sACN_manufacturer_ID[0x0103] = "Fontana Technologies 	"
+sACN_manufacturer_ID[0x0104] = "Blizzard Lighting, LLC 	"
+sACN_manufacturer_ID[0x0105] = "LIGHTHOW (SHANGHAI) Ltd. 	"
+sACN_manufacturer_ID[0x0107] = "Inventronics (Hangzhou), Inc. 	"
+sACN_manufacturer_ID[0x0108] = "Haya Lighting Equipment Limited 	"
+sACN_manufacturer_ID[0x0109] = "V-Productions 	"
+sACN_manufacturer_ID[0x010A] = "Elektralite 	"
+sACN_manufacturer_ID[0x010B] = "DesignLED Technology (HK) Co., Ltd. 	"
+sACN_manufacturer_ID[0x010C] = "SES (Entertainment Services) Ltd. 	"
+sACN_manufacturer_ID[0x010D] = "Lumos / DMLite 	"
+sACN_manufacturer_ID[0x010E] = "Guangzhou ATON Lighting Technology Co.,Ltd 	"
+sACN_manufacturer_ID[0x010F] = "Saco Technologies Inc. 	"
+sACN_manufacturer_ID[0x0110] = "APF S.r.l. 	"
+sACN_manufacturer_ID[0x0111] = "Radig Hard & Software 	"
+sACN_manufacturer_ID[0x0112] = "RGB Lighting Equipment Co., Ltd. 	"
+sACN_manufacturer_ID[0x0113] = "Airstar SAS 	"
+sACN_manufacturer_ID[0x0114] = "BSL Lighting 	"
+sACN_manufacturer_ID[0x0115] = "Kontrolcla Show Control S.L. 	"
+sACN_manufacturer_ID[0x0116] = "SmoothLUX B.V. 	"
+sACN_manufacturer_ID[0x0117] = "AD Toyo Lighting (Guangzhou) Co.,Ltd 	"
+sACN_manufacturer_ID[0x0118] = "Vello Light Co., Ltd. 	"
+sACN_manufacturer_ID[0x0119] = "Peter Schneyder Design Management GmbH 	"
+sACN_manufacturer_ID[0x011A] = "Guangzhou Hotion Technology Co., Ltd. 	"
+sACN_manufacturer_ID[0x011B] = "Jumptronic GmbH 	"
+sACN_manufacturer_ID[0x011C] = "Letong Electronic (Guangzhou) Co., Ltd. 	"
+sACN_manufacturer_ID[0x011D] = "Yangzhou Zhituo Lighting Vision Technology Co., Ltd.  	"
+sACN_manufacturer_ID[0x016C] = "LGR 	"
+sACN_manufacturer_ID[0x016D] = "Hive Lighting 	"
+sACN_manufacturer_ID[0x016E] = "Artled Technology Corp. 	"
+sACN_manufacturer_ID[0x016F] = "SQD Lighting Co. Ltd  	"
+sACN_manufacturer_ID[0x0190] = "Wizlogics Co., Ltd. 	"
+sACN_manufacturer_ID[0x0191] = "Sycra Technologies 	"
+sACN_manufacturer_ID[0x0199] = "Ocean LED Marine Ltd. 	"
+sACN_manufacturer_ID[0x019A] = "TwoGain Electronics 	"
+sACN_manufacturer_ID[0x019B] = "ElectroTAS Soluciones Profesionales 	"
+sACN_manufacturer_ID[0x019F] = "DaisaLed Ltd. 	"
+sACN_manufacturer_ID[0x01A0] = "Light With LED 	"
+sACN_manufacturer_ID[0x01A1] = "Yuesheng Stage Light Limited 	"
+sACN_manufacturer_ID[0x01A2] = "Art Lighting Production, s.r.o. 	"
+sACN_manufacturer_ID[0x01A3] = "Dongguan Yongya Technology Co., Ltd 	"
+sACN_manufacturer_ID[0x01A4] = "Custom Effects LED Solutions Inc. 	"
+sACN_manufacturer_ID[0x01A5] = "MJ Lighting Co., Ltd. 	"
+sACN_manufacturer_ID[0x01A6] = "Hengmei Lighting Technology Co., Ltd. 	"
+sACN_manufacturer_ID[0x01A8] = "ZongDa Photoelectricity Science and Technology Co., Ltd. 	"
+sACN_manufacturer_ID[0x01A9] = "Shenzhen Uniview LED Ltd. Co. 	"
+sACN_manufacturer_ID[0x01AA] = "Vitec Videocom Inc. 	"
+sACN_manufacturer_ID[0x01AB] = "Shanghai Euchips Industrial Co., Ltd. 	"
+sACN_manufacturer_ID[0x01AC] = "DongGuan Phcistar Optoelectronics Technology Co., Ltd. 	"
+sACN_manufacturer_ID[0x01AF] = "Hunan Minghe Opto Tech Co., Ltd. 	"
+sACN_manufacturer_ID[0x01B1] = "Lightcare A/S 	"
+sACN_manufacturer_ID[0x01B2] = "DJSI Schinstad ANS (Northern Light) 	"
+sACN_manufacturer_ID[0x01B3] = "Ricardo Dias 	"
+sACN_manufacturer_ID[0x01B4] = "Inventeq B.V. 	"
+sACN_manufacturer_ID[0x01B5] = "Beijing Soft Rock Technology Development Co., Ltd. 	"
+sACN_manufacturer_ID[0x01BE] = "BEN-RI Electronica S.A. 	"
+sACN_manufacturer_ID[0x01C7] = "SCHIEDERWERK GmbH  	"
+sACN_manufacturer_ID[0x01C8] = "Guangzhou JINLIN Stage Lighting Equipment Co., Ltd.  	"
+sACN_manufacturer_ID[0x01C9] = "ALPHA LITE Inc. 	"
+sACN_manufacturer_ID[0x01CA] = "CASCADE s.a.s. 	"
+sACN_manufacturer_ID[0x01CB] = "I-Light USA, Inc. 	"
+sACN_manufacturer_ID[0x01CC] = "Portman Custom Lights 	"
+sACN_manufacturer_ID[0x01CD] = "Compulite Systems (2000) LTD 	"
+sACN_manufacturer_ID[0x01CE] = "Railiks Enterprises 	"
+sACN_manufacturer_ID[0x01CF] = "SRM Technik GmbH 	"
+sACN_manufacturer_ID[0x01D0] = "Shanghai Semping Electronics Co., Ltd. 	"
+sACN_manufacturer_ID[0x01D1] = "Yarilo Pro 	"
+sACN_manufacturer_ID[0x01D2] = "GIP Innovation Tools GmbH 	"
+sACN_manufacturer_ID[0x01D3] = "AKSERA 	JSC Aksera"
+sACN_manufacturer_ID[0x01D4] = "x-labs 	"
+sACN_manufacturer_ID[0x01D5] = "Shenzhen Liantronics Co., Ltd 	"
+sACN_manufacturer_ID[0x01D6] = "Argent Data Systems, Inc. 	"
+sACN_manufacturer_ID[0x01D7] = "LIMEDIA 	"
+sACN_manufacturer_ID[0x01D8] = "Daniel Large Lighting 	"
+sACN_manufacturer_ID[0x01D9] = "Lightronics Inc. 	"
+sACN_manufacturer_ID[0x01DA] = "Guangzhou Daisy Electronic Technology Co., Ltd.  	"
+sACN_manufacturer_ID[0x01DB] = "Logen Ltd. 	"
+sACN_manufacturer_ID[0x01DC] = "LED Linear GmbH 	"
+sACN_manufacturer_ID[0x01DD] = "Photonia srl 	"
+sACN_manufacturer_ID[0x01DE] = "Guangzhou Baiyun Xinxiang Lighting Equipment Factory (XPRO LIGHT) 	"
+sACN_manufacturer_ID[0x01DF] = "GuangZhou Dream Lighting Equipment Co., Ltd. 	"
+sACN_manufacturer_ID[0x01E0] = "IBN Labs Ltd. 	"
+sACN_manufacturer_ID[0x0202] = "Paul Heuts 	"
+sACN_manufacturer_ID[0x0203] = "Artemide S.p.A 	"
+sACN_manufacturer_ID[0x0204] = "LIGHTLINE Lasertechnik GmbH 	"
+sACN_manufacturer_ID[0x0205] = "SmartShow UK 	"
+sACN_manufacturer_ID[0x0206] = "Studio Due Light S.r.l. 	"
+sACN_manufacturer_ID[0x0207] = "SILL LIGHTS GmbH 	"
+sACN_manufacturer_ID[0x0208] = "Shenzhen Yuming Vision Technology Co., Ltd. 	"
+sACN_manufacturer_ID[0x0209] = "ER Productions 	"
+sACN_manufacturer_ID[0x0235] = "Company 235, LLC 	"
+sACN_manufacturer_ID[0x0242] = "ABLELITE INTERNATIONAL 	"
+sACN_manufacturer_ID[0x025B] = "Imlight-Showtechnic 	"
+sACN_manufacturer_ID[0x026F] = "Acuity Brands Lighting Inc. 	"
+sACN_manufacturer_ID[0x0280] = "Arrigo Lighting 	"
+sACN_manufacturer_ID[0x02A0] = "LLC Likhoslavl Plant of Lighting Engineering (Svetotehnika) 	"
+sACN_manufacturer_ID[0x02A1] = "LLC Moscow Experimental Lighting Plant (TeleMechanic) 	"
+sACN_manufacturer_ID[0x02A2] = "OJSC Kadoshkinsky electrotechnical  	"
+sACN_manufacturer_ID[0x02A3] = "Big Bang Lightning 	"
+sACN_manufacturer_ID[0x02A4] = "McNicoll Entertainment Systems 	"
+sACN_manufacturer_ID[0x02AA] = "Jinnax Opto Technology Co., Ltd.  	"
+sACN_manufacturer_ID[0x02AB] = "Rift Labs 	"
+sACN_manufacturer_ID[0x02AC] = "PSL Electronik Sanayi ve Ticaret A.S. 	"
+sACN_manufacturer_ID[0x02B0] = "DMXControl-Projects e.V. 	"
+sACN_manufacturer_ID[0x02BD] = "RE-Engineering 	"
+sACN_manufacturer_ID[0x02C8] = "Growflux LLC 	"
+sACN_manufacturer_ID[0x02C9] = "Theatrixx Technologies 	"
+sACN_manufacturer_ID[0x02CA] = "Acclaim Lighting 	"
+sACN_manufacturer_ID[0x02CB] = "GVA Lighting, Inc. 	"
+sACN_manufacturer_ID[0x02CC] = "Brightix 	"
+sACN_manufacturer_ID[0x02D0] = "Winona Lighting 	"
+sACN_manufacturer_ID[0x02D1] = "Hoffmeister Leuchten GmbH 	"
+sACN_manufacturer_ID[0x02E1] = "Tait Towers Manufacturing Inc. 	"
+sACN_manufacturer_ID[0x02E2] = "CLF Lighting BV. 	"
+sACN_manufacturer_ID[0x02EA] = "d3 Technologies Ltd. 	"
+sACN_manufacturer_ID[0x02EB] = "AMOLVIN RESEARCH LAB 	Amolvin Research & Development Lab. 	"
+sACN_manufacturer_ID[0x02EC] = "Lutron Electronics 	"
+sACN_manufacturer_ID[0x02ED] = "OpenLX SP Ltd. 	"
+sACN_manufacturer_ID[0x02EE] = "Firma GUTKOWSKI - Gutkowski Jan 	"
+sACN_manufacturer_ID[0x02EF] = "ABLETECH Co., Ltd. 	"
+sACN_manufacturer_ID[0x02F0] = "iColor LED Shenzhen Co., Ltd. 	"
+sACN_manufacturer_ID[0x02FF] = "Guangzhou Eway Stage Equipment Technology Co., Ltd. 	"
+sACN_manufacturer_ID[0x0302] = "Swefog Technology Group AB 	"
+sACN_manufacturer_ID[0x0303] = "Shanghai Moons' Automation Control Co., Ltd 	"
+sACN_manufacturer_ID[0x0305] = "DiCon Fiberoptics, Inc. 	"
+sACN_manufacturer_ID[0x0306] = "feno GmbH 	"
+sACN_manufacturer_ID[0x0307] = "Ledium Kft. 	"
+sACN_manufacturer_ID[0x0308] = "ImageCue LLC  	"
+sACN_manufacturer_ID[0x030F] = "Guangzhou Litewise Lighting Equipments Co., Ltd. dba 'EK Lights'"
+sACN_manufacturer_ID[0x032C] = "Carallon Ltd. 	"
+sACN_manufacturer_ID[0x033A] = "Lux Lumen 	"
+sACN_manufacturer_ID[0x034B] = "Rosstech Signals Inc. 	"
+sACN_manufacturer_ID[0x038F] = "Strich Labs 	"
+sACN_manufacturer_ID[0x0391] = "Alcorn McBride Inc. 	"
+sACN_manufacturer_ID[0x0393] = "i2Systems 	"
+sACN_manufacturer_ID[0x0394] = "Prism Projection 	"
+sACN_manufacturer_ID[0x039B] = "Lightforce Lasertechnik 	"
+sACN_manufacturer_ID[0x03A1] = "INAREX INC. 	"
+sACN_manufacturer_ID[0x03A2] = "licht.team 	"
+sACN_manufacturer_ID[0x03AA] = "AIGA Electronic (GuangZhou) Co., Ltd. 	"
+sACN_manufacturer_ID[0x03D5] = "eX Systems 	"
+sACN_manufacturer_ID[0x03D6] = "i-Lumen 	"
+sACN_manufacturer_ID[0x0404] = "Luminxa 	"
+sACN_manufacturer_ID[0x0424] = "FLUX ECLAIRAGE 	"
+sACN_manufacturer_ID[0x0440] = "Guangzhou VAS Lighting Co., Ltd. 	"
+sACN_manufacturer_ID[0x044E] = "Ben Peoples Industries, LLC 	"
+sACN_manufacturer_ID[0x044F] = "B2 Co., Ltd. 	"
+sACN_manufacturer_ID[0x0455] = "Lamp & Pencil 	"
+sACN_manufacturer_ID[0x048E] = "Krisledz Pte. Ltd. 	"
+sACN_manufacturer_ID[0x048F] = "Grand Canyon LED Lighting System (Suzhou) Co., Ltd.  	"
+sACN_manufacturer_ID[0x04A6] = "MEB Veranstaltungstechnik GmbH 	"
+sACN_manufacturer_ID[0x04A9] = "Edward J. Keefe Jr. 	"
+sACN_manufacturer_ID[0x04B5] = "Major 	"
+sACN_manufacturer_ID[0x04B6] = "IntiLED 	"
+sACN_manufacturer_ID[0x04B8] = "Guangzhou Hongcai Stage Equipment Co., Ltd. 	"
+sACN_manufacturer_ID[0x04C4] = "Ephesus Lighting, Inc. 	"
+sACN_manufacturer_ID[0x04D7] = "Targetti Sankey Spa 	"
+sACN_manufacturer_ID[0x04D8] = "Guangzhou Hong Yuan Electronic Technology Co., LTD. 	"
+sACN_manufacturer_ID[0x04DD] = "Topstriving Photoelectricity Technology Co., Ltd. 	"
+sACN_manufacturer_ID[0x04FC] = "Syncrolite LLC 	"
+sACN_manufacturer_ID[0x050A] = "ChamSys Ltd. 	"
+sACN_manufacturer_ID[0x051C] = "Ambitsel, Inc. 	"
+sACN_manufacturer_ID[0x0529] = "OSRAM 	"
+sACN_manufacturer_ID[0x0537] = "TERMINAL-COM 	"
+sACN_manufacturer_ID[0x0540] = "EverBrighten Co., Ltd. 	"
+sACN_manufacturer_ID[0x0556] = "RAYSYS 	"
+sACN_manufacturer_ID[0x055F] = "PRO-SOLUTIONS 	"
+sACN_manufacturer_ID[0x056B] = "COSMOLIGHT SRL 	"
+sACN_manufacturer_ID[0x056C] = "Lumascape Lighting Industries 	"
+sACN_manufacturer_ID[0x0573] = "JIAXING XINHUALI LIGHTING & SOUNDING CO., LTD. 	"
+sACN_manufacturer_ID[0x0580] = "Innovation LED Limited 	"
+sACN_manufacturer_ID[0x0586] = "K 5600, Inc. 	"
+sACN_manufacturer_ID[0x0588] = "GuangZhou XiangMing Light Limited  	"
+sACN_manufacturer_ID[0x05A0] = "Stage Smarts AB 	"
+sACN_manufacturer_ID[0x05AB] = "Shenzhen Lesan Lighting Co., Ltd.  	"
+sACN_manufacturer_ID[0x05B5] = "Turkowski GmbH  	"
+sACN_manufacturer_ID[0x05CF] = "Brighten Technology Development Co., Ltd. 	"
+sACN_manufacturer_ID[0x05D3] = "D-LED Illumination Technologies Ltd. 	"
+sACN_manufacturer_ID[0x05EB] = "GUANGZHOU BO WEI TE LIGHTING CO.LTD 	"
+sACN_manufacturer_ID[0x05EF] = "Guangzhou Chai Yi Light Co., Ltd. 	"
+sACN_manufacturer_ID[0x05F7] = "Immersive Design Studios Inc.  	"
+sACN_manufacturer_ID[0x0606] = "Guangzhou YiGuang Stage Lighting Co., Ltd. 	"
+sACN_manufacturer_ID[0x0609] = "Diginet Control Systems Pty Ltd 	"
+sACN_manufacturer_ID[0x060A] = "Kindwin Opto Electronic (ShenZhen) Co. Ltd 	"
+sACN_manufacturer_ID[0x060B] = "Lighting Science Group (formerly LED Effects, Inc.) 	"
+sACN_manufacturer_ID[0x062B] = "CKC Lighting Co., Ltd. 	"
+sACN_manufacturer_ID[0x063A] = "AVM Belgium BVBA 	"
+sACN_manufacturer_ID[0x0644] = "COLEDER DISPLAY CO., LTD. 	"
+sACN_manufacturer_ID[0x0645] = "MATSUMURA ELECTRIC MFG. CO. , LTD. 	"
+sACN_manufacturer_ID[0x0650] = "RDC, Inc. d.b.a. LynTec 	"
+sACN_manufacturer_ID[0x0653] = "USAI, LLC 	"
+sACN_manufacturer_ID[0x0654] = "HUNAN XIANG CAIXU FILM AND TELEVISION CULTURE CO.LTD 	"
+sACN_manufacturer_ID[0x065E] = "OFilms 	"
+sACN_manufacturer_ID[0x066F] = "GUANGZHOU CY LIGHTING EQUIPMENT CO.,LTD 	"
+sACN_manufacturer_ID[0x067C] = "LOTRONIC SA 	"
+sACN_manufacturer_ID[0x0682] = "Beijing Ming Rui Lighting Technology Co., Ltd.  	"
+sACN_manufacturer_ID[0x0684] = "LEDART LLC 	"
+sACN_manufacturer_ID[0x0685] = "IBL/ESD-Datentechnik GmbH 	"
+sACN_manufacturer_ID[0x068E] = "GUANGZHOU TEANMA STAGE LIGHTING FACTORY 	"
+sACN_manufacturer_ID[0x06A0] = "Light.Audio.Design 	"
+sACN_manufacturer_ID[0x06A1] = "ProTec GmbH 	"
+sACN_manufacturer_ID[0x06A3] = "RODLIGHT ALBRECHT SILBERBERGER 	"
+sACN_manufacturer_ID[0x06AE] = "CANARA LIGHTING INDUSTRIES PVT LTD 	"
+sACN_manufacturer_ID[0x06B9] = "GUANGZHOU DASEN LIGHTING CORPORATION LIMITED 	"
+sACN_manufacturer_ID[0x06C4] = "RHENAC Systems GmbH 	"
+sACN_manufacturer_ID[0x06C7] = "L&L Luce&Light 	"
+sACN_manufacturer_ID[0x06CE] = "American-Pro International 	"
+sACN_manufacturer_ID[0x06E6] = "Equipson S.A. 	"
+sACN_manufacturer_ID[0x06EC] = "SISTEMA Jsc 	"
+sACN_manufacturer_ID[0x06F0] = "CTG sp. z o.o. 	"
+sACN_manufacturer_ID[0x0702] = "Drinelec 	"
+sACN_manufacturer_ID[0x0707] = "Conceptinetics Technologies and Consultancy Ltd. 	"
+sACN_manufacturer_ID[0x0708] = "AK-LIGHT 	"
+sACN_manufacturer_ID[0x070F] = "Theatrelight New Zealand 	"
+sACN_manufacturer_ID[0x0710] = "D.T.S. Illuminazione srl 	"
+sACN_manufacturer_ID[0x0712] = "Laser Imagineering GmbH 	"
+sACN_manufacturer_ID[0x071F] = "Moss LED Inc 	"
+sACN_manufacturer_ID[0x0724] = "PHC Lighting & BMS Sp. z o.o. 	"
+sACN_manufacturer_ID[0x072C] = "SGM A/S 	"
+sACN_manufacturer_ID[0x072F] = "RayComposer - R. Adams 	"
+sACN_manufacturer_ID[0x0732] = "Galaxia Electronics 	"
+sACN_manufacturer_ID[0x0734] = "CPOINT 	"
+sACN_manufacturer_ID[0x073B] = "Corsair Technology Ltd. 	"
+sACN_manufacturer_ID[0x074F] = "Panasonic Corporation 	"
+sACN_manufacturer_ID[0x0758] = "IMPOLUX GmbH 	"
+sACN_manufacturer_ID[0x075F] = "LEDEngin Inc. 	"
+sACN_manufacturer_ID[0x076A] = "BeamZ (Tronios B.V.) 	"
+sACN_manufacturer_ID[0x0776] = "lumenetix 	"
+sACN_manufacturer_ID[0x078A] = "DMXTOOLBOX 	FATEC sarl 	"
+sACN_manufacturer_ID[0x0792] = "MY-Semi Inc. 	"
+sACN_manufacturer_ID[0x07A3] = "Guangzhou GBR PROLIGHT GROUP CO.,LTD (GBR PROLIGHT) 	"
+sACN_manufacturer_ID[0x07AD] = "CLS LED BV 	"
+sACN_manufacturer_ID[0x07AE] = "A-LITE B.V. 	"
+sACN_manufacturer_ID[0x07B0] = "ADDiCTiON BoX GbR 	"
+sACN_manufacturer_ID[0x07B1] = "TBF-PyroTec GmbH  	"
+sACN_manufacturer_ID[0x07B5] = "ARM Automation, Inc 	"
+sACN_manufacturer_ID[0x07C0] = "Code Mercenaries GmbH 	"
+sACN_manufacturer_ID[0x07C2] = "BOOQlight BV 	"
+sACN_manufacturer_ID[0x07CC] = "Griven S.r.l. 	"
+sACN_manufacturer_ID[0x07CF] = "MH-Sound 	"
+sACN_manufacturer_ID[0x07DA] = "Flytech s.r.l. 	"
+sACN_manufacturer_ID[0x07EA] = "Le Maitre Ltd 	"
+sACN_manufacturer_ID[0x07F3] = "Sam Light 	"
+sACN_manufacturer_ID[0x07FD] = "THELIGHT Luminary for Cine and TV S.L. 	"
+sACN_manufacturer_ID[0x07FF] = "Guangzhou HOMEI LIGHT Manufacturer 	"
+sACN_manufacturer_ID[0x0800] = "Hongyeah Light 	"
+sACN_manufacturer_ID[0x0807] = "Event Lighting Pty, Ltd. 	"
+sACN_manufacturer_ID[0x0808] = "Eaton - Zero 88 	"
+sACN_manufacturer_ID[0x0809] = "mumoco GmbH 	"
+sACN_manufacturer_ID[0x080A] = "Shenzhen FantaLED Electronics Co., Ltd 	"
+sACN_manufacturer_ID[0x080D] = "HBJ Elektronik 	"
+sACN_manufacturer_ID[0x080F] = "Navo Corp. 	"
+sACN_manufacturer_ID[0x0823] = "Opito Labs GmbH 	"
+sACN_manufacturer_ID[0x083A] = "Bright Ideas Custom Electronics Inc. 	"
+sACN_manufacturer_ID[0x083F] = "Shenzhen LeiFei Lighting Technologies Co.,Ltd. 	"
+sACN_manufacturer_ID[0x0845] = "Cush Light LLC 	"
+sACN_manufacturer_ID[0x084B] = "Neon Circus Ltd 	"
+sACN_manufacturer_ID[0x084C] = "Guangzhou Ba Lin Electronic Technology Co., Ltd. 	"
+sACN_manufacturer_ID[0x084D] = "Guangzhou NECO Stage Lighting Factory 	"
+sACN_manufacturer_ID[0x0851] = "Junction Inc. Ltd 	"
+sACN_manufacturer_ID[0x0858] = "Juno Lighting Group  	"
+sACN_manufacturer_ID[0x085A] = "Guangzhou Ming Jing Stage Light Equipment Co., Ltd. 	"
+sACN_manufacturer_ID[0x085F] = "Media Visions, Inc. 	"
+sACN_manufacturer_ID[0x0865] = "Contrade GmbH 	"
+sACN_manufacturer_ID[0x0869] = "Club Cannon LLC 	"
+sACN_manufacturer_ID[0x086E] = "Guangzhou Hi-LTTE Electronics Technology Co.,Ltd  	"
+sACN_manufacturer_ID[0x0870] = "Hunan YESTECH Optoelectronic Co., Ltd 	"
+sACN_manufacturer_ID[0x0874] = "Snow Professional Lighting 	"
+sACN_manufacturer_ID[0x0875] = "ARC Solid-State Lighting Corp. 	"
+sACN_manufacturer_ID[0x0876] = "Power Gems LTD 	"
+sACN_manufacturer_ID[0x0878] = "OTTEC Technology GmbH 	"
+sACN_manufacturer_ID[0x0880] = "GuangZhou LiDang Technology Inc. 	"
+sACN_manufacturer_ID[0x0884] = "Bright Group 	"
+sACN_manufacturer_ID[0x0885] = "SIRS-E 	"
+sACN_manufacturer_ID[0x088A] = "Highendled Electronics Company Limited 	"
+sACN_manufacturer_ID[0x088D] = "Guangzhou Ling Yang lighting Science and Technology Co.,Ltd 	"
+sACN_manufacturer_ID[0x088E] = "Stage One International Co., Ltd.  	"
+sACN_manufacturer_ID[0x088F] = "First Design System Inc. 	"
+sACN_manufacturer_ID[0x0890] = "Taurus Light Co.,Limited 	"
+sACN_manufacturer_ID[0x0891] = "Feiner Lichttechnik GMBH 	"
+sACN_manufacturer_ID[0x089A] = "ADL Electronics Ltd. 	"
+sACN_manufacturer_ID[0x089D] = "gobo.ws 	"
+sACN_manufacturer_ID[0x08A2] = "Guangzhou Gesida Light Equipment Co., Ltd. 	"
+sACN_manufacturer_ID[0x08A4] = "Adam Hall GmbH 	"
+sACN_manufacturer_ID[0x08A7] = "GuangZhou Deliya Opto-electronic Tech Co., Ltd 	"
+sACN_manufacturer_ID[0x08AA] = "PiXL Factory 	"
+sACN_manufacturer_ID[0x08AB] = "Qdot Lighting Limited  	"
+sACN_manufacturer_ID[0x08AC] = "Bushveld Labs 	"
+sACN_manufacturer_ID[0x08AD] = "Optical Productions LLC 	"
+sACN_manufacturer_ID[0x08AF] = "AAdyn Technology 	"
+sACN_manufacturer_ID[0x08B0] = "KIM Lighting 	"
+sACN_manufacturer_ID[0x08B2] = "MCI Group 	"
+sACN_manufacturer_ID[0x08B3] = "Stealth Light srl 	"
+sACN_manufacturer_ID[0x08B6] = "Graf Lichttechnik UG 	"
+sACN_manufacturer_ID[0x08BA] = "Meteor Lighting 	"
+sACN_manufacturer_ID[0x08BB] = "Guangzhou CHEN Electronic Technology Co., Ltd. 	"
+sACN_manufacturer_ID[0x08BD] = "Lug Light Factory Sp. z o. o. 	"
+sACN_manufacturer_ID[0x08BF] = "Times Square Stage Lighting Inc. 	"
+sACN_manufacturer_ID[0x08C1] = "Project SSSHH Incorporated 	"
+sACN_manufacturer_ID[0x08C3] = "Guangzhou Spark Stage Equipment Co. Ltd 	"
+sACN_manufacturer_ID[0x08C5] = "EHRGEIZ Lichttechnik GmbH 	"
+sACN_manufacturer_ID[0x08D3] = "SVI Public Company Limited  	"
+sACN_manufacturer_ID[0x08D4] = "Sensa-Lite Ltd. 	"
+sACN_manufacturer_ID[0x08D6] = "Guangzhou Precision Vision Intelligent Equipment Co, Ltd 	"
+sACN_manufacturer_ID[0x08D7] = "PatternAgents, LLC 	"
+sACN_manufacturer_ID[0x08D8] = "W.A. Benjamin Electric Co. 	"
+sACN_manufacturer_ID[0x08D9] = "STILED 	"
+sACN_manufacturer_ID[0x08DA] = "PLC Intelligent Technology (Shanghai) Co., Ltd. 	"
+sACN_manufacturer_ID[0x08DD] = "Matthew Tong 	"
+sACN_manufacturer_ID[0x08E0] = "Red Arrow Controls 	"
+sACN_manufacturer_ID[0x08E1] = "Shenzhen CLT Electronics Co.,LTD  	"
+sACN_manufacturer_ID[0x08E3] = "Guangzhou JinZhiHui Electronic Technology Co.,Ltd. 	"
+sACN_manufacturer_ID[0x08E7] = "3A Guangzhou Electronics Co., Ltd 	"
+sACN_manufacturer_ID[0x08EC] = "Marvin Nadrowski 	"
+sACN_manufacturer_ID[0x08ED] = "ShowLED 	"
+sACN_manufacturer_ID[0x08EE] = "Spacelights 	"
+sACN_manufacturer_ID[0x08F0] = "Guang Dong LMJ Lighting Co., Ltd 	"
+sACN_manufacturer_ID[0x08F1] = "SanDevices, LLC 	"
+sACN_manufacturer_ID[0x08F3] = "Outdoor Lasers Ltd. 	"
+sACN_manufacturer_ID[0x08F6] = "Eulum Design, LLC 	"
+sACN_manufacturer_ID[0x08F9] = "ACS - Ackerman Computer Sciences 	"
+sACN_manufacturer_ID[0x08FA] = "Phaton Lighting Co., Ltd. 	"
+sACN_manufacturer_ID[0x08FE] = "Zhuhai Shengchang Electronics Co., Ltd. 	"
+sACN_manufacturer_ID[0x0900] = "nox multimedia GmbH 	"
+sACN_manufacturer_ID[0x0901] = "CaveLighting 	GermTec GmbH & Co. KG 	"
+sACN_manufacturer_ID[0x0902] = "DongGuan Betterway Lighting Co.,Ltd 	"
+sACN_manufacturer_ID[0x0903] = "Shenzhen INFiLED Electronics, Ltd. 	"
+sACN_manufacturer_ID[0x0904] = "Bigbear Co., Ltd. 	"
+sACN_manufacturer_ID[0x090C] = "GRE Alpha 	"
+sACN_manufacturer_ID[0x090E] = "Sichuan esRadio Technology Co., Ltd 	"
+sACN_manufacturer_ID[0x0911] = "Guangzhou Aceda Professional Lighting Co., Ltd. 	"
+sACN_manufacturer_ID[0x0912] = "ags - Wissenschaftliche Arbeitsgemeinschaft fur Studio- und Senderfragen 	"
+sACN_manufacturer_ID[0x0914] = "Xenio 	"
+sACN_manufacturer_ID[0x0916] = "ACTOR-MATE CO., LTD. 	"
+sACN_manufacturer_ID[0x0918] = "David O Smith Design 	"
+sACN_manufacturer_ID[0x091A] = "Celex LED Technology Ltd. 	"
+sACN_manufacturer_ID[0x091B] = "Krislite Pte. Ltd. 	"
+sACN_manufacturer_ID[0x091D] = "TouchPlate Technologies Inc. 	"
+sACN_manufacturer_ID[0x0920] = "Vexica Technology Limited 	"
+sACN_manufacturer_ID[0x0923] = "Hangzhou Roleds Lighting System Co., Ltd. 	"
+sACN_manufacturer_ID[0x0925] = "Guangzhou Aiweidy Lighting Acoustics Equipment Co.,Ltd. 	"
+sACN_manufacturer_ID[0x0926] = "Elumeros Lighting Limited  	"
+sACN_manufacturer_ID[0x092F] = "Guangzhou Shinelight Stage Equipment Factory  	"
+sACN_manufacturer_ID[0x0930] = "jiaozuo shengguang film &equipment Co. Ltd 	"
+sACN_manufacturer_ID[0x0931] = "Cristal Controles 	"
+sACN_manufacturer_ID[0x0935] = "Guangzhou Huadu District Richa Lighting Equipment Factory 	"
+sACN_manufacturer_ID[0x0936] = "AquaTronic 	"
+sACN_manufacturer_ID[0x0938] = "Guangzhou Vanray Lighting Equipment CO.,Ltd. 	"
+sACN_manufacturer_ID[0x0939] = "Edelmann Electronics 	"
+sACN_manufacturer_ID[0x093A] = "HDT impex s.r.o. 	"
+sACN_manufacturer_ID[0x093F] = "Guangzhou Julong Platform Lighting Equipment Factory 	"
+sACN_manufacturer_ID[0x0940] = "Shenzhen CreateLED Electronics Co., Ltd 	"
+sACN_manufacturer_ID[0x0941] = "Shenzen Zhuoyang Intelligent Technology Co., Ltd. 	"
+sACN_manufacturer_ID[0x0945] = "Guangzhou Lin Xiang Stage Lighting Equipment CO.,LTD 	"
+sACN_manufacturer_ID[0x0946] = "TBE Srl 	"
+sACN_manufacturer_ID[0x0951] = "Guangzhou GTD Lighting Technology Co., Ltd  	"
+sACN_manufacturer_ID[0x0952] = "Guangzhou Sunway Entertainment Equipment Co., Ltd. 	"
+sACN_manufacturer_ID[0x0958] = "VDI 	Illum Technology LLC (previously Verde Designs, Inc.) 	"
+sACN_manufacturer_ID[0x0959] = "Urbs Lighting, LLC 	"
+sACN_manufacturer_ID[0x095A] = "kLabs Research UK 	"
+sACN_manufacturer_ID[0x095F] = "ElabNET 	Elaborated Networks GmbH 	"
+sACN_manufacturer_ID[0x0960] = "Fineline Solutions Ltd. 	"
+sACN_manufacturer_ID[0x0965] = "Fontana Fountains 	"
+sACN_manufacturer_ID[0x096D] = "Guangzhou Xin Yilong Stage Lighting Equipment Co., Limited 	"
+sACN_manufacturer_ID[0x0974] = "Marumo Electric Co., Ltd. 	"
+sACN_manufacturer_ID[0x0975] = "KB Design 	"
+sACN_manufacturer_ID[0x0977] = "Guangzhou HuaYong Intelligent Technology Co., Ltd. 	"
+sACN_manufacturer_ID[0x097A] = "Teamboyce Limited 	"
+sACN_manufacturer_ID[0x097D] = "Brink Electronics 	"
+sACN_manufacturer_ID[0x097F] = "RaumZeitLabor e.V. 	"
+sACN_manufacturer_ID[0x0980] = "Moog Animatics 	"
+sACN_manufacturer_ID[0x0981] = "Luxam, Ltd. 	"
+sACN_manufacturer_ID[0x0982] = "AC Entertainment Products Ltd. 	"
+sACN_manufacturer_ID[0x0986] = "ROE Visual Co. Ltd. 	"
+sACN_manufacturer_ID[0x0987] = "mathertel.de 	"
+sACN_manufacturer_ID[0x098B] = "Glow Motion Technologies, LLC. 	"
+sACN_manufacturer_ID[0x098C] = "Shenzhen Longrich Energy Sources Technology Co., Ltd.  	"
+sACN_manufacturer_ID[0x098D] = "Batmink Ltd. 	"
+sACN_manufacturer_ID[0x098E] = "Ecosense Lighting Company Limited  	"
+sACN_manufacturer_ID[0x098F] = "Digital Sputnik Lighting 	"
+sACN_manufacturer_ID[0x0996] = "CCI Power Supplies, LLC 	"
+sACN_manufacturer_ID[0x099A] = "Aixz International (S) 	"
+sACN_manufacturer_ID[0x099E] = "LLC Lighting Technologies production 	"
+sACN_manufacturer_ID[0x09A0] = "   Rnet 	Rnet Lighting Technology Limited 	"
+sACN_manufacturer_ID[0x09A2] = "Fountain People 	"
+sACN_manufacturer_ID[0x09A5] = "Prolight Concepts Ltd. 	"
+sACN_manufacturer_ID[0x09AE] = "Robert Juliat 	"
+sACN_manufacturer_ID[0x09AF] = "Autotech Co. 	"
+sACN_manufacturer_ID[0x09B3] = "Aquatique Show Int. 	"
+sACN_manufacturer_ID[0x09B4] = "Brompton Technology Ltd. 	"
+sACN_manufacturer_ID[0x09B8] = "Prolites S.A.L. 	"
+sACN_manufacturer_ID[0x09C1] = "Argetron Elektrik Elektronik Organizasyon Gida San. ve Dis Tic. Ltd. Sti. 	"
+sACN_manufacturer_ID[0x09C3] = "Velleman nv 	"
+sACN_manufacturer_ID[0x09C8] = "Crystal Fountains Inc. 	"
+sACN_manufacturer_ID[0x09CC] = "Motomuto Aps 	"
+sACN_manufacturer_ID[0x09D3] = "WLPS Wodielite Production Services 	"
+sACN_manufacturer_ID[0x09D6] = "Mittomakers 	"
+sACN_manufacturer_ID[0x09D7] = "Unilumin Group 	"
+sACN_manufacturer_ID[0x09DE] = "Matthias Bauch Software 	"
+sACN_manufacturer_ID[0x09E9] = "Starway 	"
+sACN_manufacturer_ID[0x09FC] = "deskontrol electronics 	"
+sACN_manufacturer_ID[0x0A01] = "Star-Reach Corporation 	"
+sACN_manufacturer_ID[0x1112] = "Zhuhai Bincolor Electronic Technology Co., Ltd. 	"
+sACN_manufacturer_ID[0x1113] = "SiliconCore Technology, Inc. 	"
+sACN_manufacturer_ID[0x1200] = "Seekway Technology Limited 	"
+sACN_manufacturer_ID[0x1212] = "HPL Light Company 	"
+sACN_manufacturer_ID[0x1234] = "ESTA 	"
+sACN_manufacturer_ID[0x12DA] = "Newlab S.r.l. 	"
+sACN_manufacturer_ID[0x12E0] = "Luxlight Skandinavien AB 	"
+sACN_manufacturer_ID[0x12EA] = "Kolberg Percussion GmbH 	"
+sACN_manufacturer_ID[0x12F4] = "Stage Services Ltd. 	"
+sACN_manufacturer_ID[0x12FA] = "Hollywood Rentals LLC 	"
+sACN_manufacturer_ID[0x12FE] = "City Design S.p.A. 	"
+sACN_manufacturer_ID[0x131E] = "Blossom Communications Corp. 	"
+sACN_manufacturer_ID[0x1337] = "Raven Systems Design, Inc. 	"
+sACN_manufacturer_ID[0x134D] = "VT-Control 	"
+sACN_manufacturer_ID[0x1370] = "Ingenieurbuero Stahlkopf 	"
+sACN_manufacturer_ID[0x13AE] = "Smartpark Creative Solutions 	"
+sACN_manufacturer_ID[0x1460] = "SEIKO Epson Corporation 	"
+sACN_manufacturer_ID[0x1464] = "HUMAL Elektroonika OU 	"
+sACN_manufacturer_ID[0x1490] = "Grid Show Systems Inc. 	"
+sACN_manufacturer_ID[0x14A0] = "Intense Lighting, LLC 	"
+sACN_manufacturer_ID[0x14AC] = "Zaklad Elektroniczny AGAT s.c. 	"
+sACN_manufacturer_ID[0x1506] = "v2 Lighting Group, Inc. 	"
+sACN_manufacturer_ID[0x150C] = "ACASS SYSTEMS LLC 	"
+sACN_manufacturer_ID[0x152A] = "SHOWTACLE Ltd. 	"
+sACN_manufacturer_ID[0x154E] = "Fire & Magic 	"
+sACN_manufacturer_ID[0x15A0] = "   MCSWE 	GuangZhou MCSWE Technologies, INC  	"
+sACN_manufacturer_ID[0x15A2] = "FEIMEX 	"
+sACN_manufacturer_ID[0x15D0] = "Music & Lights S.r.l. 	"
+sACN_manufacturer_ID[0x161A] = "techKnow Design Ltd. 	"
+sACN_manufacturer_ID[0x1626] = "LEDsistem Teknolojileri Tic. Ltd. Sti. 	"
+sACN_manufacturer_ID[0x162A] = "Nerd's Meter 	"
+sACN_manufacturer_ID[0x1690] = "awaptec GmbH 	"
+sACN_manufacturer_ID[0x16AE] = "Electrone Americas Ltd. Co. 	"
+sACN_manufacturer_ID[0x16DC] = "Traxon Technologies Ltd.  	"
+sACN_manufacturer_ID[0x16E4] = "Aboutshow Color Light Co., LTD 	"
+sACN_manufacturer_ID[0x16FA] = "Lite Puter Enterprise Co., Ltd. 	"
+sACN_manufacturer_ID[0x170E] = "   SERVA 	Serva Transport Systems GmbH 	"
+sACN_manufacturer_ID[0x174E] = "Nordgas SNe-lightingsystem 	"
+sACN_manufacturer_ID[0x1750] = "   YUESHENG 	Yuesheng International Limited 	"
+sACN_manufacturer_ID[0x1808] = "Guangzhou Jinye Electronic Technology Co., Ltd. 	"
+sACN_manufacturer_ID[0x1809] = "Rotolight 	"
+sACN_manufacturer_ID[0x1888] = "GUANZHOU KAVON STAGE EQUIPMENT CO., LTD. 	"
+sACN_manufacturer_ID[0x18A6] = "Steadfast Technology 	"
+sACN_manufacturer_ID[0x1938] = "Solid State Luminaires 	"
+sACN_manufacturer_ID[0x1998] = "PLS Electronics Ltd. 	"
+sACN_manufacturer_ID[0x19B9] = "Duralamp S.p.A. 	"
+sACN_manufacturer_ID[0x19BA] = "Guangzhou Xinzhijie Photoelectric Co., Ltd. 	"
+sACN_manufacturer_ID[0x19BB] = "Panalux Ltd. 	"
+sACN_manufacturer_ID[0x19F8] = "CEZOS Spolka z ograniczona odpowiedzialnoscia, sp.k. 	"
+sACN_manufacturer_ID[0x1A0D] = "Cineo Lighting 	"
+sACN_manufacturer_ID[0x1A16] = "WADAK GmbH 	"
+sACN_manufacturer_ID[0x1A3D] = "Red Lighting s.r.l. 	"
+sACN_manufacturer_ID[0x1AFA] = "TMB 	"
+sACN_manufacturer_ID[0x1BB1] = "PH Lightning AB 	"
+sACN_manufacturer_ID[0x1BC0] = "ALS Stanislaw Binkiewicz 	"
+sACN_manufacturer_ID[0x1BC6] = "Studio S Music City 	"
+sACN_manufacturer_ID[0x1C80] = "   Vehtec 	Vehtec Tecnologia Ltda 	"
+sACN_manufacturer_ID[0x1E8D] = "Moda Light 	"
+sACN_manufacturer_ID[0x1ECF] = "Masiero s.r.l. 	"
+sACN_manufacturer_ID[0x1ED8] = "Antari Lighting And Effects Ltd. 	"
+sACN_manufacturer_ID[0x2009] = "Zboxes Intelligent Technology (Shanghai) Co., Ltd.  	"
+sACN_manufacturer_ID[0x2011] = "Gantom Lighting & Controls 	"
+sACN_manufacturer_ID[0x207F] = "Padura Elektronik GmbH 	"
+sACN_manufacturer_ID[0x20A6] = "ALADIN Architekturlicht GmbH 	"
+sACN_manufacturer_ID[0x20AD] = "AZ e-lite Pte Ltd 	"
+sACN_manufacturer_ID[0x20B6] = "Alkalite LED Technology Corp 	"
+sACN_manufacturer_ID[0x20B9] = "ARRI -- Arnold & Richter Cine Technik GmbH & Co. Betriebs KG 	"
+sACN_manufacturer_ID[0x20BA] = "AusChristmasLighting 	"
+sACN_manufacturer_ID[0x2121] = "Brother,Brother & Sons Aps 	"
+sACN_manufacturer_ID[0x2122] = "BEGLEC NV 	"
+sACN_manufacturer_ID[0x2130] = "Bart van Stiphout Electronics & Software 	"
+sACN_manufacturer_ID[0x21A1] = "Culture Crew bvba 	"
+sACN_manufacturer_ID[0x21A4] = "CHAUVET Lighting 	"
+sACN_manufacturer_ID[0x21A9] = "CaptSystemes 	"
+sACN_manufacturer_ID[0x21B3] = "Coolon Pty Ltd 	"
+sACN_manufacturer_ID[0x21B4] = "CHROMLECH 	"
+sACN_manufacturer_ID[0x21B5] = "ChromaCove LLC 	"
+sACN_manufacturer_ID[0x2208] = "C.I.M.E.S. (Conception Installation Maintenance En Eclairage & Sonorisation) 	"
+sACN_manufacturer_ID[0x2216] = "D-Light Designs, LLC 	"
+sACN_manufacturer_ID[0x2222] = "D.E.F. Srl 	"
+sACN_manufacturer_ID[0x2224] = "DAS Integrator Pte Ltd 	"
+sACN_manufacturer_ID[0x2239] = "Dream Solutions Ltd. 	"
+sACN_manufacturer_ID[0x22A0] = "EAS SYSTEMS 	"
+sACN_manufacturer_ID[0x22A6] = "Elation Lighting 	"
+sACN_manufacturer_ID[0x22A9] = "Engineering Solutions Inc. 	"
+sACN_manufacturer_ID[0x22AA] = "EUTRAC - Intelligent Lighting GmbH 	"
+sACN_manufacturer_ID[0x22AB] = "EVC 	"
+sACN_manufacturer_ID[0x22B9] = "Etherlight 	"
+sACN_manufacturer_ID[0x2337] = "Focon Showtechnic 	"
+sACN_manufacturer_ID[0x23B2] = "Gekko Technology Ltd. 	"
+sACN_manufacturer_ID[0x2421] = "HB-Laserkomponenten GmbH 	"
+sACN_manufacturer_ID[0x242A] = "Hungaroflash 	"
+sACN_manufacturer_ID[0x2432] = "Helvar Ltd 	"
+sACN_manufacturer_ID[0x2470] = "Hale Microsystems LLC 	"
+sACN_manufacturer_ID[0x24A3] = "Lighting Innovation Group AG 	"
+sACN_manufacturer_ID[0x24AA] = "IT Ihme 	"
+sACN_manufacturer_ID[0x2621] = "LEADER LIGHT s.r.o. 	"
+sACN_manufacturer_ID[0x2622] = "LDDE Vertriebs Gmbh 	"
+sACN_manufacturer_ID[0x2623] = "Leonh Hardware Enterprise Inc. 	"
+sACN_manufacturer_ID[0x2624] = "Lisys Fenyrendszer Zrt. 	"
+sACN_manufacturer_ID[0x2626] = "LLT Lichttechnik GmbH&CO.KG 	"
+sACN_manufacturer_ID[0x2630] = "Laservision Pty Ltd 	"
+sACN_manufacturer_ID[0x2632] = "Lehigh Electric Products 	"
+sACN_manufacturer_ID[0x2635] = "LjusDesign AB 	"
+sACN_manufacturer_ID[0x2636] = "Lumonic Limited 	"
+sACN_manufacturer_ID[0x2637] = "Loxone Electronics GmbH 	"
+sACN_manufacturer_ID[0x263A] = "Lumenec Pty. Ltd. 	"
+sACN_manufacturer_ID[0x263C] = "I-Pix Digital Light Ltd. 	"
+sACN_manufacturer_ID[0x26A2] = "MEGATECHNICS Ltd. 	"
+sACN_manufacturer_ID[0x26B4] = "Milford Instruments Ltd. 	"
+sACN_manufacturer_ID[0x2724] = "Nila Inc. 	"
+sACN_manufacturer_ID[0x2734] = "Nixer Ltd. 	"
+sACN_manufacturer_ID[0x27A8] = "Callegenix LLC 	"
+sACN_manufacturer_ID[0x2821] = "Pioneer Corporation 	"
+sACN_manufacturer_ID[0x2826] = "Peter Maes Technology 	"
+sACN_manufacturer_ID[0x2827] = "	Peternet Electronics BVBA  	"
+sACN_manufacturer_ID[0x2829] = "PR-Electronic 	"
+sACN_manufacturer_ID[0x2836] = "Planungsbuero 	"
+sACN_manufacturer_ID[0x28E1] = "MTC maintronic GmbH 	"
+sACN_manufacturer_ID[0x2927] = "ROAL Electronics SpA 	"
+sACN_manufacturer_ID[0x2984] = "Getlux Ltd. 	"
+sACN_manufacturer_ID[0x2999] = "ALL-DO INTERNATIONAL CO., LTD. 	"
+sACN_manufacturer_ID[0x29A1] = "Sturdy Corporation 	"
+sACN_manufacturer_ID[0x29A9] = "SRS Light Design 	"
+sACN_manufacturer_ID[0x29AA] = "Steinigke Showtechnic GmbH 	"
+sACN_manufacturer_ID[0x29B2] = "Selectron Bvba 	"
+sACN_manufacturer_ID[0x29B4] = "Showtec (Highlite International B.V.) 	"
+sACN_manufacturer_ID[0x29B7] = "Sundrax, LLC 	"
+sACN_manufacturer_ID[0x29B8] = "Spotlight s.r.l. 	"
+sACN_manufacturer_ID[0x29BA] = "State Automation Pty Ltd. 	"
+sACN_manufacturer_ID[0x29E8] = "Stroytsirk LLC 	"
+sACN_manufacturer_ID[0x2A25] = "Thorn Lighting Limited 	"
+sACN_manufacturer_ID[0x2A26] = "Toni Maroni Gmb 	"
+sACN_manufacturer_ID[0x2AAB] = "Urban Visuals & Effects Ltd. 	"
+sACN_manufacturer_ID[0x2B28] = "Visual Productions 	"
+sACN_manufacturer_ID[0x2BA2] = "WERPAX bvba 	"
+sACN_manufacturer_ID[0x2BA9] = "The White Rabbit Company, Inc. 	"
+sACN_manufacturer_ID[0x2BB4] = "Williams Electronic Design Ltd. 	"
+sACN_manufacturer_ID[0x2C1A] = "DMX4ALL GmbH 	"
+sACN_manufacturer_ID[0x2C2A] = "XTBA 	"
+sACN_manufacturer_ID[0x2CE0] = "Lighting Services Inc. 	"
+sACN_manufacturer_ID[0x2DC8] = "Stellascapes 	"
+sACN_manufacturer_ID[0x3235] = "de koster Special Effects 	"
+sACN_manufacturer_ID[0x3331] = "DMG Lumiere 	"
+sACN_manufacturer_ID[0x3332] = "Teclumen s.r.l. 	"
+sACN_manufacturer_ID[0x3333] = "NightStarry Electronics Co., LTD. 	"
+sACN_manufacturer_ID[0x3388] = "Macostar International Ltd. 	"
+sACN_manufacturer_ID[0x3434] = "Global Design Solutions, Ltd. 	"
+sACN_manufacturer_ID[0x3534] = "Five4, LLC 	"
+sACN_manufacturer_ID[0x361D] = "Lumishore Ltd. UK 	"
+sACN_manufacturer_ID[0x3638] = "Lumenpulse Lighting Inc. 	"
+sACN_manufacturer_ID[0x37D7] = "Lichttechnik & Sonderbau 	"
+sACN_manufacturer_ID[0x3805] = "Yifeng Lighting Co., Ltd. 	"
+sACN_manufacturer_ID[0x3806] = "ACME EFFECTS LTD. 	"
+sACN_manufacturer_ID[0x3868] = "LanBolight Technology Co., LTD. 	"
+sACN_manufacturer_ID[0x3888] = "Fly Dragon Lighting Equipment Co.,ltd 	"
+sACN_manufacturer_ID[0x388A] = "Guangzhou Yajiang (Yagang - Silver Star) Photoelectric Equipment Ltd. 	"
+sACN_manufacturer_ID[0x3A37] = "TheOlymp - Networking & InterNet Services 	"
+sACN_manufacturer_ID[0x3AFC] = "Black Tank Engineering 	"
+sACN_manufacturer_ID[0x3B10] = "NXP Semiconductors B.V. 	"
+sACN_manufacturer_ID[0x3B88] = "Shenzhen Eastar Electronic Co., Ltd. 	"
+sACN_manufacturer_ID[0x3D30] = "zactrack Lighting Technologies Gmbh 	"
+sACN_manufacturer_ID[0x400D] = "Quasar Science LLC 	"
+sACN_manufacturer_ID[0x4051] = "SAN JACK ANALOG HOUSE CO., LTD. 	"
+sACN_manufacturer_ID[0x4131] = "Altman Stage Lighting 	"
+sACN_manufacturer_ID[0x4141] = "AVAB America, Inc. 	"
+sACN_manufacturer_ID[0x4142] = "Filmgear, Inc. 	"
+sACN_manufacturer_ID[0x4143] = "AC Lasers 	"
+sACN_manufacturer_ID[0x4144] = "ADB - TTV Technologies nv 	"
+sACN_manufacturer_ID[0x4145] = "ADE ELETTRONICA srl  	"
+sACN_manufacturer_ID[0x4146] = "AUS FX 	"
+sACN_manufacturer_ID[0x4149] = "Anidea Engineering, Inc. 	"
+sACN_manufacturer_ID[0x414C] = "Artistic Licence Engineering Ltd. 	"
+sACN_manufacturer_ID[0x414D] = "Amptown Lichttechnik GmbH 	"
+sACN_manufacturer_ID[0x414E] = "Anytronics Ltd. 	"
+sACN_manufacturer_ID[0x4150] = "Apogee Lighting 	"
+sACN_manufacturer_ID[0x4151] = "Aquarii, Inc. 	"
+sACN_manufacturer_ID[0x4153] = "Audio Scene 	"
+sACN_manufacturer_ID[0x4154] = "Arnold Tang Productions 	"
+sACN_manufacturer_ID[0x4156] = "Audio Visual Devices P/L 	"
+sACN_manufacturer_ID[0x4164] = "Adelto Limited 	"
+sACN_manufacturer_ID[0x416C] = "Alenco BV 	"
+sACN_manufacturer_ID[0x4172] = "ARNOLD LICHTTECHNIK 	"
+sACN_manufacturer_ID[0x4173] = "Astera LED Technology GmbH 	"
+sACN_manufacturer_ID[0x4179] = "AYRTON 	"
+sACN_manufacturer_ID[0x4241] = "BECKHOFF Automation GmbH 	"
+sACN_manufacturer_ID[0x4243] = "Bill Coghill Company : Bill Coghill Design 	"
+sACN_manufacturer_ID[0x4245] = "Bytecraft Entertainment Pty Ltd 	"
+sACN_manufacturer_ID[0x424F] = "BOTEX 	"
+sACN_manufacturer_ID[0x4253] = "Barco 	"
+sACN_manufacturer_ID[0x42A2] = "Birket Engineering, Inc. 	"
+sACN_manufacturer_ID[0x4321] = "Design Partners of Canada 	"
+sACN_manufacturer_ID[0x4344] = "CDCA Ltd. 	"
+sACN_manufacturer_ID[0x4347] = "CAST Software 	"
+sACN_manufacturer_ID[0x4349] = "C.I.Tronics Lighting Designers Ltda 	"
+sACN_manufacturer_ID[0x434B] = "Color Kinetics Inc. 	"
+sACN_manufacturer_ID[0x434D] = "Coemar Spa 	"
+sACN_manufacturer_ID[0x4350] = "CLAY PAKY S.p.A 	"
+sACN_manufacturer_ID[0x4353] = "Capricorn Software 	"
+sACN_manufacturer_ID[0x4354] = "City Theatrical, Inc. 	"
+sACN_manufacturer_ID[0x4358] = "Connex GmbH 	"
+sACN_manufacturer_ID[0x4369] = "Cinetix Medien u. Interface GmbH 	"
+sACN_manufacturer_ID[0x436F] = "CODEM MUSIC S.r.l. 	"
+sACN_manufacturer_ID[0x4441] = "DIGITAL ART SYSTEM 	"
+sACN_manufacturer_ID[0x4442] = "ELETTROLAB S.r.l. 	"
+sACN_manufacturer_ID[0x4443] = "Claudio Dal Cero Engineering 	"
+sACN_manufacturer_ID[0x4444] = "D.O.M. Datenverarbeitung GmbH 	"
+sACN_manufacturer_ID[0x4445] = "Dezelectric Kft. 	"
+sACN_manufacturer_ID[0x4446] = "Doug Fleenor Design, Inc. 	"
+sACN_manufacturer_ID[0x4449] = "Durand Interstellar, Inc. 	"
+sACN_manufacturer_ID[0x444C] = "Dove Lighting Systems, Inc. 	"
+sACN_manufacturer_ID[0x444D] = "Digimedia Multimedia Lighting Solutions 	"
+sACN_manufacturer_ID[0x444E] = "DALCNET SRL 	"
+sACN_manufacturer_ID[0x4450] = "DMXPROFI.EU GmbH i.G. 	"
+sACN_manufacturer_ID[0x4453] = "Guangzhou Desheng Lighting Industrial Co., Ltd. 	"
+sACN_manufacturer_ID[0x4456] = "Devantech Ltd. 	"
+sACN_manufacturer_ID[0x4466] = "DF elettronica s.r.l. 	"
+sACN_manufacturer_ID[0x4469] = "Diamante Lighting Srl 	"
+sACN_manufacturer_ID[0x453A] = "E:cue Control GmbH 	"
+sACN_manufacturer_ID[0x4541] = "   ENGARTS 	Engineering Arts 	"
+sACN_manufacturer_ID[0x4543] = "EC Elettronica Srl 	"
+sACN_manufacturer_ID[0x4544] = "Electronics Diversified LLC 	"
+sACN_manufacturer_ID[0x4545] = "EastSun Technology Co. Ltd. 	"
+sACN_manufacturer_ID[0x454C] = "Ingenieurbuero fuer Nachrichtentechnik in der Studio und Veranstaltungstechnik 	"
+sACN_manufacturer_ID[0x454D] = "ELM Video Technology, Inc. 	"
+sACN_manufacturer_ID[0x454E] = "ENTTEC Pty Ltd 	"
+sACN_manufacturer_ID[0x4552] = "EREA 	"
+sACN_manufacturer_ID[0x4553] = "ERAL srl 	"
+sACN_manufacturer_ID[0x4554] = "Entertainment Technology 	"
+sACN_manufacturer_ID[0x4563] = "Les Eclairages Lou Inc. 	"
+sACN_manufacturer_ID[0x456C] = "Element Labs Inc. 	"
+sACN_manufacturer_ID[0x4631] = "OKEROAB AB 	"
+sACN_manufacturer_ID[0x464C] = "Flashlight/Ampco Holding 	"
+sACN_manufacturer_ID[0x4656] = "Flexvisual 	"
+sACN_manufacturer_ID[0x4658] = "MAGIC FX B.V. 	"
+sACN_manufacturer_ID[0x4678] = "Global Special Effects 	"
+sACN_manufacturer_ID[0x4744] = "Goddard Design Co. 	"
+sACN_manufacturer_ID[0x4745] = "GPE srl 	"
+sACN_manufacturer_ID[0x4747] = "G&G LED Lighting 	"
+sACN_manufacturer_ID[0x474C] = "G-LEC Europe GmbH 	"
+sACN_manufacturer_ID[0x4750] = "DES 	"
+sACN_manufacturer_ID[0x4753] = "Golden Sea Disco Light Manufacturer 	"
+sACN_manufacturer_ID[0x476C] = "General Luminaire (Shanghai) Ltd. 	"
+sACN_manufacturer_ID[0x4843] = "Horizon Control Inc. 	"
+sACN_manufacturer_ID[0x4844] = "HxDx 	"
+sACN_manufacturer_ID[0x4845] = "Howard Eaton Lighting Ltd. 	"
+sACN_manufacturer_ID[0x484C] = "HBE Lighting Systems 	"
+sACN_manufacturer_ID[0x484F] = "Hollywood Controls Inc. 	"
+sACN_manufacturer_ID[0x4856] = "Enfis Ltd 	"
+sACN_manufacturer_ID[0x4881] = "Rena Electronica B.V. 	"
+sACN_manufacturer_ID[0x4941] = "inoage GmbH 	"
+sACN_manufacturer_ID[0x4942] = "IBEX UK Limited 	"
+sACN_manufacturer_ID[0x4944] = "Ingham Designs 	"
+sACN_manufacturer_ID[0x4945] = "Insta Elektro GmbH 	"
+sACN_manufacturer_ID[0x4947] = "IGuzzini illuminazione spa 	"
+sACN_manufacturer_ID[0x4948] = "Ice House Productions 	"
+sACN_manufacturer_ID[0x494C] = "I-Lum 	"
+sACN_manufacturer_ID[0x494E] = "Interactive Technologies, Inc. 	"
+sACN_manufacturer_ID[0x4950] = "Interesting Products, Inc. 	"
+sACN_manufacturer_ID[0x4951] = "IQAir AG 	"
+sACN_manufacturer_ID[0x4952] = "Invisible Rival Incorporated 	"
+sACN_manufacturer_ID[0x4953] = "Integrated System Technologies Ltd. 	"
+sACN_manufacturer_ID[0x4954] = "Integrated Theatre, Inc. 	"
+sACN_manufacturer_ID[0x4973] = "Innovation Solutions Ltd. 	"
+sACN_manufacturer_ID[0x4A31] = "Joshua 1 Systems Inc. 	"
+sACN_manufacturer_ID[0x4A41] = "JANUS srl 	"
+sACN_manufacturer_ID[0x4A42] = "JB-lighting GmbH 	"
+sACN_manufacturer_ID[0x4A48] = "James Harris 	"
+sACN_manufacturer_ID[0x4A4C] = "Johnsson Lighting Technologies AB 	"
+sACN_manufacturer_ID[0x4A53] = "JSC 'MFG' 	"
+sACN_manufacturer_ID[0x4A54] = "James Thomas Engineering 	"
+sACN_manufacturer_ID[0x4A61] = "Jands Pty Ltd. 	"
+sACN_manufacturer_ID[0x4ACC] = "RVL techniek 	"
+sACN_manufacturer_ID[0x4B42] = "KissBox 	"
+sACN_manufacturer_ID[0x4B46] = "Kino Flo, Inc. 	"
+sACN_manufacturer_ID[0x4B4C] = "KLH Electronics PLC 	"
+sACN_manufacturer_ID[0x4B4D] = "KMX Inc. 	"
+sACN_manufacturer_ID[0x4B55] = "kuwatec, Inc. 	"
+sACN_manufacturer_ID[0x4C20] = "LAM32 srl 	"
+sACN_manufacturer_ID[0x4C41] = "LaserAnimation Sollinger GmbH 	"
+sACN_manufacturer_ID[0x4C45] = "Leviton Manufacturing Co., Inc. 	"
+sACN_manufacturer_ID[0x4C47] = "LightGeist Ltd. 	"
+sACN_manufacturer_ID[0x4C4C] = "LUMINEX Lighting Control Equipment bvba 	"
+sACN_manufacturer_ID[0x4C4D] = "Ultratec Special Effects 	"
+sACN_manufacturer_ID[0x4C50] = "LightProcessor Ltd 	"
+sACN_manufacturer_ID[0x4C52] = "High End Systems Inc. 	"
+sACN_manufacturer_ID[0x4C53] = "Licht-, Steuer- und Schaltanlagenbau GmbH (LSS GmbH) 	"
+sACN_manufacturer_ID[0x4C54] = "Licht-Technik 	"
+sACN_manufacturer_ID[0x4C55] = "LumenRadio AB 	"
+sACN_manufacturer_ID[0x4C56] = "LEDValley Technologies Sdn Bhd 	"
+sACN_manufacturer_ID[0x4C57] = "LightWild LC 	"
+sACN_manufacturer_ID[0x4C58] = "Lex Products Corp. 	"
+sACN_manufacturer_ID[0x4C59] = "Laser Technology Ltd. 	"
+sACN_manufacturer_ID[0x4C5A] = "LightMinded Industries, Inc. 	"
+sACN_manufacturer_ID[0x4C5A] = "Sumolight GmbH 	"
+sACN_manufacturer_ID[0x4C5B] = "LightLife, Gesellschaft fur audiovisuelle Erlebnisse mbH 	"
+sACN_manufacturer_ID[0x4C64] = "LED Team 	"
+sACN_manufacturer_ID[0x4C65] = "Legargeant and Associates 	"
+sACN_manufacturer_ID[0x4C69] = "LIGHTOLIER 	"
+sACN_manufacturer_ID[0x4C6C] = "Lampo Lighting Designers 	"
+sACN_manufacturer_ID[0x4C73] = "LSC Lighting Systems (Aust) Pty. Ltd. 	"
+sACN_manufacturer_ID[0x4CDC] = "acdc LED Ltd. 	"
+sACN_manufacturer_ID[0x4CE5] = "LED Company s.r.o. 	"
+sACN_manufacturer_ID[0x4D41] = "MA Lighting Technology GmbH 	"
+sACN_manufacturer_ID[0x4D42] = "LAN Systems--Midibox project 	"
+sACN_manufacturer_ID[0x4D44] = "Les Generateurs de brouillard MDG Fog Generators Ltd. 	"
+sACN_manufacturer_ID[0x4D4C] = "Mode Lighting (UK) Ltd. 	"
+sACN_manufacturer_ID[0x4D50] = "Martin Professional A/S 	"
+sACN_manufacturer_ID[0x4D54] = "medien technik cords 	"
+sACN_manufacturer_ID[0x4D56] = "Avolites Ltd. 	"
+sACN_manufacturer_ID[0x4D58] = "MX design 	"
+sACN_manufacturer_ID[0x4D61] = "MARTINI S.p.A. 	"
+sACN_manufacturer_ID[0x4D77] = "Mueller Elektronik 	"
+sACN_manufacturer_ID[0x4E41] = "Company NA 	"
+sACN_manufacturer_ID[0x4E4A] = "NJD Electronics 	"
+sACN_manufacturer_ID[0x4E4C] = "NOVALIGHT S.r.l. 	"
+sACN_manufacturer_ID[0x4E57] = "AIM Northwest 	"
+sACN_manufacturer_ID[0x4E69] = "Niko 	"
+sACN_manufacturer_ID[0x4F41] = "Oase GmbH 	"
+sACN_manufacturer_ID[0x4F43] = "Obsidian Controls 	"
+sACN_manufacturer_ID[0x4F4C] = "DDS Elettronica 	"
+sACN_manufacturer_ID[0x4F75] = "Outsight Pty Ltd. 	"
+sACN_manufacturer_ID[0x5041] = "Philips Entertainment Lighting Asia 	"
+sACN_manufacturer_ID[0x5043] = "Pathway Connectivity Inc. 	"
+sACN_manufacturer_ID[0x504C] = "Peperoni Lighting-Solutions 	"
+sACN_manufacturer_ID[0x504D] = "Peter Meyer Project Management Adviser GmbH 	"
+sACN_manufacturer_ID[0x5051] = "PDQ Manufacturing, Inc 	"
+sACN_manufacturer_ID[0x5052] = "Production Resource Group 	"
+sACN_manufacturer_ID[0x5053] = "Philips Selecon 	"
+sACN_manufacturer_ID[0x5058] = "PXM s.c. 	"
+sACN_manufacturer_ID[0x5062] = "LED, Inc. 	"
+sACN_manufacturer_ID[0x5065] = "Peradise 	"
+sACN_manufacturer_ID[0x5066] = "Pfannenberg GmbH 	"
+sACN_manufacturer_ID[0x5068] = "Philips Lighting BV 	"
+sACN_manufacturer_ID[0x5075] = "Pulsar Light of Cambridge Ltd. 	"
+sACN_manufacturer_ID[0x5099] = "Altec Di Gregorio Andrea 	"
+sACN_manufacturer_ID[0x512D] = "DJPOWER ELECTRONIC STAGE LIGHTING FIXTURE FACTORY (GUANGZHOU) 	"
+sACN_manufacturer_ID[0x5149] = "JAP Optoelectronic Ltd. 	"
+sACN_manufacturer_ID[0x514D] = "QMAXZ lighting 	"
+sACN_manufacturer_ID[0x5153] = "QuickSilver Controls, Inc. 	"
+sACN_manufacturer_ID[0x5168] = "Shenzhen Sunricher Technology Co.,Ltd. 	"
+sACN_manufacturer_ID[0x516C] = "Quicklights 	"
+sACN_manufacturer_ID[0x51D7] = "Innovative Dimmers LLC 	"
+sACN_manufacturer_ID[0x5244] = "Revolution Display 	"
+sACN_manufacturer_ID[0x524C] = "Radical Lighting Ltd. 	"
+sACN_manufacturer_ID[0x524D] = "RUIZ TECH 	"
+sACN_manufacturer_ID[0x524E] = "RNC Systems Inc. 	"
+sACN_manufacturer_ID[0x5250] = "RootPath Ltd. 	"
+sACN_manufacturer_ID[0x5252] = "RoscoLab Ltd. 	"
+sACN_manufacturer_ID[0x5253] = "Robe Show Lighting s.r.o. 	"
+sACN_manufacturer_ID[0x5341] = "Stage Technologies Limited 	"
+sACN_manufacturer_ID[0x5342] = "Industrias Sola Basic S.A. de C.V. 	"
+sACN_manufacturer_ID[0x5343] = "Ocean Thin Films Inc. 	"
+sACN_manufacturer_ID[0x5344] = "Stardraw.com Ltd. 	"
+sACN_manufacturer_ID[0x5345] = "Selador 	"
+sACN_manufacturer_ID[0x5346] = "Synthe FX, LLC 	"
+sACN_manufacturer_ID[0x5347] = "SGM Technology For Lighting SPA 	"
+sACN_manufacturer_ID[0x5348] = "Schreder 	"
+sACN_manufacturer_ID[0x5349] = "Soundsculpture Incorporated 	"
+sACN_manufacturer_ID[0x534A] = "SAS Productions 	"
+sACN_manufacturer_ID[0x534B] = "SK-Software 	"
+sACN_manufacturer_ID[0x534C] = "SOUNDLIGHT 	"
+sACN_manufacturer_ID[0x534E] = "Sand Network Systems 	"
+sACN_manufacturer_ID[0x5353] = "Sean Sill 	"
+sACN_manufacturer_ID[0x5354] = "Stagetronics Ltda 	"
+sACN_manufacturer_ID[0x5356] = "OOO SAMLIGHT 	"
+sACN_manufacturer_ID[0x5363] = "SpaceCannon vH 	"
+sACN_manufacturer_ID[0x5368] = "ShowCAD Control Systems Ltd. 	"
+sACN_manufacturer_ID[0x536C] = "StageLine Electronic 	"
+sACN_manufacturer_ID[0x5370] = "Chroma-Q 	"
+sACN_manufacturer_ID[0x5374] = "STG-Beikirch Industrieelektronik + Sicherheitstechnik GmbH & Co. KG 	"
+sACN_manufacturer_ID[0x5376] = "SV-wtu eU 	"
+sACN_manufacturer_ID[0x5377] = "SWISSON AG 	"
+sACN_manufacturer_ID[0x53A8] = "Simon Tech 	"
+sACN_manufacturer_ID[0x5431] = "AUTOLUX Handels- und ProduktionsgmbH 	"
+sACN_manufacturer_ID[0x5441] = "TecArt Lighting  	"
+sACN_manufacturer_ID[0x5444] = "Technographic Displays Ltd. 	"
+sACN_manufacturer_ID[0x5445] = "TESI Elettronica srl 	"
+sACN_manufacturer_ID[0x544C] = "Tempest Lighting Inc. 	"
+sACN_manufacturer_ID[0x5453] = "TalentStorm Enterprises, Inc. 	"
+sACN_manufacturer_ID[0x5454] = "TamaTech Labo Company Ltd, 	"
+sACN_manufacturer_ID[0x5550] = "UP-LUX Eletronica Ltda. 	"
+sACN_manufacturer_ID[0x5555] = "Martin Sukale Medientechnik GbR 	"
+sACN_manufacturer_ID[0x564C] = "Vari-Lite, Inc. 	"
+sACN_manufacturer_ID[0x5651] = "Vision Quest Lighting Inc. 	"
+sACN_manufacturer_ID[0x5652] = "Megapixel Visual Reality 	"
+sACN_manufacturer_ID[0x5653] = "Viso Systems Aps 	"
+sACN_manufacturer_ID[0x5655] = "Shenzhen CAS VU Technologies Co., Ltd. 	"
+sACN_manufacturer_ID[0x5744] = "W-DEV 	"
+sACN_manufacturer_ID[0x5746] = "Wildfire, Inc. 	"
+sACN_manufacturer_ID[0x5747] = "Wenger / JR Clancy 	"
+sACN_manufacturer_ID[0x5753] = "Wireless Solution Sweden AB 	"
+sACN_manufacturer_ID[0x5759] = "Wybron, Inc. 	"
+sACN_manufacturer_ID[0x584C] = "X-Laser 	"
+sACN_manufacturer_ID[0x584D] = "Xtraordinary Musical Accolade Systems 	"
+sACN_manufacturer_ID[0x5858] = "Illuminance Technologies 	"
+sACN_manufacturer_ID[0x5865] = "XENON ARCHITECTURAL LIGHTING 	"
+sACN_manufacturer_ID[0x586C] = "Eurolumen (Shanghai) Lighting Co., LTD 	"
+sACN_manufacturer_ID[0x586D] = "www.doityourselfchristmas.com hobbyists 	"
+sACN_manufacturer_ID[0x5888] = "Plsao Optoelectronics Technology Co., Ltd. 	"
+sACN_manufacturer_ID[0x5A53] = "Zingerli Show Engineering 	"
+sACN_manufacturer_ID[0x5C40] = "OXO 	"
+sACN_manufacturer_ID[0x5DAC] = "Mediatec Group 	"
+sACN_manufacturer_ID[0x614C] = "Alektra AB 	"
+sACN_manufacturer_ID[0x6154] = "Advatek Lighting 	"
+sACN_manufacturer_ID[0x6164] = "AVID Labs 	"
+sACN_manufacturer_ID[0x616C] = "Advanced Lighting Systems 	"
+sACN_manufacturer_ID[0x6200] = "LUCITAG Ltd.  	"
+sACN_manufacturer_ID[0x6201] = "NuDelta Digital, LLC 	"
+sACN_manufacturer_ID[0x6202] = "ESCO Sp. z o.o. 	"
+sACN_manufacturer_ID[0x6203] = "Flektor  	"
+sACN_manufacturer_ID[0x6204] = "Shenzhen Absen Optoelectronic Co., Ltd 	"
+sACN_manufacturer_ID[0x6205] = "Zhuhai Ltech Technology Co., Ltd. 	"
+sACN_manufacturer_ID[0x6206] = "Lighting Innovation Company, LLC 	"
+sACN_manufacturer_ID[0x6273] = "B&S Elektronische Geräte GmbH 	"
+sACN_manufacturer_ID[0x6342] = "Mega Systems Inc. 	"
+sACN_manufacturer_ID[0x6364] = "CDS advanced technology bv 	"
+sACN_manufacturer_ID[0x641A] = "Heliospectra AB 	"
+sACN_manufacturer_ID[0x6461] = "Digilin Australia 	"
+sACN_manufacturer_ID[0x6464] = "Dangeross Design 	"
+sACN_manufacturer_ID[0x646C] = "dilitronics GmbH 	"
+sACN_manufacturer_ID[0x646F] = "eldoLED BV 	"
+sACN_manufacturer_ID[0x64B9] = "   FINELITE 	Finelite, Inc. 	"
+sACN_manufacturer_ID[0x6542] = "eBrain GmbH 	"
+sACN_manufacturer_ID[0x6547] = "euroGenie 	"
+sACN_manufacturer_ID[0x656C] = "ELC lighting 	"
+sACN_manufacturer_ID[0x6573] = "Environmental Lighting Solutions 	"
+sACN_manufacturer_ID[0x6574] = "Electronic Theatre Controls, Inc. 	"
+sACN_manufacturer_ID[0x6576] = "eventa Aktiengesellschaft 	"
+sACN_manufacturer_ID[0x6644] = "Sunlab Technologies S.L. 	"
+sACN_manufacturer_ID[0x666D] = "MAD-Effects 	"
+sACN_manufacturer_ID[0x6673] = "Freescale Semiconductor U.K. Ltd. 	"
+sACN_manufacturer_ID[0x6756] = "Lumisia Co., Ltd. 	"
+sACN_manufacturer_ID[0x676C] = "GLP German Light Products GmbH 	"
+sACN_manufacturer_ID[0x67F0] = "Toshiba Lighting & Technology Corporation 	"
+sACN_manufacturer_ID[0x6816] = "ChamberPlus Co., Ltd 	"
+sACN_manufacturer_ID[0x6864] = "James Embedded Systems Engineering (JESE Ltd) 	"
+sACN_manufacturer_ID[0x6865] = "Hubbell Entertainment, Inc. 	"
+sACN_manufacturer_ID[0x686C] = "HERA LED 	"
+sACN_manufacturer_ID[0x694C] = "iLight Technologies Inc 	"
+sACN_manufacturer_ID[0x6974] = "Ittermann electronic GmbH 	"
+sACN_manufacturer_ID[0x6A6B] = "JPK Systems Limited 	"
+sACN_manufacturer_ID[0x6B64] = "Key Delfin 	"
+sACN_manufacturer_ID[0x6B69] = "Magical Fountain SA de CV (Magic Fountain) 	"
+sACN_manufacturer_ID[0x6BEE] = "Ephesus Lighting 	"
+sACN_manufacturer_ID[0x6C6D] = "Zumtobel Lighting GmbH 	"
+sACN_manufacturer_ID[0x6C78] = "Claude Heintz Design 	"
+sACN_manufacturer_ID[0x6C92] = "Ambra Elettronica s.r.l. 	"
+sACN_manufacturer_ID[0x6D61] = "MAL Effekt-Technik GmbH 	"
+sACN_manufacturer_ID[0x6D62] = "MBN GmbH 	"
+sACN_manufacturer_ID[0x6D63] = "Sein & Schein GmbH 	"
+sACN_manufacturer_ID[0x6FEA] = "Lumina Visual Productions 	"
+sACN_manufacturer_ID[0x7068] = "Pharos Architectural Controls 	"
+sACN_manufacturer_ID[0x7070] = "SBT GmbH 	"
+sACN_manufacturer_ID[0x7072] = "Pr-Lighting Ltd. 	"
+sACN_manufacturer_ID[0x7078] = "PixelRange Inc. 	"
+sACN_manufacturer_ID[0x70F0] = "Pangolin Laser Systems, Inc.  	"
+sACN_manufacturer_ID[0x7151] = "The Light Source, Inc. 	"
+sACN_manufacturer_ID[0x7363] = "Sean Christopher FX 	"
+sACN_manufacturer_ID[0x7365] = "Ballantyne Strong Inc. 	"
+sACN_manufacturer_ID[0x736C] = "Strand Lighting Ltd. 	"
+sACN_manufacturer_ID[0x7764] = "WET 	"
+sACN_manufacturer_ID[0x7788] = "DigitaLicht AG 	"
+sACN_manufacturer_ID[0x780E] = "Mole-Richardson Co. 	"
+sACN_manufacturer_ID[0x783A] = "Audiolux Devices LLC 	"
+sACN_manufacturer_ID[0x786C] = "XLN-t bvba 	"
+sACN_manufacturer_ID[0x78B4] = "LED Flex Limited 	"
+sACN_manufacturer_ID[0x79BC] = "DC Reactive 	"
+sACN_manufacturer_ID[0x7A70] = "Open Lighting 	"
+sACN_manufacturer_ID[0x7AA0] = "Anaren Inc. 	"
+sACN_manufacturer_ID[0x7B1B] = "DimLight Ltd. 	"
+sACN_manufacturer_ID[0x7D61] = "HMB|TEC GmbH 	"
+sACN_manufacturer_ID[0x7DE8] = "Shenzhen LAMP Technology Co., Ltd. 	"
+sACN_manufacturer_ID[0x7EE7] = "Arthur Digital Solutions Kft 	"
+sACN_manufacturer_ID[0x7EE8] = "Guangzhou Yingfeng Lighting Equipment Co., Ltd. 	"
+sACN_manufacturer_ID[0x7EE9] = "Technology Kitchen 	"
+sACN_manufacturer_ID[0x7EEA] = "Cartwright Engineering  	"
+sACN_manufacturer_ID[0x7EEB] = "mylaserpage 	"
+sACN_manufacturer_ID[0x7FF0] = "RESERVED FOR PROTOTYPING/EXPERIMENTAL USE ONLY"
+sACN_manufacturer_ID[0x7FF1] = "RESERVED FOR PROTOTYPING/EXPERIMENTAL USE ONLY"
+sACN_manufacturer_ID[0x7FF2] = "RESERVED FOR PROTOTYPING/EXPERIMENTAL USE ONLY"
+sACN_manufacturer_ID[0x7FF3] = "RESERVED FOR PROTOTYPING/EXPERIMENTAL USE ONLY"
+sACN_manufacturer_ID[0x7FF4] = "RESERVED FOR PROTOTYPING/EXPERIMENTAL USE ONLY"
+sACN_manufacturer_ID[0x7FF5] = "RESERVED FOR PROTOTYPING/EXPERIMENTAL USE ONLY"
+sACN_manufacturer_ID[0x7FF6] = "RESERVED FOR PROTOTYPING/EXPERIMENTAL USE ONLY"
+sACN_manufacturer_ID[0x7FF7] = "RESERVED FOR PROTOTYPING/EXPERIMENTAL USE ONLY"
+sACN_manufacturer_ID[0x7FF8] = "RESERVED FOR PROTOTYPING/EXPERIMENTAL USE ONLY"
+sACN_manufacturer_ID[0x7FF9] = "RESERVED FOR PROTOTYPING/EXPERIMENTAL USE ONLY"
+sACN_manufacturer_ID[0x7FFA] = "RESERVED FOR PROTOTYPING/EXPERIMENTAL USE ONLY"
+sACN_manufacturer_ID[0x7FFB] = "RESERVED FOR PROTOTYPING/EXPERIMENTAL USE ONLY"
+sACN_manufacturer_ID[0x7FFC] = "RESERVED FOR PROTOTYPING/EXPERIMENTAL USE ONLY"
+sACN_manufacturer_ID[0x7FFD] = "RESERVED FOR PROTOTYPING/EXPERIMENTAL USE ONLY"
+sACN_manufacturer_ID[0x7FFE] = "RESERVED FOR PROTOTYPING/EXPERIMENTAL USE ONLY"
+sACN_manufacturer_ID[0x7FFF] = "RESERVED FOR PROTOTYPING/EXPERIMENTAL USE ONLY"
+sACN_manufacturer_ID[0xFFFF] = "ESTA"

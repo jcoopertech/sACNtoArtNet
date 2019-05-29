@@ -15,6 +15,7 @@ def calculate_hibyte(byte: int):
 
 
 def artpoll_output(target_ip="255.255.255.255", art_poll_reply=1, diagnostics=0, unicast=1, vlc=1, priority=DP_LOW):
+    # BROADCAST
     # 1:        ID[8] ('A''r''t''-''N''e''t' 0x00)
     # 2:        OPCode (OpOutput, see OPCode list) -> Int16!
     # 3:        ProtVerHi (0x0)
@@ -57,6 +58,7 @@ def artpollreply_output(target_ip='255.255.255.255', universe=0, ubea_version=0,
                         m6=0, m7=0, m8=0, r1=0, r2=0, r3=0, r4=0, r5=0, r6=0, r7=0, r8=0, style_code=ST_ROUTE,
                         bind_index=1, web_browser_config=0, dhcp=0, dhcp_capable=0, bit_support15=1, switch_to_sacn=1,
                         squawking=0):
+    # BROADCAST
     # 1:        ID[8] ('A''r''t''-''N''e''t' 0x00)
     # 2:        OPCode (OpPollReply, see OPCode list) -> Int16!
     # 3:        IP Address[4] (Node's IP address. First array entry is most significant byte of address
@@ -274,6 +276,7 @@ def artpollreply_output(target_ip='255.255.255.255', universe=0, ubea_version=0,
 
 
 def artdmx_output(artnet_data, target_ip="255.255.255.255", fps=30, physical=0):
+    # 0-39 DEVICES: UNICAST, 40+ DEVICES: BROADCAST
     # 1:        ID[8] ('A''r''t''-''N''e''t' 0x00)
     # 2:        OPCode (OpOutput, see OPCode list) -> Int16!
     # 3:        ProtVerHi (0x0)
@@ -304,7 +307,386 @@ def artdmx_output(artnet_data, target_ip="255.255.255.255", fps=30, physical=0):
 
     try:
         socket_settings.set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))
-        #print(f"Sending {artnet_packet} to {target_ip}")
+        print(f"Sending {artnet_packet} to {target_ip}")
+    except Exception as exception:
+        print(f"Socket error: {exception}")
+
+
+def artipprog_output(target_ip="255.255.255.255", any_programming=0, dhcp_enable=0, default_reset=0,
+                     program_ip=0, program_subnet=0, prog_ip="127.0.0.1", prog_sm="255.0.0.0"):
+    # UNICAST
+    # 1:        ID[8] ('A''r''t''-''N''e''t' 0x00)
+    # 2:        OPCode (OpIpProg, see OPCode list) -> Int16!
+    # 3:        ProtVerHi (0x0)
+    # 4:        ProtVerLo (14)
+    # 5:        Filler 1 (Pad length to match ArtPoll)
+    # 6:        Filler 2 (Pad length to match ArtPoll)
+    # 7:        Command (If all zero, it is an inquiry only)
+    #           0: Program Port (Deprecated)
+    #           1: Program Subnet Mask
+    #           2: Program IP address
+    #           3: Set all three parameters to default
+    #           4-5: Not used, transit as zero)
+    #           6: Enable DHCP (ignore bits 0-5 if set to 1)
+    #           7: Set to enable any programming
+    # 8:        Filler 4 (Set to zero)
+    # 9:        ProgIpHi (IP Address to be programmed into Node if enabled by Command Field)
+    # 10:       ProgIp2 (BBB)
+    # 11:       ProgIp1 (CCC)
+    # 12:       ProgIpLo (DDD)
+    # 13:       ProgSmHi (Subnet Mask to be programmed into Node if enabled by Command Field)
+    # 14:       ProgSm2 (BBB)
+    # 15:       ProgSm1 (CCC)
+    # 16:       ProgSmLo (DDD)
+    # 17:       ProgPortHi (Deprecated)
+    # 18:       ProgPortLo (Deprecated)
+    # 19-26:    Spare 1-8 (Transmit as zero, receivers don't test)
+
+    command = int(f"{any_programming}{dhcp_enable}00{default_reset}{program_ip}{program_subnet}0", 2)
+    prog_ip = list(map(int, prog_ip.split(".")))
+    prog_sm = list(map(int, prog_sm.split(".")))
+
+    artnet_packet = bytearray()
+    artnet_packet.extend(ID)
+    artnet_packet.append(OP_IP_PROG[1])     # OPCode Lo
+    artnet_packet.append(OP_IP_PROG[0])     # OPCode Hi
+    artnet_packet.append(PROT_VER_HI)       # ProtVerHi
+    artnet_packet.append(PROT_VER_LO)       # ProtVerLo
+    artnet_packet.append(0x00)              # Filler 1
+    artnet_packet.append(0x00)              # Filler 2
+    artnet_packet.append(command)           # Command
+    artnet_packet.append(0x00)              # Filler 4
+    artnet_packet.append(prog_ip[0])        # Prog IP Hi
+    artnet_packet.append(prog_ip[1])
+    artnet_packet.append(prog_ip[2])
+    artnet_packet.append(prog_ip[3])        # Prog IP Lo
+    artnet_packet.append(prog_sm[0])        # Prog Sm Hi
+    artnet_packet.append(prog_sm[1])
+    artnet_packet.append(prog_sm[2])
+    artnet_packet.append(prog_sm[3])        # Prog Sm Lo
+    artnet_packet.append(0x00)              # Prog Port Hi (Deprecated)
+    artnet_packet.append(0x00)              # Prog Port Lo (Deprecated)
+    for i in range(8):
+        artnet_packet.append(0x00)          # Spare 1-8
+
+    try:
+        socket_settings.set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))
+    except Exception as exception:
+        print(f"Socket error: {exception}")
+
+
+def artipprogreply_output(target_ip="255.255.255.255", dhcp_enable=0, prog_ip="127.0.0.1", prog_sm="255.0.0.0"):
+    # UNICAST
+    # 1:        ID[8] ('A''r''t''-''N''e''t' 0x00)
+    # 2:        OPCode (OpIpProgReply, see OPCode list) -> Int16!
+    # 3:        ProtVerHi (0x0)
+    # 4:        ProtVerLo (14)
+    # 5:        Filler 1 (Pad length to match ArtPoll)
+    # 6:        Filler 2 (Pad length to match ArtPoll)
+    # 7:        Filler 3 (Pad length to match ArtIpProg)
+    # 8:        Filler 4 (Pad length to match ArtIpProg)
+    # 9:        ProgIpHi (IP Address to be programmed into Node if enabled by Command Field)
+    # 10:       ProgIp2 (BBB)
+    # 11:       ProgIp1 (CCC)
+    # 12:       ProgIpLo (DDD)
+    # 13:       ProgSmHi (Subnet Mask to be programmed into Node if enabled by Command Field)
+    # 14:       ProgSm2 (BBB)
+    # 15:       ProgSm1 (CCC)
+    # 16:       ProgSmLo (DDD)
+    # 17:       ProgPortHi (Deprecated)
+    # 18:       ProgPortLo (Deprecated)
+    # 19:       Status
+    #           0-5: 0
+    #           6: DHCP Enabled
+    #           7: 0
+    # 20-26:    Spare 2-8 (Transmit as zero, receivers don't test)
+
+    prog_ip = list(map(int, prog_ip.split(".")))
+    prog_sm = list(map(int, prog_sm.split(".")))
+    command = int(f"0{dhcp_enable}000000", 2)
+
+    artnet_packet = bytearray()
+    artnet_packet.extend(ID)
+    artnet_packet.append(OP_IP_PROG_REPLY[1])  # OPCode Lo
+    artnet_packet.append(OP_IP_PROG_REPLY[0])  # OPCode Hi
+    artnet_packet.append(PROT_VER_HI)  # ProtVerHi
+    artnet_packet.append(PROT_VER_LO)  # ProtVerLo
+    artnet_packet.append(0x00)  # Filler 1
+    artnet_packet.append(0x00)  # Filler 2
+    artnet_packet.append(0x00)  # Filler 3
+    artnet_packet.append(0x00)  # Filler 4
+    artnet_packet.append(prog_ip[0])  # Prog IP Hi
+    artnet_packet.append(prog_ip[1])
+    artnet_packet.append(prog_ip[2])
+    artnet_packet.append(prog_ip[3])  # Prog IP Lo
+    artnet_packet.append(prog_sm[0])  # Prog Sm Hi
+    artnet_packet.append(prog_sm[1])
+    artnet_packet.append(prog_sm[2])
+    artnet_packet.append(prog_sm[3])  # Prog Sm Lo
+    artnet_packet.append(0x00)  # Prog Port Hi (Deprecated)
+    artnet_packet.append(0x00)  # Prog Port Lo (Deprecated)
+    artnet_packet.append(command)
+    for i in range(7):
+        artnet_packet.append(0x00)  # Spare 2-8
+
+    try:
+        socket_settings.set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))
+    except Exception as exception:
+        print(f"Socket error: {exception}")
+
+
+def artaddress_output(target_ip='255.255.255.255', net_switch=0x7f, bind_index=1, short_name="The Converter",
+                      long_name="sACN to Art-Net Converter", sw_in1=0x7f, sw_in2=0x7f, sw_in3=0x7f, sw_in4=0x7f,
+                      sw_out1=0x7f, sw_out2=0x7f, sw_out3=0x7f, sw_out4=0x7f, sub_switch=0x7f, command=0x00):
+    # UNICAST
+    # 1:        ID[8] ('A''r''t''-''N''e''t' 0x00)
+    # 2:        OPCode (OpAddress, see OPCode list) -> Int16!
+    # 3:        ProtVerHi (0x0)
+    # 4:        ProtVerLo (14)
+    # 5:        NetSwitch (Bits 14-8 of the 15 bit Port address are encoded into the bottom 7 bits of this field.
+    #          This is used in combination with Subswitch and SwIn[] or SwOut[] th produce the full input_data address.
+    #          Value is ignored unless bit 7 is high -> to send 0x07, send 0x87. 0x00 = Reset to physical switch
+    #          setting, 0x7f = No change)
+    # 6:        Bind Index (Defines the bound node which originated this packet and is used to uniquely identify the
+    #           bound node when Identical IP addresses are in use. Represents the order of bound devices
+    #           A lower number means closer to the root device. 1 = Root Device
+    # 7:        ShortName (Null terminated short name for the node. Controller uses ArtAddress to program this string.
+    #           Max length is 17 characters plus the null.)
+    # 8:        Long Name (Null terminated long name for the node. Controller uses ArtAddress to program this string.
+    #           Max length is 63 character plus the null.)
+    # 9:        SwIn[4] (Bits 0-3 of the 15 bit Port address for each of the 4 possible inputs are encoded in low 4
+    #           bits. Value is ignored unless bit 7 is high. 0x00 = Reset to physical switch setting, 0x7f = No change)
+    # 10:       SwOut[4] (Bits 0-3 of the 15 bit Port address for each of the 4 possible inputs are encoded in low 4
+    #           bits. Value is ignored unless bit 7 is high. 0x00 = Reset to physical switch setting, 0x7f = No change)
+    # 11:       SubSwitch (Bits 7-4 of the 15 bit Port address are encoded into the bottom 7 bits of this field.
+    #           Value is ignored unless bit 7 is high. 0x00 = Reset to physical switch setting, 0x7f = No change)
+    # 12:       SwVideo (Deprecated)
+    # 13:       Command
+    #           0x00: AcNone (No action)
+    #           0x01: AcCancelMerge (If node is in merge mode, cancel merge upon receive of next ArtDmx packet
+    #           0x02: AcLedNormal (The front panel leds operate normally
+    #           0x03: AcLedMute (The front panel leds are disabled and switched off
+    #           0x04: AcLedLocate (Rapid flashing for identification)
+    #           0x05: AcResetRx Flags (Resets the node's Sip, Text, Text and data error flags
+    #           0x10: AcMergeLtp0 (Set DMX Port 0 to Merge in LTP mode
+    #           0x11: AcMergeLtp1 (Set DMX Port 1 to Merge in LTP mode
+    #           0x12: AcMergeLtp2 (Set DMX Port 2 to Merge in LTP mode
+    #           0x13: AcMergeLtp3 (Set DMX Port 3 to Merge in LTP mode
+    #           0x50: AcMergeHtp0 (Set DMX Port 0 to Merge in HTP mode
+    #           0x51: AcMergeHtp1 (Set DMX Port 1 to Merge in HTP mode
+    #           0x52: AcMergeHtp2 (Set DMX Port 2 to Merge in HTP mode
+    #           0x53: AcMergeHtp3 (Set DMX Port 3 to Merge in HTP mode
+    #           0x60: AcArtNetSel0 (Set DMX Port 0 to output RDM and DMX from Art-Net protocol)
+    #           0x61: AcArtNetSel1 (Set DMX Port 1 to output RDM and DMX from Art-Net protocol)
+    #           0x62: AcArtNetSel2 (Set DMX Port 2 to output RDM and DMX from Art-Net protocol)
+    #           0x63: AcArtNetSel3 (Set DMX Port 3 to output RDM and DMX from Art-Net protocol)
+    #           0x70: AcAcnSel0 (Set DMX Port 0 to output RDM from Art-Net protocol and DMX from sACN protocol)
+    #           0x71: AcAcnSel1 (Set DMX Port 1 to output RDM from Art-Net protocol and DMX from sACN protocol)
+    #           0x72: AcAcnSel2 (Set DMX Port 2 to output RDM from Art-Net protocol and DMX from sACN protocol)
+    #           0x73: AcAcnSel3 (Set DMX Port 3 to output RDM from Art-Net protocol and DMX from sACN protocol)
+    #           0x90: AcClearOp0 (Clear DMX output buffer for Port 0)
+    #           0x91: AcClearOp1 (Clear DMX output buffer for Port 1)
+    #           0x92: AcClearOp2 (Clear DMX output buffer for Port 2)
+    #           0x93: AcClearOp3 (Clear DMX output buffer for Port 3)
+
+    short = bytearray(short_name.ljust(17)[:17], "UTF_8")
+    long = bytearray(long_name.ljust(63)[:63], "UTF_8")
+
+    artnet_packet = bytearray()
+    artnet_packet.extend(ID)
+    artnet_packet.append(OP_ADDRESS[1])  # OPCode Lo
+    artnet_packet.append(OP_ADDRESS[0])  # OPCode Hi
+    artnet_packet.append(PROT_VER_HI)  # ProtVerHi
+    artnet_packet.append(PROT_VER_LO)  # ProtVerLo
+    artnet_packet.append(net_switch)  # Net Switch Lo <- To Do
+    artnet_packet.append(bind_index)    # Bind Index
+    artnet_packet.extend(short)  # short (17 char+null) <- To Do
+    artnet_packet.append(0x0)
+    artnet_packet.extend(long)  # long (63 char+null) <- To Do
+    artnet_packet.append(0x0)
+    artnet_packet.append(sw_in1)  # SwIn1
+    artnet_packet.append(sw_in2)  # SwIn2
+    artnet_packet.append(sw_in3)  # SwIn3
+    artnet_packet.append(sw_in4)  # SwIn4
+    artnet_packet.append(sw_out1)  # SwOut1
+    artnet_packet.append(sw_out2)  # SwOut2
+    artnet_packet.append(sw_out3)  # SwOut3
+    artnet_packet.append(sw_out4)  # SwOut4
+    artnet_packet.append(sub_switch)  # Subswitch
+    artnet_packet.append(0x00)       # SwVideo
+    artnet_packet.append(command)
+
+    try:
+        socket_settings.set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))
+        print(f"Sending {artnet_packet} to {target_ip}")
+    except Exception as exception:
+        print(f"Socket error: {exception}")
+
+
+def artdiagdata_output(target_ip="255.255.255.255", priority=DP_LOW, data="Everything is ok"):
+    # UNICAST or BROADCAST
+    # 1:        ID[8] ('A''r''t''-''N''e''t' 0x00)
+    # 2:        OPCode (OpDiagData, see OPCode list) -> Int16!
+    # 3:        ProtVerHi (0x0)
+    # 4:        ProtVerLo (14)
+    # 5:        Filler 1 (Ignore by receivers, set to zero by sender.)
+    # 6:        Priority (See Priority Code List)
+    # 7:        Filler 2 (Ignore by receivers, set to zero by sender.)
+    # 8:        Filler 3 (Ignore by receivers, set to zero by sender.)
+    # 9:        LengthHi (Length of the text array below)
+    # 10:       LengthLo
+    # 11:       Data (ASCII Text array, null terminated. Max length is 512 bytes including the null terminator)
+
+    if len(data) > 511:
+        data = data[0:511]
+    data_length = calculate_hibyte(len(data)+1)
+
+    artnet_packet = bytearray()
+    artnet_packet.extend(ID)
+    artnet_packet.append(OP_DIAG_DATA[1])  # OPCode Lo
+    artnet_packet.append(OP_DIAG_DATA[0])  # OPCode Hi
+    artnet_packet.append(PROT_VER_HI)  # ProtVerHi
+    artnet_packet.append(PROT_VER_LO)  # ProtVerLo
+    artnet_packet.append(0x00)  # Filler 1
+    artnet_packet.append(priority)  # Priority
+    artnet_packet.append(0x00)  # Filler 2
+    artnet_packet.append(0x00)  # Filler 3
+    artnet_packet.append(data_length[1])
+    artnet_packet.append(data_length[0])
+    artnet_packet.extend(data)  # Data
+    artnet_packet.append(0x00)  # Null termination
+
+    try:
+        socket_settings.set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))
+    except Exception as exception:
+        print(f"Socket error: {exception}")
+
+
+def arttimecode_output(target_ip="255.255.255.255", frames=0, seconds=0, minutes=0, hours=0, frame_type="SMPTE"):
+    # UNICAST or BROADCAST
+    # 1:        ID[8] ('A''r''t''-''N''e''t' 0x00)
+    # 2:        OPCode (OpTimeCode, see OPCode list) -> Int16!
+    # 3:        ProtVerHi (0x0)
+    # 4:        ProtVerLo (14)
+    # 5:        Filler 1 (Ignore by receivers, set to zero by sender.)
+    # 6:        Filler 2 (Ignore by receivers, set to zero by sender.)
+    # 7:        Frames (Frames time. 0-29 depending on mode)
+    # 8:        Seconds (0-59)
+    # 9:        Minutes (0-59)
+    # 10:       Hours (0-23)
+    # 11:       Type
+    #           0: Film (24FPS)
+    #           1: EBU (25FPS)
+    #           2: DF (29,97FPS)
+    #           3: SMPTE (30FPS)
+
+    if frame_type == "Film":
+        frame_type = 0
+    elif frame_type == "EBU":
+        frame_type = 1
+    elif frame_type == "DF":
+        frame_type = 2
+    elif frame_type == "SMTPE":
+        frame_type = 3
+
+    artnet_packet = bytearray()
+    artnet_packet.extend(ID)
+    artnet_packet.append(OP_TIME_CODE[1])  # OPCode Lo
+    artnet_packet.append(OP_TIME_CODE[0])  # OPCode Hi
+    artnet_packet.append(PROT_VER_HI)  # ProtVerHi
+    artnet_packet.append(PROT_VER_LO)  # ProtVerLo
+    artnet_packet.append(0x00)  # Filler 1
+    artnet_packet.append(0x00)  # Filler 2
+    artnet_packet.append(frames)  # Frames
+    artnet_packet.append(seconds)
+    artnet_packet.append(minutes)
+    artnet_packet.append(hours)
+    artnet_packet.append(frame_type)  # Frame Type
+
+    try:
+        socket_settings.set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))
+    except Exception as exception:
+        print(f"Socket error: {exception}")
+
+
+def artcommand_output(target_ip="255.255.255.255", esta_code=0xFFFF, art_command=SW_OUT_TEXT):
+    # UNICAST or BROADCAST
+    # 1:        ID[8] ('A''r''t''-''N''e''t' 0x00)
+    # 2:        OPCode (OpArtCommand, see OPCode list) -> Int16!
+    # 3:        ProtVerHi (0x0)
+    # 4:        ProtVerLo (14)
+    # 5:        EstaManHi (ESTA Manufacturer Code. See ESTA Code list)
+    # 6:        EstaManLo (Lo byte of above (???))
+    # 7:        LengthHi (Length of the text array below)
+    # 8:        LengthLo
+    # 9:        Data (ASCII Text array, null terminated. Max length is 512 bytes including the null terminator)
+    #           See Command Code List
+
+    esta_code = calculate_hibyte(esta_code)
+    if len(art_command) > 511:
+        art_command = art_command[0:511]
+    data_length = calculate_hibyte(len(art_command) + 1)
+
+    artnet_packet = bytearray()
+    artnet_packet.extend(ID)
+    artnet_packet.append(OP_COMMAND[1])  # OPCode Lo
+    artnet_packet.append(OP_COMMAND[0])  # OPCode Hi
+    artnet_packet.append(PROT_VER_HI)  # ProtVerHi
+    artnet_packet.append(PROT_VER_LO)  # ProtVerLo
+    artnet_packet.append(esta_code[1])  # EstaManHi
+    artnet_packet.append(esta_code[0])  # EstaManLo
+    artnet_packet.append(data_length[1])  # Length Hi
+    artnet_packet.append(data_length[0])   # Length Lo
+    artnet_packet.extend(art_command)   # Art Command
+
+    try:
+        socket_settings.set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))
+    except Exception as exception:
+        print(f"Socket error: {exception}")
+
+
+def arttrigger_output(target_ip="255.255.255.255", oem_code=0xFFFF, key=255, subkey=0, data=""):
+    # UNICAST or BROADCAST
+    # 1:        ID[8] ('A''r''t''-''N''e''t' 0x00)
+    # 2:        OPCode (OpTimeCode, see OPCode list) -> Int16!
+    # 3:        ProtVerHi (0x0)
+    # 4:        ProtVerLo (14)
+    # 5:        Filler 1 (Ignore by receivers, set to zero by sender.)
+    # 6:        Filler 2 (Ignore by receivers, set to zero by sender.)
+    # 7:        OemCodeHi (Manufacturer Code of nodes that should accept this trigger)
+    # 8:        OemCodeLo
+    # 9:        Key (Trigger Key. If the oem value is manufacturer specific, unless the OEM code is set to 0xFFFF
+    #           0: KeyAscii (SubKey Field contains an ASCII character which the receiving device should process as if
+    #              it were a keyboard press.)
+    #           1: KeyMacro (The SubKey contains the number of a number which the receiving device should execute
+    #           2: KeySoft (The SubKey contains a soft-key number which the receiving device should process as if
+    #              it was a soft-key keyboard press.)
+    #           3: KeyShow (The SubKey field contains the number of a Show which the receivind device should run.)
+    #           4-255: Undefined
+    # 10:       SubKey (Trigger Sub Key)
+    # 11:       Data (Payload, field not used if Key is set to 0-3)
+
+    oem_code = calculate_hibyte(oem_code)
+    if len(data) > 512:
+        data = data[0:512]
+
+    artnet_packet = bytearray()
+    artnet_packet.extend(ID)
+    artnet_packet.append(OP_TIME_CODE[1])  # OPCode Lo
+    artnet_packet.append(OP_TIME_CODE[0])  # OPCode Hi
+    artnet_packet.append(PROT_VER_HI)  # ProtVerHi
+    artnet_packet.append(PROT_VER_LO)  # ProtVerLo
+    artnet_packet.append(0x00)  # Filler 1
+    artnet_packet.append(0x00)  # Filler 2
+    artnet_packet.append(oem_code[1])  # OEM Code Hi
+    artnet_packet.append(oem_code[0])   # OEM Code Lo
+    artnet_packet.append(key)
+    artnet_packet.append(subkey)
+    if oem_code != 0xFFFF or key > 3:
+        artnet_packet.extend(data)  # Payload
+
+    try:
+        socket_settings.set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))
     except Exception as exception:
         print(f"Socket error: {exception}")
 
@@ -317,6 +699,6 @@ def identify_artnet_packet(input):
         print("DMX PACKET")
     elif input[8] == OP_POLL[1] and input[9] == OP_POLL[0]:
         print("ART POLL")
-        artpollreply_output(PRIMARY_ARTNET_ADDRESS,)
+        #artpollreply_output(PRIMARY_ARTNET_ADDRESS,)
     elif input[8] == OP_POLL_REPLY[1]and input[9] == OP_POLL_REPLY[0]:
         print("ART POLL REPLY")

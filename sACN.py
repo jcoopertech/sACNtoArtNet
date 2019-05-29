@@ -16,12 +16,6 @@ for i in range(socket_settings.universe_max+1):
     input_data[uni[0], uni[1]] = {}
 
 
-def calculate_multicast_addr(universemin: int):
-    hibyte = universemin >> 8
-    lobyte = universemin & 0xFF
-    return F"239.255.{hibyte}.{lobyte}"
-
-
 def merge_sacn_inputs(sacn_data):   # Input Universe, CID and DMX data
     output = bytearray()            # Reset DMX output
     for i in range(512):
@@ -42,7 +36,7 @@ def identify_sacn_packet(sacn_input):
         if len(sacn_input) < 126:
             raise TypeError("Unknown Package. The minimum length for a sACN package is 126.")
     except TypeError as error_message:
-        print("LENGHT ERROR:", error_message)
+        print("LENGTH ERROR:", error_message)
     if tuple(sacn_input[40:44]) == VECTOR_E131_DATA_PACKET:     # sACN Data Packet
         sacn_data = sacn_data_input(sacn_input)     # Extract all data we can get
         sacn_data["dmx_data"], sacn_data["input_data"] = merge_sacn_inputs(sacn_data)
