@@ -35,7 +35,7 @@ while True:
     packet_type, sACN_data = sACN.identify_sacn_packet(sacn_input_packet)            # Identify Packet Type.
     if packet_type == "sACN_DATA_PACKET":
         ArtNet.artdmx_output(sACN_data)          # Send corresponding ArtNet packet.
-        print(f"{packet_type}")
+        #print(f"{packet_type}")
     elif packet_type == "sACN_EXTENDED_SYNCHRONIZATION":
         print(f"{packet_type}")
         ArtNet.artpoll_output()         # Send corresponding ArtPoll packet. (<-To Do)
@@ -44,10 +44,10 @@ while True:
         # ArtNet.artpollreply_output(sACN_data[1])    # Send corresponding ArtPollReply packet. (<-To Do)
 
     '''Receive ArtNet packets and send corresponding sACN packets'''
-    '''try:
+    try:
         artnet_input_packet, artnet_ip_input = set_artnet_sock.recvfrom(1143)
         # Don't know what the maximum length is yet. <- To Do
     except socket.timeout:
         print("Timeout")
         continue
-    artnet_data = ArtNet.identify_artnet_packet(artnet_input_packet)'''
+    artnet_data = ArtNet.identify_artnet_packet(artnet_input_packet)

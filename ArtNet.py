@@ -211,7 +211,7 @@ def artpollreply_output(target_ip='255.255.255.255', universe=0, ubea_version=0,
     artnet_packet.append(port[0])  # Port Hi
     artnet_packet.append(vers_info[0])  # VersInfo Hi
     artnet_packet.append(vers_info[1])  # VersInfo Lo
-    artnet_packet.append(net_switch[1])  # Net Switch Lo <- To Do
+    artnet_packet.append(net_switch[1])  # Net Switch Lo <- ToDo
     artnet_packet.append(net_switch[0])  # Net Switch Hi
     artnet_packet.append(oem[0])    # OEM Hi
     artnet_packet.append(oem[1])    # OEM Lo
@@ -219,11 +219,11 @@ def artpollreply_output(target_ip='255.255.255.255', universe=0, ubea_version=0,
     artnet_packet.append(status1)   # status1
     artnet_packet.append(esta_manufacturer[1])  # ESTA Lo
     artnet_packet.append(esta_manufacturer[0])  # Esta Hi
-    artnet_packet.extend(short)    # short (17 char+null) <- To Do
+    artnet_packet.extend(short)    # short (17 char+null) <- ToDo
     artnet_packet.append(0x0)
-    artnet_packet.extend(long)     # long (63 char+null) <- To Do
+    artnet_packet.extend(long)     # long (63 char+null) <- ToDo
     artnet_packet.append(0x0)
-    artnet_packet.extend(node)   # report (64 char) <- To Do
+    artnet_packet.extend(node)   # report (64 char) <- ToDo
     artnet_packet.append(0x0)  # NumPorts Hi
     artnet_packet.append(num_ports)  # NumPorts Lo
     artnet_packet.append(port1)
@@ -297,7 +297,7 @@ def artdmx_output(artnet_data, target_ip="255.255.255.255", fps=30, physical=0):
     artnet_packet.append(OP_DMX[0])  # OPCode Hi
     artnet_packet.append(PROT_VER_HI)  # ProtVerHi
     artnet_packet.append(PROT_VER_LO)  # ProtVerLo
-    artnet_packet.append(artnet_data["sequence_number"])  # Sequence <- To Do
+    artnet_packet.append(artnet_data["sequence_number"])  # Sequence <- ToDo
     artnet_packet.append(physical)  # Physical
     artnet_packet.append(artnet_data["universe_lobyte"])  # SubUni
     artnet_packet.append(artnet_data["universe_hibyte"])  # Net
@@ -307,7 +307,7 @@ def artdmx_output(artnet_data, target_ip="255.255.255.255", fps=30, physical=0):
 
     try:
         socket_settings.set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))
-        print(f"Sending {artnet_packet} to {target_ip}")
+        #print(f"Sending {artnet_packet} to {target_ip}")
     except Exception as exception:
         print(f"Socket error: {exception}")
 
@@ -498,11 +498,11 @@ def artaddress_output(target_ip='255.255.255.255', net_switch=0x7f, bind_index=1
     artnet_packet.append(OP_ADDRESS[0])  # OPCode Hi
     artnet_packet.append(PROT_VER_HI)  # ProtVerHi
     artnet_packet.append(PROT_VER_LO)  # ProtVerLo
-    artnet_packet.append(net_switch)  # Net Switch Lo <- To Do
+    artnet_packet.append(net_switch)  # Net Switch Lo <- ToDo
     artnet_packet.append(bind_index)    # Bind Index
-    artnet_packet.extend(short)  # short (17 char+null) <- To Do
+    artnet_packet.extend(short)  # short (17 char+null) <- ToDo
     artnet_packet.append(0x0)
-    artnet_packet.extend(long)  # long (63 char+null) <- To Do
+    artnet_packet.extend(long)  # long (63 char+null) <- ToDo
     artnet_packet.append(0x0)
     artnet_packet.append(sw_in1)  # SwIn1
     artnet_packet.append(sw_in2)  # SwIn2
@@ -691,10 +691,172 @@ def arttrigger_output(target_ip="255.255.255.255", oem_code=0xFFFF, key=255, sub
         print(f"Socket error: {exception}")
 
 
+def artsync_output(target_ip="255.255.255.255"):
+    # BROADCAST
+    # 1:        ID[8] ('A''r''t''-''N''e''t' 0x00)
+    # 2:        OPCode (OpSync, see OPCode list) -> Int16!
+    # 3:        ProtVerHi (0x0)
+    # 4:        ProtVerLo (14)
+    # 5:        Aux 1 (Transmit as zero.)
+    # 6:        Aux 2 (Transmit as zero.)
+
+    artnet_packet = bytearray()
+    artnet_packet.extend(ID)
+    artnet_packet.append(OP_SYNC[1])  # OPCode Lo
+    artnet_packet.append(OP_SYNC[0])  # OPCode Hi
+    artnet_packet.append(PROT_VER_HI)  # ProtVerHi
+    artnet_packet.append(PROT_VER_LO)  # ProtVerLo
+    artnet_packet.append(0x0)  # Aux 1
+    artnet_packet.append(0x0)  # Aux 2
+
+    try:
+        socket_settings.set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))
+    except Exception as exception:
+        print(f"Socket error: {exception}")
+
+
+def artnzs_output(artnet_data, target_ip="255.255.255.255"):
+    # 0-39 DEVICES: UNICAST, 40+ DEVICES: BROADCAST
+    # 1:        ID[8] ('A''r''t''-''N''e''t' 0x00)
+    # 2:        OPCode (OpNzs, see OPCode list) -> Int16!
+    # 3:        ProtVerHi (0x0)
+    # 4:        ProtVerLo (14)
+    # 5:        Sequence (increment in the range 0x01 to 0xff. Set to 0x00 to disable the feature)
+    # 6:        StartCode (DMX512 start code of this packet. Must not be zero or RDM!)
+    # 7:        SubUni (Low Byte of the 15 bit Port-Address to which this packet is destined)
+    # 8:        Net (Top 7 bits of the 15 bit Port-Address to which this packet is destined)
+    # 9:        LengthHi (Length of the DMX512 data array. Should be between 2 and 512)
+    # 10:       Lenght (Low Byte of above)
+    # 11:       DMX512 data array
+
+    length = calculate_hibyte(len(artnet_data["dmx_data"]))
+
+    artnet_packet = bytearray()
+    artnet_packet.extend(ID)
+    artnet_packet.append(OP_NZS[1])  # OPCode Lo
+    artnet_packet.append(OP_NZS[0])  # OPCode Hi
+    artnet_packet.append(PROT_VER_HI)  # ProtVerHi
+    artnet_packet.append(PROT_VER_LO)  # ProtVerLo
+    artnet_packet.append(artnet_data["sequence_number"])  # Sequence <- ToDo
+    artnet_packet.append(artnet_data["start_code"])  # Start code
+    artnet_packet.append(artnet_data["universe_lobyte"])  # SubUni
+    artnet_packet.append(artnet_data["universe_hibyte"])  # Net
+    artnet_packet.append(length[0])  # LengthHi
+    artnet_packet.append(length[1])  # Length
+    artnet_packet.extend(bytearray(artnet_data["dmx_data"]))
+
+    try:
+        socket_settings.set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))
+        # print(f"Sending {artnet_packet} to {target_ip}")
+    except Exception as exception:
+        print(f"Socket error: {exception}")
+
+
+def artvlc_output(artnet_data, target_ip="255.255.255.255", ieee=0, reply=0, beacon=0, transaction_number=0x0000,
+                  slot_address=0, pay_check=0, vlc_depth=0, vlc_frequency=0, vlc_modulation=0, payload_language=0x0000,
+                  repeat_frequency=0, payload=""):
+    # 0-39 DEVICES: UNICAST, 40+ DEVICES: BROADCAST
+    # 1:        ID[8] ('A''r''t''-''N''e''t' 0x00)
+    # 2:        OPCode (OpNzs, see OPCode list) -> Int16!
+    # 3:        ProtVerHi (0x0)
+    # 4:        ProtVerLo (14)
+    # 5:        Sequence (increment in the range 0x01 to 0xff. Set to 0x00 to disable the feature)
+    # 6:        StartCode (0x91, no other values are allowed!)
+    # 7:        SubUni (Low Byte of the 15 bit Port-Address to which this packet is destined)
+    # 8:        Net (Top 7 bits of the 15 bit Port-Address to which this packet is destined)
+    # 9:        LengthHi (Length of the DMX512 data array. Should be between 2 and 512)
+    # 10:       Lenght (Low Byte of above)
+    # 11:       Vlc (Vlc Data packet)
+    #           0: ManIdHi (0x41, magic number to identify the packet)
+    #           1: ManIdLo (0x4C, magic number to identify the packet)
+    #           2: SubCode (0x45, magic number to identify the packet)
+    #           3: Flags
+    #               5: Flags.Beacon (1=Repeat transmission until another packet is recived, 0=Transmit packt once)
+    #               6: Flags.Reply (1=ReplyPacket in response to a request with matching transaction number,0= No Reply)
+    #               7: Flags.Ieee (1=Shall be interpreted as IEEE VLC data. 0=PayLanguage defindes the payloads content)
+    #           4: TransHi (16 bit transaction number to synchronize VLC transactions. 0x0000 = First packet of a
+    #              transaction, 0xFFFF = Last packet of a transaction. Roll over to 0x0001 at 0xFFFE if it is not the
+    #              last transaction
+    #           5: TransLo (Lo Byte of above)
+    #           6: SlotAddrHi (1-512 = the device to which this packet is directed. 0 = Add devices
+    #           7: SlotAddrLo (Lo byte of above)
+    #           8: PayCountHi (Payload Size in range 0 to 480
+    #           9: PayCountLo (Lo byte of above)
+    #           10: PayCheckHi (Unsigned additive checksum of the data in the payload)
+    #           11: PayCheckLo (Lo Byte of above)
+    #           12: Spare 1 (Transmit as zero, receivers don't test)
+    #           13: VlcDepth (VLC modulation depth expressed as a percentage between 1 and 100. 0 = use default value)
+    #           14: VlcFreqHi (Modulation Frequency expressed as Hz. A value of 0 inicates the default value)
+    #           15: VlcFreqLo (Lo Byte of above)
+    #           16: VlcModHi (Modulation type number the transmitter should use, 0x0000 = use default value)
+    #           17: VlcModLo (Lo Byte of above)
+    #           18: PayLangHi (16 bit language code)
+    #               0x0000: Beacon URL (Payload contains a simple text string representing a URL)
+    #               0x0001: Beacon Text (Payload contains a simple ASCII text message)
+    #           19: PayLangLo (Lo Byte of above)
+    #           20: BeacRepHi (If Flags.Beacon is set, this value indicated the frequency in Hz at which packets should
+    #               be repeated. 0x0000 = Transmitter default
+    #           21: BeacRepLo (Lo Byte of above)
+    #           22: Payload (Actual Data)
+
+    length = calculate_hibyte(len(artnet_data["dmx_data"]))
+    flags = int(f"{ieee}{reply}{beacon}00000",2)
+    transaction_number = calculate_hibyte(transaction_number)
+    slot_address = calculate_hibyte(slot_address)
+    pay_count = calculate_hibyte(len(payload))
+    pay_check = calculate_hibyte(pay_check)
+    vlc_frequency = calculate_hibyte(vlc_frequency)
+    vlc_modulation = calculate_hibyte(vlc_modulation)
+    payload_language = calculate_hibyte(payload_language)
+    repeat_frequency = calculate_hibyte(repeat_frequency)
+
+    artnet_packet = bytearray()
+    artnet_packet.extend(ID)
+    artnet_packet.append(OP_NZS[1])  # OPCode Lo
+    artnet_packet.append(OP_NZS[0])  # OPCode Hi
+    artnet_packet.append(PROT_VER_HI)  # ProtVerHi
+    artnet_packet.append(PROT_VER_LO)  # ProtVerLo
+    artnet_packet.append(artnet_data["sequence_number"])  # Sequence <- ToDo
+    artnet_packet.append(0x91)  # Start code
+    artnet_packet.append(artnet_data["universe_lobyte"])  # SubUni
+    artnet_packet.append(artnet_data["universe_hibyte"])  # Net
+    artnet_packet.append(length[0])  # LengthHi
+    artnet_packet.append(length[1])  # Length
+    artnet_packet.append(0x41)  # Magic Number 1
+    artnet_packet.append(0x4C)  # Magic Number 2
+    artnet_packet.append(0x45)  # Magic Number 3
+    artnet_packet.append(flags)  # Flags
+    artnet_packet.append(transaction_number[1])  # TransHi
+    artnet_packet.append(transaction_number[0])  # TransLo
+    artnet_packet.append(slot_address[1])  # SlotAddrHi
+    artnet_packet.append(slot_address[0])  # SlotAddrLo
+    artnet_packet.append(pay_count[1])  # PayCountHi
+    artnet_packet.append(pay_count[0])  # PayCountLo
+    artnet_packet.append(pay_check[1])  # PayCheckHi <- ToDo
+    artnet_packet.append(pay_check[0])  # PayCheckLo
+    artnet_packet.append(0x0)  # Spare 1
+    artnet_packet.append(vlc_depth)
+    artnet_packet.append(vlc_frequency[1])
+    artnet_packet.append(vlc_frequency[0])
+    artnet_packet.append(vlc_modulation[1])
+    artnet_packet.append(vlc_modulation[0])
+    artnet_packet.append(payload_language[1])
+    artnet_packet.append(payload_language[0])
+    artnet_packet.append(repeat_frequency[1])
+    artnet_packet.append(repeat_frequency[0])
+    artnet_packet.extend(bytearray(artnet_data["dmx_data"]))
+
+    try:
+        socket_settings.set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))
+        # print(f"Sending {artnet_packet} to {target_ip}")
+    except Exception as exception:
+        print(f"Socket error: {exception}")
+
+
 def identify_artnet_packet(input):
     # Extracts the type of ArtNet packet and will return the type of packet and the packet itself.
     if len(input) < 1:
-        raise TypeError("Unknown Package. The minimum length for a sACN package is ...") #<- To Do
+        raise TypeError("Unknown Package. The minimum length for a sACN package is ...") #<- ToDo
     if input[8] == OP_DMX[1] and input[9] == OP_DMX[0]:
         print("DMX PACKET")
     elif input[8] == OP_POLL[1] and input[9] == OP_POLL[0]:

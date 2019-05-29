@@ -135,17 +135,16 @@ def sacn_sync_input(sacn_packet):
     # 45-46:    Synchronization Address (Universe on which synchronization packets are transmitted) <- Discard if zero
     # 47-48:    Reserved (Transmit as zero)
 
-
     # The following IF-Statement discards the package if it does not comply with E1.31 standards
     if tuple(sacn_packet[0:2]) != PREAMBLE_SIZE or tuple(sacn_packet[2:4]) != POST_AMBLE_SIZE or \
             tuple(sacn_packet[4:16]) != ACN_PACKET_IDENTIFIER or \
             tuple(sacn_packet[18:22]) != VECTOR_ROOT_E131_EXTENDED or \
-            tuple(sacn_packet[40:44] != VECTOR_E131_EXTENDED_SYNCHRONIZATION) or \
-            tuple(sacn_packet[45:47] != (0, 0)):
+            tuple(sacn_packet[40:44]) != VECTOR_E131_EXTENDED_SYNCHRONIZATION or \
+            tuple(sacn_packet[45:47]) != (0, 0):
         # Raise an error, if any of the package content is not valid. Print out what it should be and what was sent.
         raise TypeError(f"Package does not comply E1.31 standard! \
         Preamble {PREAMBLE_SIZE} was {tuple(sacn_packet[0:2])}, \
-        Postamble {sACN.POST_AMBLE_SIZE} was {tuple(sacn_packet[2:4])}, \
+        Postamble {POST_AMBLE_SIZE} was {tuple(sacn_packet[2:4])}, \
         ACN Packet Identifier {ACN_PACKET_IDENTIFIER} was {tuple(sacn_packet[4:16])}, \
         VECTOR E1.31 {VECTOR_ROOT_E131_EXTENDED} was {tuple(sacn_packet[18:22])}, \
         VECTOR E1.31 Sync {VECTOR_E131_EXTENDED_SYNCHRONIZATION} was {tuple[40:44]}")
@@ -186,7 +185,7 @@ def sacn_discovery_input(sacn_packet):
         # Raise an error, if any of the package content is not valid. Print out what it should be and what was sent.
         raise TypeError(f"Package does not comply E1.31 standard! \
         Preamble {PREAMBLE_SIZE} was {tuple(sacn_packet[0:2])}, \
-        Postamble {sACN.POST_AMBLE_SIZE} was {tuple(sacn_packet[2:4])}, \
+        Postamble {POST_AMBLE_SIZE} was {tuple(sacn_packet[2:4])}, \
         ACN Packet Identifier {ACN_PACKET_IDENTIFIER} was {tuple(sacn_packet[4:16])}, \
         VECTOR E1.31 {VECTOR_ROOT_E131_EXTENDED} was {tuple(sacn_packet[18:22])}, \
         VECTOR E1.31 Discovery {VECTOR_E131_EXTENDED_DISCOVERY} was {tuple[40:44]}, \
