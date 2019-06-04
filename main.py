@@ -20,8 +20,8 @@ def clear_dmx_data():
     return dmx_data
 
 
-set_acn_sock = socket_settings.sacn_socket_setup("192.168.1.102")
-set_artnet_sock = socket_settings.artnet_socket_setup("192.168.1.102")
+set_acn_sock = socket_settings.sacn_socket_setup(socket_settings.ip)
+set_artnet_sock = socket_settings.artnet_socket_setup(socket_settings.ip)
 # IP: Set your own IP. Set to "0.0.0.0" to assign it automatically.
 # Universe Minimum: First Universe in a range to listen to.
 # Universe Maximum: Last Universe in a range to listen to.

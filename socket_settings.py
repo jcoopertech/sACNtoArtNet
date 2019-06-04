@@ -5,13 +5,13 @@ import ArtNetParams
 
 '''GLOBAL PARAMS'''
 universe_min = 1
-universe_max = 256
+universe_max = 20
 merge_mode = "HTP"  # Can be "HTP", "LTP" or "DISABLED"
 artnet_to_sacn = False
 sacn_to_artnet = True
 broadcast = True    # Normally, unicast should be used to talk to ArtNet devices. Some old devices don't send ArtPolls,
 #                   # so you have to disable unicast and send broadcast.
-
+ip = "0.0.0.0"      # Your IP. Set to "0.0.0.0" to use your device IP
 
 def calculate_multicast_addr(universemin: int):
     hibyte = universemin >> 8
@@ -59,6 +59,3 @@ def artnet_socket_setup(udp_ip="127.0.0.1", artnet_port=ArtNetParams.UDP_PORT):
     print(f"UDP target IP: {udp_ip}")
     print(f"UDP target Port: {artnet_port}")
     return artnet_sock
-
-
-set_artnet_sock = artnet_socket_setup("0.0.0.0")
