@@ -8,6 +8,7 @@ def get_mac_ip():
     mac = hex(get_mac())
     return mac
 
+
 def calculate_hibyte(byte: int):
     hibyte = (byte >> 8)
     lobyte = (byte & 0xFF)
@@ -844,7 +845,292 @@ def artvlc_output(artnet_data, target_ip="255.255.255.255", ieee=0, reply=0, bea
     artnet_packet.append(payload_language[0])
     artnet_packet.append(repeat_frequency[1])
     artnet_packet.append(repeat_frequency[0])
-    artnet_packet.extend(bytearray(artnet_data["dmx_data"]))
+    artnet_packet.extend(payload)
+
+    try:
+        socket_settings.set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))
+        # print(f"Sending {artnet_packet} to {target_ip}")
+    except Exception as exception:
+        print(f"Socket error: {exception}")
+
+
+def artinput_output(target_ip="255.255.255.255", bind_index=1,
+                    input_ports=0, input1=1, input2=1, input3=1, input4=1):
+    # UNICAST
+    # 1:        ID[8] ('A''r''t''-''N''e''t' 0x00)
+    # 2:        OPCode (OpInput, see OPCode list) -> Int16!
+    # 3:        ProtVerHi (0x0)
+    # 4:        ProtVerLo (14)
+    # 5:        Filler 1 (Ignore by receivers, set to zero by sender.)
+    # 6:        Bind Index (Defines the bound node which originated this packet and is used to uniquely identify the
+    #           bound node when Identical IP addresses are in use. Represents the order of bound devices
+    #           A lower number means closer to the root device. 1 = Root Device)
+    # 7:        NumPortsHi (For future expansion and is currently zero)
+    # 8:        NumPortsLo (Number of input and output ports. If number of output and inputs is not equal, the largest
+    #           Number is taken. Maximum value is 4.
+    # 9:        Input[4]
+    #               0: 0 = Enabled, 1 = Disabled
+    #               1-7: Not currently used
+
+    input_ports = calculate_hibyte(input_ports)
+
+    input1 = int(f"0000000{input1}", 2)
+    input2 = int(f"0000000{input2}", 2)
+    input3 = int(f"0000000{input3}", 2)
+    input4 = int(f"0000000{input4}", 2)
+
+    artnet_packet = bytearray()
+    artnet_packet.extend(ID)
+    artnet_packet.append(OP_INPUT[1])  # OPCode Lo
+    artnet_packet.append(OP_INPUT[0])  # OPCode Hi
+    artnet_packet.append(PROT_VER_HI)  # ProtVerHi
+    artnet_packet.append(PROT_VER_LO)  # ProtVerLo
+    artnet_packet.append(0x0)          # Filler1
+    artnet_packet.append(bind_index)   # Bind Index
+    artnet_packet.append(input_ports[0])  # NumPortsHi
+    artnet_packet.append(input_ports[1])  # NumPortsLo
+    artnet_packet.append(input1)
+    artnet_packet.append(input2)
+    artnet_packet.append(input3)
+    artnet_packet.append(input4)
+
+    try:
+        socket_settings.set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))
+        # print(f"Sending {artnet_packet} to {target_ip}")
+    except Exception as exception:
+        print(f"Socket error: {exception}")
+
+
+def artfirmwaremaster_output(target_ip="255.255.255.255", firmware_type="FirmCont", block_id=0x00,
+                             firmware_length=0x00000000, data=""):
+    # UNICAST
+    # 1:        ID[8] ('A''r''t''-''N''e''t' 0x00)
+    # 2:        OPCode (OpFirmwareMaster, see OPCode list) -> Int16!
+    # 3:        ProtVerHi (0x0)
+    # 4:        ProtVerLo (14)
+    # 5:        Filler 1 (Ignore by receivers, set to zero by sender.)
+    # 6:        Filler 2 (Ignore by receivers, set to zero by sender.)
+    # 7:        Type (Defines the packet content)
+    #           0x00: FirmFirst (The First Packet of a firmware upload)
+    #           0x01: FirmCont (A consecutive continuation packet of a firmware upload)
+    #           0x02: FirmLast (The last packet of a firmware upload)
+    #           0x03: UbeaFirst (The First Packet of a UBEA upload)
+    #           0x04: UbeaCont (A consecutive continuation packet of a UBEA upload)
+    #           0x05: UbeaLast (The last packet of a UBEA upload)
+    # 8:        BlockId (Counts the consecutive blocks of firmware starting at 0x00 for the FirmFirst or UbeaFirst.)
+    # 9:        FirmwareLength3 (Describes the total number of words in the firmware upload plus the firmware header
+    #           size. Eg a 32K word upload plus 530 words of header information == 0x00008212. This value is also the
+    #           file size (in words) of the file to be uploaded)
+    # 10:       FirmwareLength2
+    # 11:       FirmwareLength1
+    # 12:       FirmwareLength0 (LSB of above)
+    # 13:       Spare[20] (Ignore by receivers, set to zero by sender.)
+    # 14:       Data (Hi Byte first interpretation is manufacturer specific. Final packet should be null terminated if
+    #           less than 512 bytes are needed)
+
+    if firmware_type == "FirmFirst":
+        firmware_type = 0x00
+    elif firmware_type == "FirmCont":
+        firmware_type = 0x01
+    elif firmware_type == "FirmLast":
+        firmware_type = 0x02
+    elif firmware_type == "UbeaFirst":
+        firmware_type = 0x03
+    elif firmware_type == "UbeaCont":
+        firmware_type = 0x04
+    elif firmware_type == "UbeaLast":
+        firmware_type = 0x05
+
+    firmware_length3 = (firmware_length >> 24 & 0xFF)
+    firmware_length2 = (firmware_length >> 16 & 0xFF)
+    firmware_length1 = (firmware_length >> 8 & 0xFF)
+    firmware_length0 = (firmware_length & 0xFF)
+
+    artnet_packet = bytearray()
+    artnet_packet.extend(ID)
+    artnet_packet.append(OP_FIRMWARE_MASTER[1])  # OPCode Lo
+    artnet_packet.append(OP_FIRMWARE_MASTER[0])  # OPCode Hi
+    artnet_packet.append(PROT_VER_HI)  # ProtVerHi
+    artnet_packet.append(PROT_VER_LO)  # ProtVerLo
+    artnet_packet.append(0x0)          # Filler1
+    artnet_packet.append(0x0)          # Filler2
+    artnet_packet.append(firmware_type)  # Type
+    artnet_packet.append(block_id)     # BlockId
+    artnet_packet.append(firmware_length3)
+    artnet_packet.append(firmware_length2)
+    artnet_packet.append(firmware_length1)
+    artnet_packet.append(firmware_length0)
+    for i in range(20):
+        artnet_packet.append(0x0)  # Spare
+    artnet_packet.extend(data)     # Data
+
+    try:
+        socket_settings.set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))
+        # print(f"Sending {artnet_packet} to {target_ip}")
+    except Exception as exception:
+        print(f"Socket error: {exception}")
+
+
+def artfirmwarereply_output(target_ip="255.255.255.255", firmware_type="FirmBlockGood"):
+    # UNICAST
+    # 1:        ID[8] ('A''r''t''-''N''e''t' 0x00)
+    # 2:        OPCode (OpFirmwareReply, see OPCode list) -> Int16!
+    # 3:        ProtVerHi (0x0)
+    # 4:        ProtVerLo (14)
+    # 5:        Filler 1 (Ignore by receivers, set to zero by sender.)
+    # 6:        Filler 2 (Ignore by receivers, set to zero by sender.)
+    # 7:        Type (Defines the packet content)
+    #           0x00: FirmBlockGood (Last packet received successfully)
+    #           0x01: FirmAllGood (All firmware received successfully)
+    #           0xff: FirmFail (Firmware upload failed)
+    # 8:        Spare (Ignore by receivers, set to zero by sender.)
+
+    if firmware_type == "FirmBlockGood":
+        firmware_type = 0x00
+    elif firmware_type == "FirmAllGood":
+        firmware_type = 0x01
+    elif firmware_type == "FirmFail":
+        firmware_type = 0xff
+
+    artnet_packet = bytearray()
+    artnet_packet.extend(ID)
+    artnet_packet.append(OP_FIRMWARE_REPLY[1])  # OPCode Lo
+    artnet_packet.append(OP_FIRMWARE_REPLY[0])  # OPCode Hi
+    artnet_packet.append(PROT_VER_HI)  # ProtVerHi
+    artnet_packet.append(PROT_VER_LO)  # ProtVerLo
+    artnet_packet.append(0x0)  # Filler1
+    artnet_packet.append(0x0)  # Filler2
+    artnet_packet.append(firmware_type)  # Type
+    for i in range(21):
+        artnet_packet.append(0x0)  # Spare
+
+    try:
+        socket_settings.set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))
+        # print(f"Sending {artnet_packet} to {target_ip}")
+    except Exception as exception:
+        print(f"Socket error: {exception}")
+
+
+def arttodrequest_output(artnet_data, target_ip="255.255.255.255", firmware_type="FirmBlockGood", command=0x00,
+                         add_count=32):
+    # BROADCAST
+    # 1:        ID[8] ('A''r''t''-''N''e''t' 0x00)
+    # 2:        OPCode (OpTodRequest, see OPCode list) -> Int16!
+    # 3:        ProtVerHi (0x0)
+    # 4:        ProtVerLo (14)
+    # 5:        Filler 1 (Ignore by receivers, set to zero by sender.)
+    # 6:        Filler 2 (Ignore by receivers, set to zero by sender.)
+    # 7:        Spare 1 (Ignore by receivers, set to zero by sender.)
+    # 8:        Spare 2 (Ignore by receivers, set to zero by sender.)
+    # 9:        Spare 3 (Ignore by receivers, set to zero by sender.)
+    # 10:       Spare 4 (Ignore by receivers, set to zero by sender.)
+    # 11:       Spare 5 (Ignore by receivers, set to zero by sender.)
+    # 12:       Spare 6 (Ignore by receivers, set to zero by sender.)
+    # 13:       Spare 7 (Ignore by receivers, set to zero by sender.)
+    # 14:       Net (Top 7 bits of the 15 bit Port-Address of nodes that must respond to this packet)
+    # 15:       Command (0x00 = Tod Full - Send the entire TOD)
+    # 16:       AddCount (The number of entries in Address that are used. Max value is 32.
+    # 17:       Address[32] (Defines the low byte of the Port-Address of the Output Gateway nodes that must respond to
+    #           this packet. The high nibble is the Sub-Net-Switch. The low nibble is the universe. Combined with the
+    #           Net field, this is the 15 bit address.
+
+    if firmware_type == "FirmBlockGood":
+        firmware_type = 0x00
+    elif firmware_type == "FirmAllGood":
+        firmware_type = 0x01
+    elif firmware_type == "FirmFail":
+        firmware_type = 0xff
+
+    artnet_packet = bytearray()
+    artnet_packet.extend(ID)
+    artnet_packet.append(OP_TOD_REQUEST[1])  # OPCode Lo
+    artnet_packet.append(OP_TOD_REQUEST[0])  # OPCode Hi
+    artnet_packet.append(PROT_VER_HI)  # ProtVerHi
+    artnet_packet.append(PROT_VER_LO)  # ProtVerLo
+    artnet_packet.append(0x0)  # Filler1
+    artnet_packet.append(0x0)  # Filler2
+    artnet_packet.append(0x0)  # Spare 1
+    artnet_packet.append(0x0)  # Spare 2
+    artnet_packet.append(0x0)  # Spare 3
+    artnet_packet.append(0x0)  # Spare 4
+    artnet_packet.append(0x0)  # Spare 5
+    artnet_packet.append(0x0)  # Spare 6
+    artnet_packet.append(0x0)  # Spare 7
+    artnet_packet.append(artnet_data["universe_hibyte"])  # Net
+    artnet_packet.append(command)  # Command
+    artnet_packet.append(add_count)  # AddCount
+    artnet_packet.append(artnet_data["universe_lobyte"])  # Address <- ToDo
+
+    try:
+        socket_settings.set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))
+        # print(f"Sending {artnet_packet} to {target_ip}")
+    except Exception as exception:
+        print(f"Socket error: {exception}")
+
+
+def arttoddata_output(artnet_data, target_ip="255.255.255.255", rdm_version="standard", port=1, bind_index=1,
+                      command_response=0x00, uid_total=0, block_count=0, tod=[]):
+    # BROADCAST
+    # 1:        ID[8] ('A''r''t''-''N''e''t' 0x00)
+    # 2:        OPCode (OpTodData, see OPCode list) -> Int16!
+    # 3:        ProtVerHi (0x0)
+    # 4:        ProtVerLo (14)
+    # 5:        RdmVer (RDM Draft V1.0 = 0x00, RDM Standard V1.0 = 0x01)
+    # 6:        Port (Physical Port Range 1-4)
+    # 7:        Spare 1 (Ignore by receivers, set to zero by sender.)
+    # 8:        Spare 2 (Ignore by receivers, set to zero by sender.)
+    # 9:        Spare 3 (Ignore by receivers, set to zero by sender.)
+    # 10:       Spare 4 (Ignore by receivers, set to zero by sender.)
+    # 11:       Spare 5 (Ignore by receivers, set to zero by sender.)
+    # 12:       Spare 6 (Ignore by receivers, set to zero by sender.)
+    # 13:       BindIndex (Defines the bound node which originated the packet. In combination with Port and Source IP
+    #           address, it uniquely identifies the sender. This must match the BindIndex field in ArtPollReply. This
+    #           number represents the order of bound devices. 1 = Root device
+    # 14:       Net (Top 7 bits of the 15 bit Port-Address of nodes that must respond to this packet)
+    # 15:       Command Response
+    #           0x00: TodFull (Counts the entire TOD or is the first packet in a sequence of packets w. the entire TOD)
+    #           0xff: TodNak (TOD is not available or discovery is incomplete)
+    # 16:       Address[32] (Defines the low byte of the Port-Address of the Output Gateway nodes that must respond to
+    #           this packet. The high nibble is the Sub-Net-Switch. The low nibble is the universe. Combined with the
+    #           Net field, this is the 15 bit address.
+    # 17:       UidTotalHi (The total number of devices discovered by this universe)
+    # 18:       UidTotalLo (Lo Byte of above)
+    # 19:       BlockCount (The index number of this packet. When UID exceeds 200, multiple ArtTodData packets are used.
+    #           BlockCount is set to zero for the first packet and incremented for each subsequent packet containing
+    #           blocks of TOD information
+    # 20:       UidCount (The number of UIDs encoded in this packet. This is the index of the following array.
+    # 21:       ToD[UidCount] (48 bit array of RDM UIDs)
+
+    if rdm_version == "draft":
+        rdm_version = 0x00
+    elif rdm_version == "standard":
+        rdm_version = 0x01
+    uid_total = calculate_hibyte(uid_total)
+
+    artnet_packet = bytearray()
+    artnet_packet.extend(ID)
+    artnet_packet.append(OP_TOD_DATA[1])  # OPCode Lo
+    artnet_packet.append(OP_TOD_DATA[0])  # OPCode Hi
+    artnet_packet.append(PROT_VER_HI)  # ProtVerHi
+    artnet_packet.append(PROT_VER_LO)  # ProtVerLo
+    artnet_packet.append(rdm_version)  # RdmVer
+    artnet_packet.append(port)  # Port
+    artnet_packet.append(0x0)  # Spare 1
+    artnet_packet.append(0x0)  # Spare 2
+    artnet_packet.append(0x0)  # Spare 3
+    artnet_packet.append(0x0)  # Spare 4
+    artnet_packet.append(0x0)  # Spare 5
+    artnet_packet.append(0x0)  # Spare 6
+    artnet_packet.append(bind_index)  # Bind Index <- ToDo
+    artnet_packet.append(artnet_data["universe_hibyte"])  # Net
+    artnet_packet.append(command_response)  # Comamnd Response
+    artnet_packet.append(artnet_data["universe_lobyte"])  # Address <- ToDo
+    artnet_packet.append(uid_total[0])  # UidTotalHi
+    artnet_packet.append(uid_total[1])  # uidTotalLo
+    artnet_packet.append(block_count)  # BlockCount
+    artnet_packet.append(len(tod))  # UidCount
+    for i in range(len(tod)):
+        artnet_packet.append(tod[i])  # ToD
 
     try:
         socket_settings.set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))

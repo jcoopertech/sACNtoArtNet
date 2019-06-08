@@ -32,7 +32,7 @@ OP_SYNC = (0x52, 0x00)            # This is an ArtSync data packet.
 # It is used to force synchronous transfer of ArtDmx packets to a node’s output.
 OP_ADDRESS = (0x60, 0x00)         # This is an ArtAddress packet. It contains remote programming information for a Node.
 OP_INPUT = (0x70, 0x00)           # This is an ArtInput packet. It contains enable – disable data for DMX inputs.
-OP_TOP_REQUEST = (0x80, 0x00)     # This is an ArtTodRequest packet.
+OP_TOD_REQUEST = (0x80, 0x00)     # This is an ArtTodRequest packet.
 # It is used to request a Table of Devices (ToD) for RDM discovery.
 OP_TOD_DATA = (0x81, 0x00)        # This is an ArtTodData packet.
 # It is used to send a Table of Devices (ToD) for RDM discovery.
