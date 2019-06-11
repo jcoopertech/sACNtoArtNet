@@ -5,12 +5,15 @@ from params.ArtNetParams import *
 from params.RDMParams import *
 
 
+set_artnet_sock = socket_settings.artnet_socket_setup(socket_settings.ip)
+
+
 def get_mac_ip():
-    mac = hex(get_mac())
+    mac = hex(get_mac())  # Using the UUID Lib to read the device IP
     return mac
 
 
-def calculate_hibyte(byte: int):
+def calculate_hibyte(byte: int): # Returns a list with the hibyte[0] and the lobyte[1]
     hibyte = (byte >> 8)
     lobyte = (byte & 0xFF)
     return hibyte, lobyte
@@ -43,11 +46,7 @@ def artpoll_output(target_ip="255.255.255.255", art_poll_reply=1, diagnostics=0,
     artnet_packet.append(talk_to_me)   # TalkToMe
     artnet_packet.append(priority)  # Priority
 
-    try:
-        socket_settings.set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))
-        print(f"Sending {artnet_packet} to {target_ip}")
-    except Exception as exception:
-        print(f"Socket error: {exception}")
+    artnet_output(artnet_packet, target_ip)
 
 
 def artpollreply_output(target_ip='255.255.255.255', universe=0, ubea_version=0, indicator_state=00,
@@ -270,11 +269,7 @@ def artpollreply_output(target_ip='255.255.255.255', universe=0, ubea_version=0,
     for x in range(0, 27):
         artnet_packet.append(0x0)  # Filler
 
-    try:
-        socket_settings.set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))
-        print(f"Sending {artnet_packet} to {target_ip}")
-    except Exception as exception:
-        print(f"Socket error: {exception}")
+    artnet_output(artnet_packet, target_ip)
 
 
 def artdmx_output(artnet_data, target_ip="255.255.255.255", fps=30, physical=0):
@@ -307,11 +302,7 @@ def artdmx_output(artnet_data, target_ip="255.255.255.255", fps=30, physical=0):
     artnet_packet.append(length[1])  # Length
     artnet_packet.extend(bytearray(artnet_data["dmx_data"]))
 
-    try:
-        socket_settings.set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))
-        #print(f"Sending {artnet_packet} to {target_ip}")
-    except Exception as exception:
-        print(f"Socket error: {exception}")
+    artnet_output(artnet_packet, target_ip)
 
 
 def artipprog_output(target_ip="255.255.255.255", any_programming=0, dhcp_enable=0, default_reset=0,
@@ -371,10 +362,7 @@ def artipprog_output(target_ip="255.255.255.255", any_programming=0, dhcp_enable
     for i in range(8):
         artnet_packet.append(0x00)          # Spare 1-8
 
-    try:
-        socket_settings.set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))
-    except Exception as exception:
-        print(f"Socket error: {exception}")
+    artnet_output(artnet_packet, target_ip)
 
 
 def artipprogreply_output(target_ip="255.255.255.255", dhcp_enable=0, prog_ip="127.0.0.1", prog_sm="255.0.0.0"):
@@ -431,10 +419,7 @@ def artipprogreply_output(target_ip="255.255.255.255", dhcp_enable=0, prog_ip="1
     for i in range(7):
         artnet_packet.append(0x00)  # Spare 2-8
 
-    try:
-        socket_settings.set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))
-    except Exception as exception:
-        print(f"Socket error: {exception}")
+    artnet_output(artnet_packet, target_ip)
 
 
 def artaddress_output(target_ip='255.255.255.255', net_switch=0x7f, bind_index=1, short_name="The Converter",
@@ -518,11 +503,7 @@ def artaddress_output(target_ip='255.255.255.255', net_switch=0x7f, bind_index=1
     artnet_packet.append(0x00)       # SwVideo
     artnet_packet.append(command)
 
-    try:
-        socket_settings.set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))
-        print(f"Sending {artnet_packet} to {target_ip}")
-    except Exception as exception:
-        print(f"Socket error: {exception}")
+    artnet_output(artnet_packet, target_ip)
 
 
 def artdiagdata_output(target_ip="255.255.255.255", priority=DP_LOW, data="Everything is ok"):
@@ -558,10 +539,7 @@ def artdiagdata_output(target_ip="255.255.255.255", priority=DP_LOW, data="Every
     artnet_packet.extend(data)  # Data
     artnet_packet.append(0x00)  # Null termination
 
-    try:
-        socket_settings.set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))
-    except Exception as exception:
-        print(f"Socket error: {exception}")
+    artnet_output(artnet_packet, target_ip)
 
 
 def arttimecode_output(target_ip="255.255.255.255", frames=0, seconds=0, minutes=0, hours=0, frame_type="SMPTE"):
@@ -605,10 +583,7 @@ def arttimecode_output(target_ip="255.255.255.255", frames=0, seconds=0, minutes
     artnet_packet.append(hours)
     artnet_packet.append(frame_type)  # Frame Type
 
-    try:
-        socket_settings.set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))
-    except Exception as exception:
-        print(f"Socket error: {exception}")
+    artnet_output(artnet_packet, target_ip)
 
 
 def artcommand_output(target_ip="255.255.255.255", esta_code=0xFFFF, art_command=SW_OUT_TEXT):
@@ -641,10 +616,7 @@ def artcommand_output(target_ip="255.255.255.255", esta_code=0xFFFF, art_command
     artnet_packet.append(data_length[0])   # Length Lo
     artnet_packet.extend(art_command)   # Art Command
 
-    try:
-        socket_settings.set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))
-    except Exception as exception:
-        print(f"Socket error: {exception}")
+    artnet_output(artnet_packet, target_ip)
 
 
 def arttrigger_output(target_ip="255.255.255.255", oem_code=0xFFFF, key=255, subkey=0, data=""):
@@ -687,10 +659,7 @@ def arttrigger_output(target_ip="255.255.255.255", oem_code=0xFFFF, key=255, sub
     if oem_code != 0xFFFF or key > 3:
         artnet_packet.extend(data)  # Payload
 
-    try:
-        socket_settings.set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))
-    except Exception as exception:
-        print(f"Socket error: {exception}")
+    artnet_output(artnet_packet, target_ip)
 
 
 def artsync_output(target_ip="255.255.255.255"):
@@ -711,10 +680,7 @@ def artsync_output(target_ip="255.255.255.255"):
     artnet_packet.append(0x0)  # Aux 1
     artnet_packet.append(0x0)  # Aux 2
 
-    try:
-        socket_settings.set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))
-    except Exception as exception:
-        print(f"Socket error: {exception}")
+    artnet_output(artnet_packet, target_ip)
 
 
 def artnzs_output(artnet_data, target_ip="255.255.255.255"):
@@ -747,11 +713,7 @@ def artnzs_output(artnet_data, target_ip="255.255.255.255"):
     artnet_packet.append(length[1])  # Length
     artnet_packet.extend(bytearray(artnet_data["dmx_data"]))
 
-    try:
-        socket_settings.set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))
-        # print(f"Sending {artnet_packet} to {target_ip}")
-    except Exception as exception:
-        print(f"Socket error: {exception}")
+    artnet_output(artnet_packet, target_ip)
 
 
 def artvlc_output(artnet_data, target_ip="255.255.255.255", ieee=0, reply=0, beacon=0, transaction_number=0x0000,
@@ -848,11 +810,7 @@ def artvlc_output(artnet_data, target_ip="255.255.255.255", ieee=0, reply=0, bea
     artnet_packet.append(repeat_frequency[0])
     artnet_packet.extend(payload)
 
-    try:
-        socket_settings.set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))
-        # print(f"Sending {artnet_packet} to {target_ip}")
-    except Exception as exception:
-        print(f"Socket error: {exception}")
+    artnet_output(artnet_packet, target_ip)
 
 
 def artinput_output(target_ip="255.255.255.255", bind_index=1,
@@ -895,11 +853,7 @@ def artinput_output(target_ip="255.255.255.255", bind_index=1,
     artnet_packet.append(input3)
     artnet_packet.append(input4)
 
-    try:
-        socket_settings.set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))
-        # print(f"Sending {artnet_packet} to {target_ip}")
-    except Exception as exception:
-        print(f"Socket error: {exception}")
+    artnet_output(artnet_packet, target_ip)
 
 
 def artfirmwaremaster_output(target_ip="255.255.255.255", firmware_type="FirmCont", block_id=0x00,
@@ -965,11 +919,7 @@ def artfirmwaremaster_output(target_ip="255.255.255.255", firmware_type="FirmCon
         artnet_packet.append(0x0)  # Spare
     artnet_packet.extend(data)     # Data
 
-    try:
-        socket_settings.set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))
-        # print(f"Sending {artnet_packet} to {target_ip}")
-    except Exception as exception:
-        print(f"Socket error: {exception}")
+    artnet_output(artnet_packet, target_ip)
 
 
 def artfirmwarereply_output(target_ip="255.255.255.255", firmware_type="FirmBlockGood"):
@@ -1005,11 +955,7 @@ def artfirmwarereply_output(target_ip="255.255.255.255", firmware_type="FirmBloc
     for i in range(21):
         artnet_packet.append(0x0)  # Spare
 
-    try:
-        socket_settings.set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))
-        # print(f"Sending {artnet_packet} to {target_ip}")
-    except Exception as exception:
-        print(f"Socket error: {exception}")
+    artnet_output(artnet_packet, target_ip)
 
 
 def arttodrequest_output(artnet_data, target_ip="255.255.255.255", firmware_type="FirmBlockGood", command=0x00,
@@ -1062,11 +1008,7 @@ def arttodrequest_output(artnet_data, target_ip="255.255.255.255", firmware_type
     artnet_packet.append(add_count)  # AddCount
     artnet_packet.append(artnet_data["universe_lobyte"])  # Address <- ToDo
 
-    try:
-        socket_settings.set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))
-        # print(f"Sending {artnet_packet} to {target_ip}")
-    except Exception as exception:
-        print(f"Socket error: {exception}")
+    artnet_output(artnet_packet, target_ip)
 
 
 def arttoddata_output(artnet_data, target_ip="255.255.255.255", rdm_version="standard", port=1, bind_index=1,
@@ -1133,11 +1075,7 @@ def arttoddata_output(artnet_data, target_ip="255.255.255.255", rdm_version="sta
     for i in range(len(tod)):
         artnet_packet.append(tod[i])  # ToD
 
-    try:
-        socket_settings.set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))
-        # print(f"Sending {artnet_packet} to {target_ip}")
-    except Exception as exception:
-        print(f"Socket error: {exception}")
+    artnet_output(artnet_packet, target_ip)
 
 
 def arttodcontrol_output(artnet_data, target_ip="255.255.255.255", command_response=0x00):
@@ -1182,11 +1120,7 @@ def arttodcontrol_output(artnet_data, target_ip="255.255.255.255", command_respo
     artnet_packet.append(command_response)  # Comamnd Response
     artnet_packet.append(artnet_data["universe_lobyte"])  # Address <- ToDo
 
-    try:
-        socket_settings.set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))
-        # print(f"Sending {artnet_packet} to {target_ip}")
-    except Exception as exception:
-        print(f"Socket error: {exception}")
+    artnet_output(artnet_packet, target_ip)
 
 
 def artrdm_output(artnet_data, target_ip="255.255.255.255", rdm_version="standard", command_response=0x00):
@@ -1237,11 +1171,7 @@ def artrdm_output(artnet_data, target_ip="255.255.255.255", rdm_version="standar
     artnet_packet.append(artnet_data["universe_lobyte"])  # Address <- ToDo
     artnet_packet.append(artnet_packet["rdm_data"])  # RDM Packet
 
-    try:
-        socket_settings.set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))
-        # print(f"Sending {artnet_packet} to {target_ip}")
-    except Exception as exception:
-        print(f"Socket error: {exception}")
+    artnet_output(artnet_packet, target_ip)
 
 
 def artrdmsub_output(artnet_data, target_ip="255.255.255.255", rdm_version="standard", uid=0x000000000000, command_response=0x00, ):
@@ -1299,11 +1229,7 @@ def artrdmsub_output(artnet_data, target_ip="255.255.255.255", rdm_version="stan
     artnet_packet.append(artnet_data["universe_lobyte"])  # Address <- ToDo
     artnet_packet.append(artnet_packet["rdm_data"])  # RDM Packet
 
-    try:
-        socket_settings.set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))
-        # print(f"Sending {artnet_packet} to {target_ip}")
-    except Exception as exception:
-        print(f"Socket error: {exception}")
+    artnet_output(artnet_packet, target_ip)
 
 
 def identify_artnet_packet(input):
@@ -1317,3 +1243,11 @@ def identify_artnet_packet(input):
         #artpollreply_output(PRIMARY_ARTNET_ADDRESS,)
     elif input[8] == OP_POLL_REPLY[1]and input[9] == OP_POLL_REPLY[0]:
         print("ART POLL REPLY")
+
+
+def artnet_output(artnet_packet, target_ip):
+    try:
+        set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))
+        # print(f"Sending {artnet_packet} to {target_ip}")
+    except Exception as exception:
+        print(f"Socket error: {exception}")

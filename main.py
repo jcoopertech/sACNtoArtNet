@@ -6,8 +6,6 @@ import socket_settings
 import threading
 
 
-
-
 def set_fps(fps=45):
     loop_time = time.time() + (1/fps)
     return loop_time
@@ -35,7 +33,7 @@ while True:
     packet_type, sACN_data = sACN.identify_sacn_packet(sacn_input_packet)            # Identify Packet Type.
     if packet_type == "sACN_DATA_PACKET":
         ArtNet.artdmx_output(sACN_data)          # Send corresponding ArtNet packet.
-        #print(f"{packet_type}")
+        # print(f"{packet_type}")
     elif packet_type == "sACN_EXTENDED_SYNCHRONIZATION":
         print(f"{packet_type}")
         ArtNet.artpoll_output()         # Send corresponding ArtPoll packet. (<-To Do)

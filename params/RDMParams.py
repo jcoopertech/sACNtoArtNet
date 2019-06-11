@@ -1,6 +1,5 @@
 """RDM Defined Parameters"""
 
-
 """Command Class Defines"""
 DISCOVERY_COMMAND = 0x10
 DISCOVERY_COMMAND_RESPONSE = 0x11
@@ -9,13 +8,11 @@ GET_COMMAND_RESPONSE = 0x21
 SET_COMMAND = 0x30
 SET_COMMAND_RESPONSE = 0x31
 
-
 """Response Type Defines"""
 RESPONSE_TYPE_ACK = 0x00
 RESPONSE_TYPE_ACK_TIMER = 0x01
 RESPONSE_TYPE_NACK_REASON = 0x02  # See Table A-17
 RESPONSE_TYPE_ACK_OVERFLOW = 0x03  # Additional Response Data available beyond single response length.
-
 
 """Network Management Defines"""
 DISC_UNIQUE_BRANCH = 0x0001
@@ -70,7 +67,7 @@ DEVICE_HOURS = 0x0400
 LAMP_HOURS = 0x0401
 LAMP_STRIKES = 0x0402
 LAMP_STATE = 0x0403  # See Table A-8
-LAMP_ON_MODE = 0x0404 # See Table A-8
+LAMP_ON_MODE = 0x0404  # See Table A-8
 DEVICE_POWER_CYCLES = 0x0405
 
 """Display Settings Defines (0x05xx)"""
@@ -147,7 +144,7 @@ PRODUCT_CATEGORY_ATMOSPHERIC_OTHER = (0x04, 0xFF)
 PRODUCT_CATEGORY_DIMMER = (0x05, 0x00)  # No Fine Category declared.
 PRODUCT_CATEGORY_DIMMER_AC_INCANDESCENT = (0x05, 0x01)  # AC > 50VAC
 PRODUCT_CATEGORY_DIMMER_AC_FLUORESCENT = (0x05, 0x02)
-PRODUCT_CATEGORY_DIMMER_AC_COLDCATHODE = (0x05 0x03)  # High Voltage outputs such as Neon or other cold cathode.
+PRODUCT_CATEGORY_DIMMER_AC_COLDCATHODE = (0x05, 0x03)  # High Voltage outputs such as Neon or other cold cathode.
 PRODUCT_CATEGORY_DIMMER_AC_NONDIM = (0x05, 0x04)  # Non-Dim module in dimmer rack.
 PRODUCT_CATEGORY_DIMMER_AC_ELV = (0x05, 0x05)  # AC <= 50V such as 12/24V AC Low voltage lamps.
 PRODUCT_CATEGORY_DIMMER_AC_OTHER = (0x05, 0x06)
@@ -170,7 +167,7 @@ PRODUCT_CATEGORY_SCENIC_OTHER = (0x07, 0xFF)
 # DMX Infrastructure, conversion and interfaces
 PRODUCT_CATEGORY_DATA = (0x08, 0x00)  # No Fine Category declared.
 PRODUCT_CATEGORY_DATA_DISTRIBUTION = (0x08, 0x01)  # Splitters / repeaters / data patch / Ethernet products used
-                                                   # to distribute DMX universes.
+# to distribute DMX universes.
 PRODUCT_CATEGORY_DATA_CONVERSION = (0x08, 0x02)  # Protocol Conversion analog decoders.
 PRODUCT_CATEGORY_DATA_OTHER = (0x08, 0xFF)
 
@@ -201,7 +198,7 @@ PRODUCT_CATEGORY_TEST_EQUIPMENT_OTHER = (0x71, 0xFF)
 # Miscellaneous
 PRODUCT_CATEGORY_OTHER = (0x7F, 0xFF)  # For devices that aren’t described within this table.
 
-#Manufacturer Specific Categories
+# Manufacturer Specific Categories
 # (0x80-0xDF, 0x00-0xFF)
 
 # Note 1: A fixture in this context is defined as a light source intended as a means of illumination. A
@@ -214,7 +211,7 @@ PRODUCT_CATEGORY_OTHER = (0x7F, 0xFF)  # For devices that aren’t described wit
 # provide a data logging or monitoring function.
 
 """Product Detail Defines"""
-PRODUCT_DETAIL_NOT DECLARED = 0x0000
+PRODUCT_DETAIL_NOT_DECLARED = 0x0000
 
 # Generally applied to fixtures
 PRODUCT_DETAIL_ARC = 0x0001  # Intended for constant light output.
@@ -297,7 +294,7 @@ PRODUCT_DETAIL_WIRELESS_LINK = 0x0604  # radio/infrared
 
 # Generally applied to Data Conversion and Interfaces
 PRODUCT_DETAIL_PROTOCOL_CONVERTOR = 0x0701  # D54/AMX192/Non DMX serial links, etc to/from DMX512
-PRODUCT_DETAIL_ANALOG_DEMULTIPLEX = 0x0702 # DMX to DC voltage
+PRODUCT_DETAIL_ANALOG_DEMULTIPLEX = 0x0702  # DMX to DC voltage
 PRODUCT_DETAIL_ANALOG_MULTIPLEX = 0x0703  # DC Voltage to DMX
 PRODUCT_DETAIL_SWITCH_PANEL = 0x0704  # Pushbuttons to DMX or polled using RDM
 
@@ -306,7 +303,7 @@ PRODUCT_DETAIL_ROUTER = 0x0800  # Switching device
 PRODUCT_DETAIL_FADER = 0x0801  # Single channel
 PRODUCT_DETAIL_MIXER = 0x0802  # Multi-channel
 # Generally applied to Controllers, Backup devices and Test Equipment
-PRODUCT_DETAIL_CHANGEOVER_MANUAL = 0x0900 # requires manual intervention to assume control of DMX line
+PRODUCT_DETAIL_CHANGEOVER_MANUAL = 0x0900  # requires manual intervention to assume control of DMX line
 PRODUCT_DETAIL_CHANGEOVER_AUTO = 0x0901  # may automatically assume control of DMX line
 PRODUCT_DETAIL_TEST = 0x0902  # test equipment
 
@@ -334,7 +331,7 @@ PRODUCT_DETAIL_OTHER = 0x7FFF  # for use where the Manufacturer believes that no
 """Preset Playback Defines"""
 PRESET_PLAYBACK_OFF = 0x0000  # Returns to Normal DMX512 Input
 PRESET_PLAYBACK_ALL = 0xFFFF  # Plays Scenes in Sequence if supported.
-#PRESET_PLAYBACK_SCENE 0x0001-0xFFFE  # Plays individual Scene
+# PRESET_PLAYBACK_SCENE 0x0001-0xFFFE  # Plays individual Scene
 
 """Lamp State Defines"""
 LAMP_OFF = 0x00  # No demonstrable light output
@@ -401,7 +398,7 @@ UNITS_VOLTS_DC = 0x02  # VOLTAGE
 UNITS_VOLTS_AC_PEAK = 0x03  # VOLTAGE
 UNITS_VOLTS_AC_RMS = 0x04  # VOLTAGE
 UNITS_AMPERE_DC = 0x05  # CURRENT
-UNITS_AMPERE_AC_PEAK  =0x06  # CURRENT
+UNITS_AMPERE_AC_PEAK = 0x06  # CURRENT
 UNITS_AMPERE_AC_RMS = 0x07  # CURRENT
 UNITS_HERTZ = 0x08  # FREQUENCY / ANG_VEL
 UNITS_OHM = 0x09  # RESISTANCE
@@ -473,13 +470,13 @@ NR_HARDWARE_FAULT = 0x0002  # The responder cannot comply due to an internal har
 NR_PROXY_REJECT = 0x0003  # Proxy is not the RDM line master and cannot comply with message.
 NR_WRITE_PROTECT = 0x0004  # SET Command normally allowed but being blocked currently.
 NR_UNSUPPORTED_COMMAND_CLASS = 0x0005  # Not valid for Command Class attempted. May be used where GET allowed but SET is
-                                       # not supported.
+# not supported.
 NR_DATA_OUT_OF_RANGE = 0x0006  # Value for given Parameter out of allowable range or not supported.
 NR_BUFFER_FULL = 0x0007  # Buffer or Queue space currently has no free space to store data.
 NR_PACKET_SIZE_UNSUPPORTED = 0x0008  # Incoming message exceeds buffer capacity.
 NR_SUB_DEVICE_OUT_OF_RANGE = 0x0009  # Sub-Device is out of range or unknown.
 NR_PROXY_BUFFER_FULL = 0x000A  # The proxy buffer is full and can not store any more Queued Message or Status Message
-                               # responses.
+# responses.
 
 """Status Message ID Definitions"""
 STS_CAL_FAIL = 0x0001  # Slot Label Code “%L failed calibration”
