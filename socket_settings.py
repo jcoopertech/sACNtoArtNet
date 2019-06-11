@@ -1,7 +1,5 @@
 import socket
-import sACNParams
-import ArtNetParams
-
+from params import ArtNetParams, sACNParams
 
 '''GLOBAL PARAMS'''
 universe_min = 1

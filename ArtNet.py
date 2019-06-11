@@ -1,7 +1,8 @@
 from uuid import getnode as get_mac
 import socket
 import socket_settings
-from ArtNetParams import *
+from params.ArtNetParams import *
+from params.RDMParams import *
 
 
 def get_mac_ip():
@@ -1139,10 +1140,176 @@ def arttoddata_output(artnet_data, target_ip="255.255.255.255", rdm_version="sta
         print(f"Socket error: {exception}")
 
 
+def arttodcontrol_output(artnet_data, target_ip="255.255.255.255", command_response=0x00):
+    # BROADCAST
+    # 1:        ID[8] ('A''r''t''-''N''e''t' 0x00)
+    # 2:        OPCode (OpTodControl, see OPCode list) -> Int16!
+    # 3:        ProtVerHi (0x0)
+    # 4:        ProtVerLo (14)
+    # 5:        Filler 1 (Ignore by receivers, set to zero by sender.)
+    # 6:        Filler 2 (Ignore by receivers, set to zero by sender.)
+    # 7:        Spare 1 (Ignore by receivers, set to zero by sender.)
+    # 8:        Spare 2 (Ignore by receivers, set to zero by sender.)
+    # 9:        Spare 3 (Ignore by receivers, set to zero by sender.)
+    # 10:       Spare 4 (Ignore by receivers, set to zero by sender.)
+    # 11:       Spare 5 (Ignore by receivers, set to zero by sender.)
+    # 12:       Spare 6 (Ignore by receivers, set to zero by sender.)
+    # 13:       Spare 7 (Ignore by receivers, set to zero by sender.)
+    # 14:       Net (Top 7 bits of the 15 bit Port-Address of nodes that must respond to this packet)
+    # 15:       Command
+    #           0x00: AtcNone (No action)
+    #           0x01: AtcFlush (Node flushes its TOD and instigates full discovery)
+    # 16:       Address (Defines the low byte of the Port-Address of the Output Gateway nodes that should action this
+    #           command. The high nibble is the Sub-Net-Switch. The low nibble is the universe. Combined with the
+    #           Net field, this is the 15 bit address.
+
+    artnet_packet = bytearray()
+    artnet_packet.extend(ID)
+    artnet_packet.append(OP_TOD_CONTROL[1])  # OPCode Lo
+    artnet_packet.append(OP_TOD_CONTROL[0])  # OPCode Hi
+    artnet_packet.append(PROT_VER_HI)  # ProtVerHi
+    artnet_packet.append(PROT_VER_LO)  # ProtVerLo
+    artnet_packet.append(0x0)  # Filler 1
+    artnet_packet.append(0x0)  # Filler 2
+    artnet_packet.append(0x0)  # Spare 1
+    artnet_packet.append(0x0)  # Spare 2
+    artnet_packet.append(0x0)  # Spare 3
+    artnet_packet.append(0x0)  # Spare 4
+    artnet_packet.append(0x0)  # Spare 5
+    artnet_packet.append(0x0)  # Spare 6
+    artnet_packet.append(0x0)  # Spare 7
+    artnet_packet.append(artnet_data["universe_hibyte"])  # Net
+    artnet_packet.append(command_response)  # Comamnd Response
+    artnet_packet.append(artnet_data["universe_lobyte"])  # Address <- ToDo
+
+    try:
+        socket_settings.set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))
+        # print(f"Sending {artnet_packet} to {target_ip}")
+    except Exception as exception:
+        print(f"Socket error: {exception}")
+
+
+def artrdm_output(artnet_data, target_ip="255.255.255.255", rdm_version="standard", command_response=0x00):
+    # BROADCAST or UNICAST (UNICAST is preferred)
+    # 1:        ID[8] ('A''r''t''-''N''e''t' 0x00)
+    # 2:        OPCode (OpRdm, see OPCode list) -> Int16!
+    # 3:        ProtVerHi (0x0)
+    # 4:        ProtVerLo (14)
+    # 5:        RdmVer (RDM Draft V1.0 = 0x00, RDM Standard V1.0 = 0x01)
+    # 6:        Filler 2 (Ignore by receivers, set to zero by sender.)
+    # 7:        Spare 1 (Ignore by receivers, set to zero by sender.)
+    # 8:        Spare 2 (Ignore by receivers, set to zero by sender.)
+    # 9:        Spare 3 (Ignore by receivers, set to zero by sender.)
+    # 10:       Spare 4 (Ignore by receivers, set to zero by sender.)
+    # 11:       Spare 5 (Ignore by receivers, set to zero by sender.)
+    # 12:       Spare 6 (Ignore by receivers, set to zero by sender.)
+    # 13:       Spare 7 (Ignore by receivers, set to zero by sender.)
+    # 14:       Net (Top 7 bits of the 15 bit Port-Address of nodes that must respond to this packet)
+    # 15:       Command
+    #           0x00: ArProcess (Process RDM Packet)
+    # 16:       Address[32] (Defines the low byte of the Port-Address that should action this command.
+    #           The high nibble is the Sub-Net-Switch. The low nibble is the universe. Combined with the
+    #           Net field, this is the 15 bit address.
+    # 17:       RdmPacket (The RDM data packet excluding the DMX StartCode.
+
+    if rdm_version == "draft":
+        rdm_version = 0x00
+    elif rdm_version == "standard":
+        rdm_version = 0x01
+
+    artnet_packet = bytearray()
+    artnet_packet.extend(ID)
+    artnet_packet.append(OP_RDM[1])  # OPCode Lo
+    artnet_packet.append(OP_RDM[0])  # OPCode Hi
+    artnet_packet.append(PROT_VER_HI)  # ProtVerHi
+    artnet_packet.append(PROT_VER_LO)  # ProtVerLo
+    artnet_packet.append(rdm_version)  # RdmVer
+    artnet_packet.append(0x0)  # Filler 2
+    artnet_packet.append(0x0)  # Spare 1
+    artnet_packet.append(0x0)  # Spare 2
+    artnet_packet.append(0x0)  # Spare 3
+    artnet_packet.append(0x0)  # Spare 4
+    artnet_packet.append(0x0)  # Spare 5
+    artnet_packet.append(0x0)  # Spare 6
+    artnet_packet.append(0x0)  # Spare 7
+    artnet_packet.append(artnet_data["universe_hibyte"])  # Net
+    artnet_packet.append(command_response)  # Command Response
+    artnet_packet.append(artnet_data["universe_lobyte"])  # Address <- ToDo
+    artnet_packet.append(artnet_packet["rdm_data"])  # RDM Packet
+
+    try:
+        socket_settings.set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))
+        # print(f"Sending {artnet_packet} to {target_ip}")
+    except Exception as exception:
+        print(f"Socket error: {exception}")
+
+
+def artrdmsub_output(artnet_data, target_ip="255.255.255.255", rdm_version="standard", uid=0x000000000000, command_response=0x00, ):
+    # UNICAST
+    # 1:        ID[8] ('A''r''t''-''N''e''t' 0x00)
+    # 2:        OPCode (OpRdmSub, see OPCode list) -> Int16!
+    # 3:        ProtVerHi (0x0)
+    # 4:        ProtVerLo (14)
+    # 5:        RdmVer (RDM Draft V1.0 = 0x00, RDM Standard V1.0 = 0x01)
+    # 6:        Filler 2 (Ignore by receivers, set to zero by sender.)
+    # 7:        UID (UID of target RDM device. The UID is a 48-bit ID containing a 16-bit manufacturer ID and a 32-bit
+    #           device ID.)
+    # 8:        Spare 1 (Ignore by receivers, set to zero by sender.)
+    # 9:        CommandClass (Defines whether this is a "Get", "Set", "GetResponse" or "SetResponse")
+    # 10:       ParameterIp (As per RDM specification. Defines the type of parameter contained by this packet.)
+    # 10:       Lo Byte of above
+    # 11:       SubDevice (Defines the first device information contained in packet. 0 = Root device,
+    #           1 = First subdevice)
+    # 11:       Lo Byte of above
+    # 12:       SubCount (Number of sub devices packed into this packet. Zero is illegal!
+    # 12:       Lo Byte of above
+    # 13:       Spare 2 (Ignore by receivers, set to zero by sender.)
+    # 14:       Spare 3(Ignore by receivers, set to zero by sender.)
+    # 15:       Spare 4 (Ignore by receivers, set to zero by sender.)
+    # 16:       Spare 5 (Ignore by receivers, set to zero by sender.)
+    # 17:       Data (Packed 16 bit big-endian data. The size of the data array is defined by the contents of
+    #           CommandClass and SubCount
+    #           Get: Size = 0
+    #           Set: Size = SubCount
+    #           GetResponse: Size = SubCount
+    #           SetResponse: Size = 0
+
+    if rdm_version == "draft":
+        rdm_version = 0x00
+    elif rdm_version == "standard":
+        rdm_version = 0x01
+
+    artnet_packet = bytearray()
+    artnet_packet.extend(ID)
+    artnet_packet.append(OP_RDM_SUB[1])  # OPCode Lo
+    artnet_packet.append(OP_RDM_SUB[0])  # OPCode Hi
+    artnet_packet.append(PROT_VER_HI)  # ProtVerHi
+    artnet_packet.append(PROT_VER_LO)  # ProtVerLo
+    artnet_packet.append(rdm_version)  # RdmVer
+    artnet_packet.append(0x0)  # Filler 2
+    artnet_packet.append(uid)  # UID
+    artnet_packet.append(0x0)  # Spare 1
+    artnet_packet.append(0x0)  # Spare 3
+    artnet_packet.append(0x0)  # Spare 4
+    artnet_packet.append(0x0)  # Spare 5
+    artnet_packet.append(0x0)  # Spare 6
+    artnet_packet.append(0x0)  # Spare 7
+    artnet_packet.append(artnet_data["universe_hibyte"])  # Net
+    artnet_packet.append(command_response)  # Command Response
+    artnet_packet.append(artnet_data["universe_lobyte"])  # Address <- ToDo
+    artnet_packet.append(artnet_packet["rdm_data"])  # RDM Packet
+
+    try:
+        socket_settings.set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))
+        # print(f"Sending {artnet_packet} to {target_ip}")
+    except Exception as exception:
+        print(f"Socket error: {exception}")
+
+
 def identify_artnet_packet(input):
     # Extracts the type of ArtNet packet and will return the type of packet and the packet itself.
     if len(input) < 1:
-        raise TypeError("Unknown Package. The minimum length for a sACN package is ...") #<- ToDo
+        raise TypeError("Unknown Package. The minimum length for a sACN package is ...")  # <- ToDo
     if input[8] == OP_DMX[1] and input[9] == OP_DMX[0]:
         print("DMX PACKET")
     elif input[8] == OP_POLL[1] and input[9] == OP_POLL[0]:

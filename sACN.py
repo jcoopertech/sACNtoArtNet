@@ -1,4 +1,4 @@
-from sACNParams import *
+from params.sACNParams import *
 import socket_settings
 
 '''GLOBAL FUNCTION PARAMETERS'''
