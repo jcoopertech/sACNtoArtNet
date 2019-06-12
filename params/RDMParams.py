@@ -14,6 +14,7 @@ RESPONSE_TYPE_ACK_TIMER = 0x01
 RESPONSE_TYPE_NACK_REASON = 0x02  # See Table A-17
 RESPONSE_TYPE_ACK_OVERFLOW = 0x03  # Additional Response Data available beyond single response length.
 
+"""PARAMETER ID DEFINES"""
 """Network Management Defines"""
 DISC_UNIQUE_BRANCH = 0x0001
 DISC_MUTE = 0x0002

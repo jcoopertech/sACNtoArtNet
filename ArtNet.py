@@ -2,6 +2,7 @@ from uuid import getnode as get_mac
 import socket
 import socket_settings
 from params.ArtNetParams import *
+from params.UserParams import *
 from params.RDMParams import *
 
 
@@ -13,7 +14,7 @@ def get_mac_ip():
     return mac
 
 
-def calculate_hibyte(byte: int): # Returns a list with the hibyte[0] and the lobyte[1]
+def calculate_hibyte(byte: int):  # Returns a list with the hibyte[0] and the lobyte[1]
     hibyte = (byte >> 8)
     lobyte = (byte & 0xFF)
     return hibyte, lobyte
@@ -52,13 +53,13 @@ def artpoll_output(target_ip="255.255.255.255", art_poll_reply=1, diagnostics=0,
 def artpollreply_output(target_ip='255.255.255.255', universe=0, ubea_version=0, indicator_state=00,
                         programming_authority=00, firmware_boot=0, rdm_capable=0, ubea_present=0,
                         esta_manufacturer=0x0000, short_name="The Converter", long_name="sACN to Art-Net Converter",
-                        node_report="0", num_ports=0, artnet_output=[0,0,0,0], artnet_input=[0,0,0,0], protocol="Art-Net",
-                        input_received=0, input_test_packet=0, input_sip=0, input_text=0, input_disabled=0,
-                        input_error=0, output_received=0, output_test_packet=0, output_sip=0, output_text=0,
-                        output_merging=0, output_short=0, output_ltp=0, output_sacn=1, m1=0, m2=0, m3=0, m4=0, m5=0,
-                        m6=0, m7=0, m8=0, r1=0, r2=0, r3=0, r4=0, r5=0, r6=0, r7=0, r8=0, style_code=ST_ROUTE,
-                        bind_index=1, web_browser_config=0, dhcp=0, dhcp_capable=0, bit_support15=1, switch_to_sacn=1,
-                        squawking=0):
+                        node_report="0", num_ports=0, artnet_out=[0, 0, 0, 0], artnet_in=[0, 0, 0, 0],
+                        protocol="Art-Net", input_received=0, input_test_packet=0, input_sip=0, input_text=0,
+                        input_disabled=0, input_error=0, output_received=0, output_test_packet=0, output_sip=0,
+                        output_text=0, output_merging=0, output_short=0, output_ltp=0, output_sacn=1, m1=0, m2=0, m3=0,
+                        m4=0, m5=0, m6=0, m7=0, m8=0, r1=0, r2=0, r3=0, r4=0, r5=0, r6=0, r7=0, r8=0,
+                        style_code=ST_ROUTE, bind_index=1, web_browser_config=0, dhcp=0, dhcp_capable=0,
+                        bit_support15=1, switch_to_sacn=1, squawking=0):
     # BROADCAST
     # 1:        ID[8] ('A''r''t''-''N''e''t' 0x00)
     # 2:        OPCode (OpPollReply, see OPCode list) -> Int16!
@@ -169,10 +170,10 @@ def artpollreply_output(target_ip='255.255.255.255', universe=0, ubea_version=0,
         protocol_flag = "000100"
     elif protocol == "Art-Net":
         protocol_flag = "000101"
-    port1 = int(f"{artnet_output[0]}{artnet_input[0]}{protocol_flag}", 2)
-    port2 = int(f"{artnet_output[1]}{artnet_input[1]}{protocol_flag}", 2)
-    port3 = int(f"{artnet_output[2]}{artnet_input[2]}{protocol_flag}", 2)
-    port4 = int(f"{artnet_output[3]}{artnet_input[3]}{protocol_flag}", 2)
+    port1 = int(f"{artnet_out[0]}{artnet_in[0]}{protocol_flag}", 2)
+    port2 = int(f"{artnet_out[1]}{artnet_in[1]}{protocol_flag}", 2)
+    port3 = int(f"{artnet_out[2]}{artnet_in[2]}{protocol_flag}", 2)
+    port4 = int(f"{artnet_out[3]}{artnet_in[3]}{protocol_flag}", 2)
     good_input = int(f"{input_received}{input_test_packet}{input_sip}{input_text}{input_disabled}{input_error}00", 2)
     good_output = int(f"{output_received}{output_test_packet}{output_sip}{output_text}{output_merging}{output_short}{output_ltp}{output_sacn}", 2)
     good_input1 = good_input
@@ -196,8 +197,9 @@ def artpollreply_output(target_ip='255.255.255.255', universe=0, ubea_version=0,
     mac_x = int(mac[8:10], 16)
     mac_y = int(mac[10:12], 16)
     mac_z = int(mac[12:14], 16)
-    print(mac)
-    print(mac_u)
+    if debug_level >= 4:
+        print(mac)
+        print(mac_u)
     status2 = int(f"000{squawking}{switch_to_sacn}{bit_support15}{dhcp_capable}{dhcp}{web_browser_config}", 2)
 
     artnet_packet = bytearray()
@@ -272,7 +274,7 @@ def artpollreply_output(target_ip='255.255.255.255', universe=0, ubea_version=0,
     artnet_output(artnet_packet, target_ip)
 
 
-def artdmx_output(artnet_data, target_ip="255.255.255.255", fps=30, physical=0):
+def artdmx_output(artnet_data, target_ip="255.255.255.255", physical=0):
     # 0-39 DEVICES: UNICAST, 40+ DEVICES: BROADCAST
     # 1:        ID[8] ('A''r''t''-''N''e''t' 0x00)
     # 2:        OPCode (OpOutput, see OPCode list) -> Int16!
@@ -764,7 +766,7 @@ def artvlc_output(artnet_data, target_ip="255.255.255.255", ieee=0, reply=0, bea
     #           22: Payload (Actual Data)
 
     length = calculate_hibyte(len(artnet_data["dmx_data"]))
-    flags = int(f"{ieee}{reply}{beacon}00000",2)
+    flags = int(f"{ieee}{reply}{beacon}00000", 2)
     transaction_number = calculate_hibyte(transaction_number)
     slot_address = calculate_hibyte(slot_address)
     pay_count = calculate_hibyte(len(payload))
@@ -958,8 +960,7 @@ def artfirmwarereply_output(target_ip="255.255.255.255", firmware_type="FirmBloc
     artnet_output(artnet_packet, target_ip)
 
 
-def arttodrequest_output(artnet_data, target_ip="255.255.255.255", firmware_type="FirmBlockGood", command=0x00,
-                         add_count=32):
+def arttodrequest_output(artnet_data, target_ip="255.255.255.255", command=0x00, add_count=32):
     # BROADCAST
     # 1:        ID[8] ('A''r''t''-''N''e''t' 0x00)
     # 2:        OPCode (OpTodRequest, see OPCode list) -> Int16!
@@ -980,13 +981,6 @@ def arttodrequest_output(artnet_data, target_ip="255.255.255.255", firmware_type
     # 17:       Address[32] (Defines the low byte of the Port-Address of the Output Gateway nodes that must respond to
     #           this packet. The high nibble is the Sub-Net-Switch. The low nibble is the universe. Combined with the
     #           Net field, this is the 15 bit address.
-
-    if firmware_type == "FirmBlockGood":
-        firmware_type = 0x00
-    elif firmware_type == "FirmAllGood":
-        firmware_type = 0x01
-    elif firmware_type == "FirmFail":
-        firmware_type = 0xff
 
     artnet_packet = bytearray()
     artnet_packet.extend(ID)
@@ -1174,7 +1168,8 @@ def artrdm_output(artnet_data, target_ip="255.255.255.255", rdm_version="standar
     artnet_output(artnet_packet, target_ip)
 
 
-def artrdmsub_output(artnet_data, target_ip="255.255.255.255", rdm_version="standard", uid=0x000000000000, command_response=0x00, ):
+def artrdmsub_output(artnet_data, target_ip="255.255.255.255", rdm_version="standard", uid=0x000000000000,
+                     command_class=GET_COMMAND, parameter_id=DISC_UNIQUE_BRANCH, sub_device=0x0, sub_count=0x01):
     # UNICAST
     # 1:        ID[8] ('A''r''t''-''N''e''t' 0x00)
     # 2:        OPCode (OpRdmSub, see OPCode list) -> Int16!
@@ -1219,15 +1214,18 @@ def artrdmsub_output(artnet_data, target_ip="255.255.255.255", rdm_version="stan
     artnet_packet.append(0x0)  # Filler 2
     artnet_packet.append(uid)  # UID
     artnet_packet.append(0x0)  # Spare 1
+    artnet_packet.append(command_class)  # CommandClass
+    artnet_packet.append(parameter_id)  # ParameterID
+    artnet_packet.append(sub_device)  # SubDevice
+    artnet_packet.append(sub_count)  # SubCount
+    artnet_packet.append(0x0)  # Spare 2
     artnet_packet.append(0x0)  # Spare 3
     artnet_packet.append(0x0)  # Spare 4
     artnet_packet.append(0x0)  # Spare 5
-    artnet_packet.append(0x0)  # Spare 6
-    artnet_packet.append(0x0)  # Spare 7
-    artnet_packet.append(artnet_data["universe_hibyte"])  # Net
-    artnet_packet.append(command_response)  # Command Response
-    artnet_packet.append(artnet_data["universe_lobyte"])  # Address <- ToDo
-    artnet_packet.append(artnet_packet["rdm_data"])  # RDM Packet
+    if command_class == GET_COMMAND or SET_COMMAND_RESPONSE:
+        pass
+    elif command_class == SET_COMMAND or GET_COMMAND_RESPONSE:
+        artnet_packet.append(len(sub_device))  # RDM Data <- ToDo
 
     artnet_output(artnet_packet, target_ip)
 
@@ -1236,18 +1234,74 @@ def identify_artnet_packet(input):
     # Extracts the type of ArtNet packet and will return the type of packet and the packet itself.
     if len(input) < 1:
         raise TypeError("Unknown Package. The minimum length for a sACN package is ...")  # <- ToDo
-    if input[8] == OP_DMX[1] and input[9] == OP_DMX[0]:
-        print("DMX PACKET")
-    elif input[8] == OP_POLL[1] and input[9] == OP_POLL[0]:
-        print("ART POLL")
-        #artpollreply_output(PRIMARY_ARTNET_ADDRESS,)
+    if input[8] == OP_POLL[1] and input[9] == OP_POLL[0]:
+        if debug_level >= 3:
+            print("ART POLL")
+        # artpollreply_output(PRIMARY_ARTNET_ADDRESS,)
     elif input[8] == OP_POLL_REPLY[1]and input[9] == OP_POLL_REPLY[0]:
-        print("ART POLL REPLY")
+        if debug_level >= 3:
+            print("ART POLL REPLY")
+    elif input[8] == OP_IP_PROG[1] and input[9] == OP_IP_PROG[0]:
+        if debug_level >= 3:
+            print("ART IP PROG")
+    elif input[8] == OP_IP_PROG_REPLY[1] and input[9] == OP_IP_PROG_REPLY[0]:
+        if debug_level >= 3:
+            print("ART IP PROG REPLY")
+    elif input[8] == OP_ADDRESS[1] and input[9] == OP_ADDRESS[0]:
+        if debug_level >= 3:
+            print("ART ADDRESS")
+    elif input[8] == OP_DIAG_DATA[1] and input[9] == OP_DIAG_DATA[0]:
+        if debug_level >= 3:
+            print("ART DIAG DATA")
+    elif input[8] == OP_TIME_CODE[1] and input[9] == OP_TIME_CODE[0]:
+        if debug_level >= 3:
+            print("ART POLL")
+    elif input[8] == OP_COMMAND[1] and input[9] == OP_COMMAND[0]:
+        if debug_level >= 3:
+            print("ART COMMAND")
+    elif input[8] == OP_TRIGGER[1] and input[9] == OP_TRIGGER[0]:
+        if debug_level >= 3:
+            print("ART TRIGGER")
+    elif input[8] == OP_DMX[1] and input[9] == OP_DMX[0]:
+        if debug_level >= 3:
+            print("DMX PACKET")
+    elif input[8] == OP_SYNC[1] and input[9] == OP_SYNC[0]:
+        if debug_level >= 3:
+            print("ART SYNC")
+    elif input[8] == OP_NZS[1] and input[9] == OP_NZS[0]:
+        if debug_level >= 3:
+            print("ART NZS or ART VLC")
+    elif input[8] == OP_INPUT[1] and input[9] == OP_INPUT[0]:
+        if debug_level >= 3:
+            print("ART INPUT")
+    elif input[8] == OP_FIRMWARE_MASTER[1] and input[9] == OP_FIRMWARE_MASTER[0]:
+        if debug_level >= 3:
+            print("ART FIRMWARE MASTER")
+    elif input[8] == OP_FIRMWARE_REPLY[1] and input[9] == OP_FIRMWARE_REPLY[0]:
+        if debug_level >= 3:
+            print("ART FIRMWARE REPLY")
+    elif input[8] == OP_TOD_REQUEST[1] and input[9] == OP_TOD_REQUEST[0]:
+        if debug_level >= 3:
+            print("ART TOD REQUEST")
+    elif input[8] == OP_TOD_DATA[1] and input[9] == OP_TOD_DATA[0]:
+        if debug_level >= 3:
+            print("ART TOD DATA")
+    elif input[8] == OP_TOD_CONTROL[1] and input[9] == OP_TOD_CONTROL[0]:
+        if debug_level >= 3:
+            print("ART TOD CONTROL")
+    elif input[8] == OP_RDM[1] and input[9] == OP_RDM[0]:
+        if debug_level >= 3:
+            print("RDM PACKET")
+    elif input[8] == OP_RDM_SUB[1] and input[9] == OP_RDM_SUB[0]:
+        if debug_level >= 3:
+            print("RDM SUB PACKET")
 
 
 def artnet_output(artnet_packet, target_ip):
     try:
         set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))
-        # print(f"Sending {artnet_packet} to {target_ip}")
+        if debug_level >= 4:
+            print(f"Sending {artnet_packet} to {target_ip}")
     except Exception as exception:
-        print(f"Socket error: {exception}")
+        if debug_level >= 1:
+            print(f"Socket error: {exception}")

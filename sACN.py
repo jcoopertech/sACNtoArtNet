@@ -1,5 +1,6 @@
 from params.sACNParams import *
 import socket_settings
+from params.UserParams import *
 
 '''GLOBAL FUNCTION PARAMETERS'''
 
@@ -36,7 +37,8 @@ def identify_sacn_packet(sacn_input):
         if len(sacn_input) < 126:
             raise TypeError("Unknown Package. The minimum length for a sACN package is 126.")
     except TypeError as error_message:
-        print("LENGTH ERROR:", error_message)
+        if debug_level >= 1:
+            print("LENGTH ERROR:", error_message)
     if tuple(sacn_input[40:44]) == VECTOR_E131_DATA_PACKET:     # sACN Data Packet
         sacn_data = sacn_data_input(sacn_input)     # Extract all data we can get
         sacn_data["dmx_data"], sacn_data["input_data"] = merge_sacn_inputs(sacn_data)
@@ -87,7 +89,8 @@ def sacn_data_input(sacn_packet):
         if sacn_packet[125] != 0x00:
             raise TypeError("Unknown Start Code!")
     except TypeError as error_text:
-        print("Start Code Error:", error_text)
+        if debug_level >= 2:
+            print("Start Code Error:", error_text)
     if tuple(sacn_packet[0:2]) != PREAMBLE_SIZE or tuple(sacn_packet[2:4]) != POST_AMBLE_SIZE or \
             tuple(sacn_packet[4:16]) != ACN_PACKET_IDENTIFIER or \
             tuple(sacn_packet[18:22]) != VECTOR_ROOT_E131_DATA or \
@@ -181,7 +184,7 @@ def sacn_discovery_input(sacn_packet):
             tuple(sacn_packet[4:16]) != ACN_PACKET_IDENTIFIER or \
             tuple(sacn_packet[18:22]) != VECTOR_ROOT_E131_EXTENDED or \
             tuple(sacn_packet[40:44]) != VECTOR_E131_EXTENDED_DISCOVERY or \
-            tuple(sacn_packet[114:118] != VECTOR_UNIVERSE_DISCOVERY_UNIVERSE_LIST):
+            tuple(sacn_packet[114:118]) != VECTOR_UNIVERSE_DISCOVERY_UNIVERSE_LIST:
         # Raise an error, if any of the package content is not valid. Print out what it should be and what was sent.
         raise TypeError(f"Package does not comply E1.31 standard! \
         Preamble {PREAMBLE_SIZE} was {tuple(sacn_packet[0:2])}, \
