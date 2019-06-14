@@ -11,9 +11,9 @@ Download or clone the repository. Run **main.py** Thats it.
 The script will print out the type of received packet. Edit **socket_settings.py** to change the input universes (*universe_min* and *universe_max*) or the IP addresses to listen and send to. Please note: sACNtoArtNet will automatically bind to the needed multicast addresses for the universes between *universe_min* and *universe_max*.
 
 ### Tested platforms
-Windows 10
-Ubuntu Mate (Raspberry Pi)
-Raspbian (Note: Install Python 3.6 or later manually!)
+- Windows 10
+- Ubuntu Mate (Raspberry Pi)
+- Raspbian (Note: Install Python 3.6 or later manually!)
 
 ## Currently working features:
 - Convert sACN to ArtNet
