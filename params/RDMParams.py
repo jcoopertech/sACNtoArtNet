@@ -1,6 +1,19 @@
 """RDM Defined Parameters"""
+# First Parameters are E1.20 parameters, second part are E1.37 parameters.
 
-"""Command Class Defines"""
+"""Start Code"""
+SC_RDM = 0xCC
+
+"""RDM Protocol Data Structure ID's"""
+SC_SUB_MESSAGE = 0x01  # (Slot 1)
+
+"""Broadcast Device UID's"""
+BROADCAST_ALL_DEVICES_ID = 0xFFFFFFFFFFFF  # (Broadcast all Manufacturers)
+ALL_DEVICES_ID = 0xFFFFFFFF  # (Specific Manufacturer ID 0xmmmm) 0xmmmmFFFFFFFF
+SUB_DEVICE_ALL_CALL = 0xFFFF
+
+
+"""Command Class Defines (Table A-1)"""
 DISCOVERY_COMMAND = 0x10
 DISCOVERY_COMMAND_RESPONSE = 0x11
 GET_COMMAND = 0x20
@@ -8,14 +21,14 @@ GET_COMMAND_RESPONSE = 0x21
 SET_COMMAND = 0x30
 SET_COMMAND_RESPONSE = 0x31
 
-"""Response Type Defines"""
+"""Response Type Defines (Table A-2)"""
 RESPONSE_TYPE_ACK = 0x00
 RESPONSE_TYPE_ACK_TIMER = 0x01
 RESPONSE_TYPE_NACK_REASON = 0x02  # See Table A-17
 RESPONSE_TYPE_ACK_OVERFLOW = 0x03  # Additional Response Data available beyond single response length.
 
-"""PARAMETER ID DEFINES"""
-"""Network Management Defines"""
+"""PARAMETER ID DEFINES (Table A-3)"""
+# Network Management Defines
 DISC_UNIQUE_BRANCH = 0x0001
 DISC_MUTE = 0x0002
 DISC_UN_MUTE = 0x0003
@@ -23,18 +36,18 @@ PROXIED_DEVICES = 0x0010
 PROXIED_DEVICE_COUNT = 0x0011
 COMMS_STATUS = 0x0015
 
-"""Status Collection Defines"""
+# Status Collection Defines
 QUEUED_MESSAGE = 0x0020  # See Table A-4
 STATUS_MESSAGES = 0x0030  # See Table A-4
 STATUS_ID_DESCRIPTION = 0x0031
 CLEAR_STATUS_ID = 0x0032
 SUB_DEVICE_STATUS_REPORT_THRESHOLD = 0x0033  # See Table A-4
 
-"""RDM Information Defines"""
+# RDM Information Defines
 SUPPORTED_PARAMETERS = 0x0050  # Support required only if supporting Parameters beyond the minimum required set.
 PARAMETER_DESCRIPTION = 0x0051  # Support required for Manufacturer-Specific PIDs exposed in SUPPORTED_PARAMETERS msg.
 
-"""Product Information Defines"""
+# Product Information Defines
 DEVICE_INFO = 0x0060
 PRODUCT_DETAIL_ID_LIST = 0x0070
 DEVICE_MODEL_DESCRIPTION = 0x0080
@@ -47,7 +60,7 @@ SOFTWARE_VERSION_LABEL = 0x00C0
 BOOT_SOFTWARE_VERSION_ID = 0x00C1
 BOOT_SOFTWARE_VERSION_LABEL = 0x00C2
 
-"""DMX512 Setup Defines"""
+# DMX512 Setup Defines
 DMX_PERSONALITY = 0x00E0
 DMX_PERSONALITY_DESCRIPTION = 0x00E1
 DMX_START_ADDRESS = 0x00F0  # Support required if device uses a DMX512 Slot.
@@ -55,15 +68,15 @@ SLOT_INFO = 0x0120
 SLOT_DESCRIPTION = 0x0121
 DEFAULT_SLOT_VALUE = 0x0122
 
-"Sensors Defines (0x02xx)"""
+# Sensors Defines (0x02xx)
 SENSOR_DEFINITION = 0x0200
 SENSOR_VALUE = 0x0201
 RECORD_SENSORS = 0x0202
 
-"""Dimmer Settings Defines (0x03xx)"""
+# Dimmer Settings Defines (0x03xx)
 # Future
 
-"""Power/Lamp Settings Defines (0x04xx)"""
+# Power/Lamp Settings Defines (0x04xx)
 DEVICE_HOURS = 0x0400
 LAMP_HOURS = 0x0401
 LAMP_STRIKES = 0x0402
@@ -71,17 +84,17 @@ LAMP_STATE = 0x0403  # See Table A-8
 LAMP_ON_MODE = 0x0404  # See Table A-8
 DEVICE_POWER_CYCLES = 0x0405
 
-"""Display Settings Defines (0x05xx)"""
+# Display Settings Defines (0x05xx)
 DISPLAY_INVERT = 0x0500
 DISPLAY_LEVEL = 0x0501
 
-"""Configuration Defines (0x06xx)"""
+# Configuration Defines (0x06xx)
 PAN_INVERT = 0x0600
 TILT_INVERT = 0x0601
 PAN_TILT_SWAP = 0x0602
 REAL_TIME_CLOCK = 0x0603
 
-"""Control Defines (0x10xx)"""
+# Control Defines (0x10xx)
 IDENTIFY_DEVICE = 0x1000
 RESET_DEVICE = 0x1001
 POWER_STATE = 0x1010  # See Table A-11
@@ -90,16 +103,16 @@ SELF_TEST_DESCRIPTION = 0x1021
 CAPTURE_PRESET = 0x1030
 PRESET_PLAYBACK = 0x1031  # See Table A-7
 
-"""ESTA Reserved Future RDM Development"""
+# ESTA Reserved Future RDM Development"""
 # 0x7FE0-0x7FFF
 
-"""Manufacturer-Specific PIDs"""
+# Manufacturer-Specific PIDs"""
 # 0x8000-0xFFDF
 
-"""ESTA Reserved Future RDM Development"""
+# ESTA Reserved Future RDM Development"""
 # 0xFFE0-0xFFFF
 
-"""Status Type Defines"""
+"""Status Type Defines (Table A-4)"""
 STATUS_NONE = 0x00  # Not allowed for use with GET: QUEUED_MESSAGE
 STATUS_GET_LAST_MESSAGE = 0x01
 STATUS_ADVISORY = 0x02
@@ -109,7 +122,7 @@ STATUS_ADVISORY_CLEARED = 0x12
 STATUS_WARNING_CLEARED = 0x13
 STATUS_ERROR_CLEARED = 0x14
 
-"""Product Category Defines"""
+"""Product Category Defines (Table A-5)"""
 PRODUCT_CATEGORY_NOT_DECLARED = (0x00, 0x00)
 
 # Fixtures – intended as source of illumination
@@ -211,7 +224,7 @@ PRODUCT_CATEGORY_OTHER = (0x7F, 0xFF)  # For devices that aren’t described wit
 # Note 3: This category is for equipment that has no DMX512 control capability, but uses RDM to
 # provide a data logging or monitoring function.
 
-"""Product Detail Defines"""
+"""Product Detail Defines (Table A-6)"""
 PRODUCT_DETAIL_NOT_DECLARED = 0x0000
 
 # Generally applied to fixtures
@@ -329,12 +342,12 @@ PRODUCT_DETAIL_OTHER = 0x7FFF  # for use where the Manufacturer believes that no
 # PRODUCT_DETAIL_RELAY_ELECTRONIC shall be restricted to devices whereby the switched
 # circuits are electrically isolated from the control signals.
 
-"""Preset Playback Defines"""
+"""Preset Playback Defines (Table A-7)"""
 PRESET_PLAYBACK_OFF = 0x0000  # Returns to Normal DMX512 Input
 PRESET_PLAYBACK_ALL = 0xFFFF  # Plays Scenes in Sequence if supported.
 # PRESET_PLAYBACK_SCENE 0x0001-0xFFFE  # Plays individual Scene
 
-"""Lamp State Defines"""
+"""Lamp State Defines (Table A-8)"""
 LAMP_OFF = 0x00  # No demonstrable light output
 LAMP_ON = 0x01
 LAMP_STRIKE = 0x02  # Arc-Lamp ignite
@@ -343,19 +356,19 @@ LAMP_NOT_PRESENT = 0x04  # Lamp not installed
 LAMP_ERROR = 0x7F
 # Manufacturer-Specific States  # 0x80 – 0xDF
 
-"""Lamp On Mode Defines"""
+"""Lamp On Mode Defines (Table A-9)"""
 LAMP_ON_MODE_OFF = 0x00  # Lamp Stays off until directly instructed to Strike.
 LAMP_ON_MODE_DMX = 0x01  # Lamp Strikes upon receiving a DMX512 signal.
 LAMP_ON_MODE_ON = 0x02  # Lamp Strikes automatically at Power-up.
 LAMP_ON_MODE_AFTER_CAL = 0x03  # Lamp Strikes after Calibration or Homing procedure.
 # Manufacturer-Specific Modes  # 0x80 – 0xDF
 
-"""Self Test Defines"""
+"""Self Test Defines (Table A-10)"""
 SELF_TEST_OFF = 0x00  # Turns Self Tests Off
 # Manufacturer Tests = 0x01 – 0xFE  # Various Manufacturer Self Tests
 SELF_TEST_ALL = 0xFF  # Self Test All, if applicable
 
-"""Sensor Type Defines"""
+"""Sensor Type Defines (Table A-11)"""
 SENS_TEMPERATURE = 0x00
 SENS_VOLTAGE = 0x01
 SENS_CURRENT = 0x02
@@ -392,7 +405,7 @@ SENS_COUNTER_16BIT = 0x20
 SENS_OTHER = 0x7F
 # Manufacturer-Specific Sensors  # 0x80 – 0xFF
 
-"""Sensor Unit Defines Value"""
+"""Sensor Unit Defines Value (Table A-13)"""
 UNITS_NONE = 0x00  # CONTACTS
 UNITS_CENTIGRADE = 0x01  # TEMPERATURE
 UNITS_VOLTS_DC = 0x02  # VOLTAGE
@@ -424,7 +437,7 @@ UNITS_IRE = 0x1B  # CHROMINANCE
 UNITS_BYTE = 0x1C  # MEMORY
 # Manufacturer-Specific Units #  0x80 – 0xFF
 
-"""Sensor Unit Prefix Defines"""
+"""Sensor Unit Prefix Defines (Table A-14)"""
 PREFIX_NONE = 0x00  # Multiply by 1
 PREFIX_DECI = 0x01  # Multiply by 10^-1
 PREFIX_CENTI = 0x02  # Multiply by 10^-2
@@ -447,7 +460,7 @@ PREFIX_EXA = 0x18  # Multiply by 10^+18
 PREFIX_ZETTA = 0x19  # Multiply by 10^+21
 PREFIX_YOTTA = 0x1A  # Multiply by 10^+24
 
-"""Data Type Defines"""
+"""Data Type Defines (Table A-15)"""
 DS_NOT_DEFINED = 0x00  # Data type is not defined
 DS_BIT_FIELD = 0x01  # Data is bit packed
 DS_ASCII = 0x02  # Data is a string
@@ -459,12 +472,12 @@ DS_UNSIGNED_DWORD = 0x07  # Data is an array of unsigned 32-bit words
 DS_SIGNED_DWORD = 0x08  # Data is an array of signed 32-bit words
 # Manufacturer-Specific Data Types  # 0x80 – 0xDF
 
-"""Command Class Defines"""
+"""Command Class Defines (Table A-16)"""
 CC_GET = 0x01  # PID supports GET only
 CC_SET = 0x02  # PID supports SET only
 CC_GET_SET = 0x03  # PID supports GET & SET
 
-"""Response NACK Reason Codes"""
+"""Response NACK Reason Codes (Table A-17)"""
 NR_UNKNOWN_PID = 0x0000  # The responder cannot comply with request because the message is not implemented in responder.
 NR_FORMAT_ERROR = 0x0001  # The responder cannot interpret request as controller data was not formatted correctly.
 NR_HARDWARE_FAULT = 0x0002  # The responder cannot comply due to an internal hardware fault.
@@ -479,7 +492,7 @@ NR_SUB_DEVICE_OUT_OF_RANGE = 0x0009  # Sub-Device is out of range or unknown.
 NR_PROXY_BUFFER_FULL = 0x000A  # The proxy buffer is full and can not store any more Queued Message or Status Message
 # responses.
 
-"""Status Message ID Definitions"""
+"""Status Message ID Definitions (Table B-2)"""
 STS_CAL_FAIL = 0x0001  # Slot Label Code “%L failed calibration”
 STS_SENS_NOT_FOUND = 0x0002  # Slot Label Code “%L sensor not found”
 STS_SENS_ALWAYS_ON = 0x0003  # Slot Label Code “%L sensor always on”
@@ -505,7 +518,7 @@ STS_READY = 0x0050  # Slot Label Code “%L ready”
 STS_NOT_READY = 0x0051  # Slot Label Code “%L not ready”
 STS_LOW_FLUID = 0x0052  # Slot Label Code “%L low fluid”
 
-"""Slot ID Type"""
+"""Slot Type (Table C-1)"""
 ST_PRIMARY = 0x00  # Slot directly controls parameter (represents Coarse for 16-bit parameters)
 ST_SEC_FINE = 0x01  # Fine, for 16-bit parameters
 ST_SEC_TIMING = 0x02  # Slot sets timing value for associated parameter
@@ -516,7 +529,7 @@ ST_SEC_ROTATION = 0x06  # Slot sets rotation speed for associated parameter
 ST_SEC_INDEX_ROTATE = 0x07  # Combined index/rotation control
 ST_SEC_UNDEFINED = 0xFF  # Undefined secondary type
 
-"""Slot Category/ID"""
+"""Slot ID Definitions (Table C-2)"""
 # Intensity Functions (0x00xx)
 SD_INTENSITY = 0x0001  # Intensity
 SD_INTENSITY_MASTER = 0x0002  # Intensity Master
@@ -561,3 +574,85 @@ SD_FIXTURE_SPEED = 0x0503  # Overall speed setting applied to multiple or all pa
 SD_MACRO = 0x0504  # Macro control
 
 SD_UNDEFINED = 0xFFFF  # No definition
+
+
+"""E1.37-1 PARAMETERS"""
+
+"""PARAMETER ID DEFINES (Table A-1)"""
+# DMX512 Setup
+DMX_BLOCK_ADDRESS = 0x0140
+DMX_FAIL_MODE = 0x0141
+DMX_STARTUP_MODE = 0x0142
+
+# Dimmer Settings
+DIMMER_INFO = 0x0340
+MINIMUM_LEVEL = 0x0341
+MAXIMUM_LEVEL = 0x0342
+CURVE = 0x0343
+CURVE_DESCRIPTION = 0x0344  # Support required only if CURVE is supported.
+OUTPUT_RESPONSE_TIME = 0x0345
+OUTPUT_RESPONSE_TIME_DESCRIPTION = 0x0346 # Support required onlyif OUTPUT_RESPONSE_TIME is supported.
+MODULATION_FREQUENCY = 0x0347
+MODULATION_FREQUENCY_DESCRIPTION = 0x0348 # Support required only if MODULATION_FREQUENCY issupported.
+
+# Power/Lamp Settings
+BURN_IN = 0x0440
+
+# Configuration
+LOCK_PIN = 0x0640
+LOCK_STATE = 0x0641
+LOCK_STATE_DESCRIPTION = 0x0642 # Support required only if LOCK_STATE is supported.
+
+# Control
+IDENTIFY_MODE = 0x1040
+PRESET_INFO = 0x1041
+PRESET_STATUS = 0x1042
+PRESET_MERGEMODE = 0x1043 # See Table A-3
+POWER_ON_SELF_TEST = 0x1044
+
+
+"""Preset Programmed Defines (Table A-2)"""
+PRESET_NOT_PROGRAMMED = 0x00  # Preset Scene not programmed.
+PRESET_PROGRAMMED = 0x01  # Preset Scene programmed
+PRESET_PROGRAMMED_READ_ONLY = 0x02  # Preset Scene Read-Only, Factory Programmed
+
+"""Merge Mode Defines (Table A-3)"""
+MERGEMODE_DEFAULT = 0x00  # Preset overrides DMX512 default behavior as defined in E1.20 PRESET_PLAYBACK.
+MERGEMODE_HTP = 0x01  # Highest Takes Precedence on slot by slot basis
+MERGEMODE_LTP = 0x02  # Latest change takes precedence from Preset or DMX512 on a slot by slot basis
+MERGEMODE_DMX_ONLY = 0x03  # DMX512 only, Preset ignored
+MERGEMODE_OTHER = 0xFF  # Other (undefined) merge mode
+
+
+"""E1.37-2 PARAMETERS"""
+
+"""Routing"""
+IPV4_UNCONFIGURED = 0x00000000
+NO_DEFAULT_ROUTE = 0x00000000
+
+
+"""PARAMETER ID DEFINES (Table A-1)"""
+# IP & DNS Configuration
+LIST_INTERFACES = 0x0700  # Support required only if any other PID in Table A-1 is supported
+INTERFACE_LABEL = 0x0701
+INTERFACE_HARDWARE_ADDRESS_TYPE1 = 0x0702
+IPV4_DHCP_MODE = 0x0703
+IPV4_ZEROCONF_MODE = 0x0704
+IPV4_CURRENT_ADDRESS = 0x0705
+IPV4_STATIC_ADDRESS = 0x0706
+INTERFACE_RENEW_DHCP = 0x0707
+INTERFACE_RELEASE_DHCP = 0x0708
+INTERFACE_APPLY_CONFIGURATION = 0x0709  # Support required only if the SET command for any of IPV4_DHCP_MODE,
+# IPV4_ZERO CONF_MODE or IPV4_STATIC_ADDRESS are supported
+IPV4_DEFAULT_ROUTE = 0x070A
+DNS_IPV4_NAME_SERVER = 0x070B
+DNS_HOSTNAME = 0x070C
+DNS_DOMAIN_NAME = 0x070D
+
+"""Additional NACK Reason Codes (Table A-2)"""
+NR_ACTION_NOT_SUPPORTED = 0x000B  # Param data is valid but the SET op cannot be performed w. the current config.
+
+"""DHCP Mode Defines (Table A-3)"""
+DHCP_STATUS_INACTIVE = 0x00  # The IP address was not obtained via DHCP.
+DHCP_STATUS_ACTIVE = 0x01  # The IP address was obtained via DHCP.
+DHCP_STATUS_UNKNOWN = 0x02  # The system cannot determine if the address was obtained via DHCP.
