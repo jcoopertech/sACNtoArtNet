@@ -18,20 +18,58 @@ for i in range(socket_settings.universe_max+1):
 
 
 def merge_sacn_inputs(sacn_data):   # Input Universe, CID and DMX data
-    output = bytearray()            # Reset DMX output
-    for i in range(512):
-        output.append(0)
-    input_data[sacn_data["universe"]][sacn_data["cid"]] = sacn_data["dmx_data"]  # Store input Universe, CID and DMX
+    if "per_channel_priority" not in sacn_data:  # If priority data does not exist yet, add it.
+        per_channel_priority = bytearray()  # Create empty bytearray
+        for i in range(512):
+            per_channel_priority.append(sacn_data["priority"])  # Copy universe priority to every channel
+        sacn_data["per_channel_priority"] = per_channel_priority
+
+    output_dmx = bytearray()            # Reset DMX output
+    output_priority = bytearray()       # Reset Priority output
+    for i in range(512):            # Make an empty DMX universe
+        output_dmx.append(0)
+        output_priority.append(0)
+
+    prio_dmx = {"priority": sacn_data["per_channel_priority"], "dmx": sacn_data["dmx_data"]}
+    input_data[sacn_data["universe"]][sacn_data["cid"]] = prio_dmx
+    # input_data[sacn_data["universe"]][sacn_data["cid"]]["dmx_data"] = sacn_data["dmx_data"]
+    # # Store DMX data to Universe and CID
+    # input_data[sacn_data["universe"]][sacn_data["cid"]]["priority"] = sacn_data["per_channel_priority"]
+
     for cids in input_data[sacn_data["universe"]]:  # Loop for every CID input on this universe
         for dmx_length in range(512):               # Loop for every position of the DMX packet
-            if output[dmx_length] < input_data[sacn_data["universe"]][cids][dmx_length]:
-                output[dmx_length] = input_data[sacn_data["universe"]][cids][dmx_length]
-    sacn_data["dmx_data"] = output
+            if output_priority[dmx_length] < input_data[sacn_data["universe"]][cids]["priority"][dmx_length]:
+                output_priority[dmx_length] = input_data[sacn_data["universe"]][cids]["priority"][dmx_length]
+                output_dmx[dmx_length] = input_data[sacn_data["universe"]][cids]["dmx"][dmx_length]
+            if output_priority[dmx_length] == input_data[sacn_data["universe"]][cids]["priority"][dmx_length]:
+                if output_dmx[dmx_length] < input_data[sacn_data["universe"]][cids]["dmx"][dmx_length]:
+                    output_dmx[dmx_length] = input_data[sacn_data["universe"]][cids]["dmx"][dmx_length]
+    sacn_data["dmx_data"] = output_dmx
+    sacn_data["per_channel_priority"] = output_priority
     return sacn_data["dmx_data"], sacn_data["universe"]
+
+    # for cids in input_data[sacn_data["universe"]]:  # Loop for every CID input on this universe
+    #     for dmx_length in range(512):               # Loop for every position of the DMX packet
+    #         if output[dmx_length] < input_data[sacn_data["universe"]][cids][dmx_length]:
+    #             output[dmx_length] = input_data[sacn_data["universe"]][cids][dmx_length]
+    # sacn_data["dmx_data"] = output
+    # return sacn_data["dmx_data"], sacn_data["universe"]
+
+
+def identify_sacn_startcode(sacn_input):
+    # Identifies the start code of this sACN packet
+    if sacn_input[125] == 0x00:
+        return "DMX"
+    elif sacn_input[125] == 0xDD:
+        return "PER_CHANNEL_PRIORITY"
+    elif sacn_input[125] == 0xCC:
+        return "RDM"
+    else:
+        return "ALTERNATE"
 
 
 def identify_sacn_packet(sacn_input):
-    # Extracts the type of sACN packet and will return the type of packet and the packet itself.
+    # Identifies the type of this sACN packet. Raises an error if the packet is too short.
     try:
         len(sacn_input) < 126
         if len(sacn_input) < 126:
@@ -39,20 +77,16 @@ def identify_sacn_packet(sacn_input):
     except TypeError as error_message:
         if debug_level >= 1:
             print("LENGTH ERROR:", error_message)
+
     if tuple(sacn_input[40:44]) == VECTOR_E131_DATA_PACKET:     # sACN Data Packet
-        sacn_data = sacn_data_input(sacn_input)     # Extract all data we can get
-        sacn_data["dmx_data"], sacn_data["input_data"] = merge_sacn_inputs(sacn_data)
-        # Merge DMX data from multiple sources.
-        return "sACN_DATA_PACKET", sacn_data
+        return "sACN_DATA_PACKET"
     elif tuple(sacn_input[40:44]) == VECTOR_E131_EXTENDED_SYNCHRONIZATION:  # sACN Sync Packet
-        sacn_sync = sacn_sync_input(sacn_input)  # Extract all data we can get
-        return "sACN_EXTENDED_SYNCHRONIZATION", sacn_sync
+        return "sACN_EXTENDED_SYNCHRONIZATION"
     elif tuple(sacn_input[40:44]) == VECTOR_E131_EXTENDED_DISCOVERY:  # sACN Discovery Packet
-        sacn_discovery = sacn_discovery_input(sacn_input)  # Extract all data we can get
-        return "sACN_EXTENDED_DISCOVERY", sacn_discovery
+        return "sACN_EXTENDED_DISCOVERY"
 
 
-def sacn_data_input(sacn_packet):
+def sacn_data_check_validity(sacn_packet):
     # E131 Data Packet:
     # # # ROOT LAYER # # #
     # 0-1:      Preamble Size (0x0010)                                        <- Discard if not valid
@@ -82,15 +116,6 @@ def sacn_data_input(sacn_packet):
     # 125-637:  Property values, DMX Start Code and data (Start Code + data)                        <- DMX DATA
 
     # The following IF-Statements discard the package if it does not comply with E1.31 standards
-    try:
-        sacn_packet[125] == 0x00
-        if sacn_packet[125] == 0xDD:
-            raise TypeError("0xDD code for per channel priority")
-        if sacn_packet[125] != 0x00:
-            raise TypeError("Unknown Start Code!")
-    except TypeError as error_text:
-        if debug_level >= 2:
-            print("Start Code Error:", error_text)
     if tuple(sacn_packet[0:2]) != PREAMBLE_SIZE or tuple(sacn_packet[2:4]) != POST_AMBLE_SIZE or \
             tuple(sacn_packet[4:16]) != ACN_PACKET_IDENTIFIER or \
             tuple(sacn_packet[18:22]) != VECTOR_ROOT_E131_DATA or \
@@ -111,14 +136,48 @@ def sacn_data_input(sacn_packet):
         First Property Address {FIRST_PROPERTY_ADDRESS} was {tuple(sacn_packet[119:121])}, \
         Address Increment {ADDRESS_INCREMENT} was {tuple(sacn_packet[121:123])}")
 
+
+def sacn_dmx_input(sacn_packet):
+        # If this is a normal DMX packet (Start Code = 0x00)
+        # Dictionary with all the information we can get from this package
+        sACN_data = {"cid": sacn_packet[22:38], "source_name": str(sacn_packet[44:108]), "priority": sacn_packet[108],
+                     "sync_address": tuple(sacn_packet[109:111]), "sequence_number": sacn_packet[111],
+                     "option_flags": sacn_packet[112], "universe": tuple(sacn_packet[113:115]),
+                     "start_code": sacn_packet[125],
+                     "dmx_data": sacn_packet[126:638], "universe_hibyte": sacn_packet[113],
+                     "universe_lobyte": sacn_packet[114]}
+        sACN_data["dmx_data"], sACN_data["input_data"] = merge_sacn_inputs(sACN_data)
+        return sACN_data
+        # Merge DMX data from multiple sources.
+
+
+def sacn_per_channel_input(sacn_packet):
+    # If this is a per channel priority packet (Start Code = 0xDD)
+    # Dictionary with all the information we can get from this package
+    sACN_data = {"cid": sacn_packet[22:38], "source_name": str(sacn_packet[44:108]),
+                 "sync_address": tuple(sacn_packet[109:111]), "sequence_number": sacn_packet[111],
+                 "option_flags": sacn_packet[112], "universe": tuple(sacn_packet[113:115]),
+                 "start_code": sacn_packet[125],
+                 "per_channel_priority": sacn_packet[126:638], "universe_hibyte": sacn_packet[113],
+                 "universe_lobyte": sacn_packet[114]}
+    return sACN_data
+
+
+def sacn_rdm_input(sacn_packet):
+    # If this is a alternate start code packet (Start Code != 0xDD or 0x00)
     # Dictionary with all the information we can get from this package
     sACN_data = {"cid": sacn_packet[22:38], "source_name": str(sacn_packet[44:108]), "priority": sacn_packet[108],
                  "sync_address": tuple(sacn_packet[109:111]), "sequence_number": sacn_packet[111],
                  "option_flags": sacn_packet[112], "universe": tuple(sacn_packet[113:115]),
                  "start_code": sacn_packet[125],
-                 "dmx_data": sacn_packet[126:638], "universe_hibyte": sacn_packet[113],
+                 "alternate_data": sacn_packet[126:638], "universe_hibyte": sacn_packet[113],
                  "universe_lobyte": sacn_packet[114]}
     return sACN_data
+
+
+def sacn_alternate_input(sacn_packet):
+    pass
+
 
 def sacn_sync_input(sacn_packet):
     # E131 Data Packet:
@@ -155,6 +214,7 @@ def sacn_sync_input(sacn_packet):
     sACN_data = {"cid": sacn_packet[22:38], "sync_address": tuple(sacn_packet[45:47]),
                  "sequence_number": sacn_packet[44]}
     return sACN_data
+
 
 def sacn_discovery_input(sacn_packet):
     # E131 Data Packet:
