@@ -1,8 +1,17 @@
 from params.sACNParams import *
 import socket_settings
 from params.UserParams import *
+import time
 
 '''GLOBAL FUNCTION PARAMETERS'''
+counter = 0
+
+
+def flush_buffer(buffer_size):
+    buffer = bytearray()
+    for i in range(buffer_size):
+        buffer.append(0)
+    return buffer
 
 
 def calculate_hibit(byte: int):
@@ -12,48 +21,51 @@ def calculate_hibit(byte: int):
 
 
 input_data = {}  # Create an empty byte for the merge function
-for i in range(socket_settings.universe_max+1):
+for i in range(socket_settings.universe_max + 1):  # It is as long as the highest possible universe.
     uni = calculate_hibit(i)
     input_data[uni[0], uni[1]] = {}
 
 
-def merge_sacn_inputs(sacn_data):   # Input Universe, CID and DMX data
-    if "per_channel_priority" not in sacn_data:  # If priority data does not exist yet, add it.
+def merge_sacn_inputs(sacn_data):  # Input Universe, CID and DMX data
+
+    prio_dmx = {"dmx": sacn_data["dmx_data"], "time": time.time()}
+    # Create a dict out of dmx data and time to store in the main dict
+    input_data[sacn_data["universe"]][sacn_data["cid"]] = prio_dmx
+    # Store the dict in the main dict
+    if "priority" not in input_data[sacn_data["universe"]][sacn_data["cid"]]:
+        # If per channel priority does not exist yet, add it.
         per_channel_priority = bytearray()  # Create empty bytearray
         for i in range(512):
             per_channel_priority.append(sacn_data["priority"])  # Copy universe priority to every channel
-        sacn_data["per_channel_priority"] = per_channel_priority
+        input_data[sacn_data["universe"]][sacn_data["cid"]]["priority"] = per_channel_priority
 
-    output_dmx = bytearray()            # Reset DMX output
-    output_priority = bytearray()       # Reset Priority output
-    for i in range(512):            # Make an empty DMX universe
-        output_dmx.append(0)
-        output_priority.append(0)
-
-    prio_dmx = {"priority": sacn_data["per_channel_priority"], "dmx": sacn_data["dmx_data"]}
-    input_data[sacn_data["universe"]][sacn_data["cid"]] = prio_dmx
-    # input_data[sacn_data["universe"]][sacn_data["cid"]]["dmx_data"] = sacn_data["dmx_data"]
-    # # Store DMX data to Universe and CID
-    # input_data[sacn_data["universe"]][sacn_data["cid"]]["priority"] = sacn_data["per_channel_priority"]
-
+    output_dmx = flush_buffer(512)  # Reset DMX output to 0
+    output_priority = flush_buffer(512)  # Reset Priority output to 0
     for cids in input_data[sacn_data["universe"]]:  # Loop for every CID input on this universe
-        for dmx_length in range(512):               # Loop for every position of the DMX packet
+        for dmx_length in range(512):  # Loop for every position of the DMX packet
             if output_priority[dmx_length] < input_data[sacn_data["universe"]][cids]["priority"][dmx_length]:
+                # If priority is higher, overwrite output.
                 output_priority[dmx_length] = input_data[sacn_data["universe"]][cids]["priority"][dmx_length]
                 output_dmx[dmx_length] = input_data[sacn_data["universe"]][cids]["dmx"][dmx_length]
             if output_priority[dmx_length] == input_data[sacn_data["universe"]][cids]["priority"][dmx_length]:
                 if output_dmx[dmx_length] < input_data[sacn_data["universe"]][cids]["dmx"][dmx_length]:
+                    # If priority is equal, the highest value wins.
                     output_dmx[dmx_length] = input_data[sacn_data["universe"]][cids]["dmx"][dmx_length]
+
+    """If a universe has a timeout, remove it from the dictionary, so it won't overwrite the priority of the other
+    active universes."""
+    for universes in input_data:
+        for cids in input_data[sacn_data["universe"]]:
+            if time.time()-input_data[sacn_data["universe"]][cids]["time"] > E131_NETWORK_DATA_LOSS_TIMEOUT:
+                print(f"From {sacn_data['cid']} deleting universe {sacn_data['universe']} because of timeout after "
+                      f"{time.time()-input_data[sacn_data['universe']][cids]['time']}s")
+                del input_data[sacn_data["universe"]][cids]
+                break
+
     sacn_data["dmx_data"] = output_dmx
     sacn_data["per_channel_priority"] = output_priority
-    return sacn_data["dmx_data"], sacn_data["universe"]
-
-    # for cids in input_data[sacn_data["universe"]]:  # Loop for every CID input on this universe
-    #     for dmx_length in range(512):               # Loop for every position of the DMX packet
-    #         if output[dmx_length] < input_data[sacn_data["universe"]][cids][dmx_length]:
-    #             output[dmx_length] = input_data[sacn_data["universe"]][cids][dmx_length]
-    # sacn_data["dmx_data"] = output
-    # return sacn_data["dmx_data"], sacn_data["universe"]
+    # Store these data in the input dict and return
+    return sacn_data["dmx_data"], prio_dmx["time"], input_data
 
 
 def identify_sacn_startcode(sacn_input):
@@ -78,7 +90,7 @@ def identify_sacn_packet(sacn_input):
         if debug_level >= 1:
             print("LENGTH ERROR:", error_message)
 
-    if tuple(sacn_input[40:44]) == VECTOR_E131_DATA_PACKET:     # sACN Data Packet
+    if tuple(sacn_input[40:44]) == VECTOR_E131_DATA_PACKET:  # sACN Data Packet
         return "sACN_DATA_PACKET"
     elif tuple(sacn_input[40:44]) == VECTOR_E131_EXTENDED_SYNCHRONIZATION:  # sACN Sync Packet
         return "sACN_EXTENDED_SYNCHRONIZATION"
@@ -138,41 +150,40 @@ def sacn_data_check_validity(sacn_packet):
 
 
 def sacn_dmx_input(sacn_packet):
-        # If this is a normal DMX packet (Start Code = 0x00)
-        # Dictionary with all the information we can get from this package
-        sACN_data = {"cid": sacn_packet[22:38], "source_name": str(sacn_packet[44:108]), "priority": sacn_packet[108],
-                     "sync_address": tuple(sacn_packet[109:111]), "sequence_number": sacn_packet[111],
-                     "option_flags": sacn_packet[112], "universe": tuple(sacn_packet[113:115]),
-                     "start_code": sacn_packet[125],
-                     "dmx_data": sacn_packet[126:638], "universe_hibyte": sacn_packet[113],
-                     "universe_lobyte": sacn_packet[114]}
-        sACN_data["dmx_data"], sACN_data["input_data"] = merge_sacn_inputs(sACN_data)
-        return sACN_data
-        # Merge DMX data from multiple sources.
+    # If this is a normal DMX packet (Start Code = 0x00)
+    # Dictionary with all the information we can get from this package
+    sacn_data = {"cid": sacn_packet[22:38], "source_name": str(sacn_packet[44:108]), "priority": sacn_packet[108],
+                 "sync_address": tuple(sacn_packet[109:111]), "sequence_number": sacn_packet[111],
+                 "option_flags": sacn_packet[112], "universe": tuple(sacn_packet[113:115]),
+                 "start_code": sacn_packet[125],
+                 "dmx_data": sacn_packet[126:638], "universe_hibyte": sacn_packet[113],
+                 "universe_lobyte": sacn_packet[114]}
+    return sacn_data
+    # Merge DMX data from multiple sources.
 
 
 def sacn_per_channel_input(sacn_packet):
     # If this is a per channel priority packet (Start Code = 0xDD)
     # Dictionary with all the information we can get from this package
-    sACN_data = {"cid": sacn_packet[22:38], "source_name": str(sacn_packet[44:108]),
+    sacn_data = {"cid": sacn_packet[22:38], "source_name": str(sacn_packet[44:108]),
                  "sync_address": tuple(sacn_packet[109:111]), "sequence_number": sacn_packet[111],
                  "option_flags": sacn_packet[112], "universe": tuple(sacn_packet[113:115]),
                  "start_code": sacn_packet[125],
                  "per_channel_priority": sacn_packet[126:638], "universe_hibyte": sacn_packet[113],
                  "universe_lobyte": sacn_packet[114]}
-    return sACN_data
+    return sacn_data
 
 
 def sacn_rdm_input(sacn_packet):
     # If this is a alternate start code packet (Start Code != 0xDD or 0x00)
     # Dictionary with all the information we can get from this package
-    sACN_data = {"cid": sacn_packet[22:38], "source_name": str(sacn_packet[44:108]), "priority": sacn_packet[108],
+    sacn_data = {"cid": sacn_packet[22:38], "source_name": str(sacn_packet[44:108]), "priority": sacn_packet[108],
                  "sync_address": tuple(sacn_packet[109:111]), "sequence_number": sacn_packet[111],
                  "option_flags": sacn_packet[112], "universe": tuple(sacn_packet[113:115]),
                  "start_code": sacn_packet[125],
                  "alternate_data": sacn_packet[126:638], "universe_hibyte": sacn_packet[113],
                  "universe_lobyte": sacn_packet[114]}
-    return sACN_data
+    return sacn_data
 
 
 def sacn_alternate_input(sacn_packet):

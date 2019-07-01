@@ -1,5 +1,6 @@
 import socket
 import sACN
+from params.sACNParams import *
 import ArtNet
 import time
 import socket_settings
@@ -41,10 +42,12 @@ while True:
 
             if sACN_start_code == "DMX":
                 sACN_data = sACN.sacn_dmx_input(sacn_input_packet)
+                sACN_data["dmx_data"], sACN_data["time"], cid_dict = sACN.merge_sacn_inputs(sACN_data)
                 ArtNet.artdmx_output(sACN_data)
                 # If the START_CODE is 0x00, send DMX
-            elif sACN_start_code == "PER_CHANNEL":
+            elif sACN_start_code == "PER_CHANNEL_PRIORITY":
                 sACN_data = sACN.sacn_per_channel_input(sacn_input_packet)
+                print("0xDD",sACN_data["per_channel_priority"])
             elif sACN_start_code == "RDM":
                 pass  # ToDo
             elif sACN_start_code == "ALTERNATE":
