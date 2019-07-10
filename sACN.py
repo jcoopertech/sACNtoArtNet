@@ -20,52 +20,63 @@ def calculate_hibit(byte: int):
     return hibyte, lobyte
 
 
-input_data = {}  # Create an empty byte for the merge function
-for i in range(socket_settings.universe_max + 1):  # It is as long as the highest possible universe.
-    uni = calculate_hibit(i)
-    input_data[uni[0], uni[1]] = {}
+merge_dict = {}  # Create an empty byte for the merge function
+for universes in range(socket_settings.universe_max + 1):  # It is as long as the highest possible universe.
+    universe = calculate_hibit(universes)
+    merge_dict[universe[0], universe[1]] = {}
 
 
 def merge_sacn_inputs(sacn_data):  # Input Universe, CID and DMX data
-
-    prio_dmx = {"dmx": sacn_data["dmx_data"], "time": time.time()}
-    # Create a dict out of dmx data and time to store in the main dict
-    input_data[sacn_data["universe"]][sacn_data["cid"]] = prio_dmx
-    # Store the dict in the main dict
-    if "priority" not in input_data[sacn_data["universe"]][sacn_data["cid"]]:
+    global merge_dict
+    merge_dict[sacn_data["universe"]][sacn_data["cid"]] = {"dmx": sacn_data["dmx_data"], "time": time.time()}
+    # Store DMX data and time in the merge dict
+    if "priority" not in merge_dict[sacn_data["universe"]][sacn_data["cid"]]:
         # If per channel priority does not exist yet, add it.
         per_channel_priority = bytearray()  # Create empty bytearray
         for i in range(512):
             per_channel_priority.append(sacn_data["priority"])  # Copy universe priority to every channel
-        input_data[sacn_data["universe"]][sacn_data["cid"]]["priority"] = per_channel_priority
-
+        merge_dict[sacn_data["universe"]][sacn_data["cid"]]["priority"] = per_channel_priority
+    else:
+        print("Valid per channel priority found")
     output_dmx = flush_buffer(512)  # Reset DMX output to 0
     output_priority = flush_buffer(512)  # Reset Priority output to 0
-    for cids in input_data[sacn_data["universe"]]:  # Loop for every CID input on this universe
+    for cids in merge_dict[sacn_data["universe"]]:  # Loop for every CID input on this universe
         for dmx_length in range(512):  # Loop for every position of the DMX packet
-            if output_priority[dmx_length] < input_data[sacn_data["universe"]][cids]["priority"][dmx_length]:
+            if output_priority[dmx_length] < merge_dict[sacn_data["universe"]][cids]["priority"][dmx_length]:
                 # If priority is higher, overwrite output.
-                output_priority[dmx_length] = input_data[sacn_data["universe"]][cids]["priority"][dmx_length]
-                output_dmx[dmx_length] = input_data[sacn_data["universe"]][cids]["dmx"][dmx_length]
-            if output_priority[dmx_length] == input_data[sacn_data["universe"]][cids]["priority"][dmx_length]:
-                if output_dmx[dmx_length] < input_data[sacn_data["universe"]][cids]["dmx"][dmx_length]:
+                output_priority[dmx_length] = merge_dict[sacn_data["universe"]][cids]["priority"][dmx_length]
+                output_dmx[dmx_length] = merge_dict[sacn_data["universe"]][cids]["dmx"][dmx_length]
+            if output_priority[dmx_length] == merge_dict[sacn_data["universe"]][cids]["priority"][dmx_length]:
+                if output_dmx[dmx_length] < merge_dict[sacn_data["universe"]][cids]["dmx"][dmx_length]:
                     # If priority is equal, the highest value wins.
-                    output_dmx[dmx_length] = input_data[sacn_data["universe"]][cids]["dmx"][dmx_length]
+                    output_dmx[dmx_length] = merge_dict[sacn_data["universe"]][cids]["dmx"][dmx_length]
 
-    """If a universe has a timeout, remove it from the dictionary, so it won't overwrite the priority of the other
-    active universes."""
-    for universes in input_data:
-        for cids in input_data[sacn_data["universe"]]:
-            if time.time()-input_data[sacn_data["universe"]][cids]["time"] > E131_NETWORK_DATA_LOSS_TIMEOUT:
-                print(f"From {sacn_data['cid']} deleting universe {sacn_data['universe']} because of timeout after "
-                      f"{time.time()-input_data[sacn_data['universe']][cids]['time']}s")
-                del input_data[sacn_data["universe"]][cids]
-                break
+    """for universes in merge_dict:
+        # If a universe has a timeout, remove it from the dictionary, so it won't overwrite the priority of the other
+        # active universes.
+        for cids in merge_dict[sacn_data["universe"]]:
+            if time.time() - merge_dict[sacn_data["universe"]][cids]["time"] > E131_NETWORK_DATA_LOSS_TIMEOUT:
+                if debug_level >= 2:
+                    print(f"From {sacn_data['cid']} deleting universe {sacn_data['universe']} because of timeout after "
+                          f"{time.time() - merge_dict[sacn_data['universe']][cids]['time']} seconds.")
+                del merge_dict[sacn_data["universe"]][cids]
+                # Delete the Universe on this CID and leave the loop.
+                break"""
 
     sacn_data["dmx_data"] = output_dmx
     sacn_data["per_channel_priority"] = output_priority
+    print(output_priority)
     # Store these data in the input dict and return
-    return sacn_data["dmx_data"], prio_dmx["time"], input_data
+    return sacn_data["dmx_data"]
+
+
+def add_sacn_priority(sacn_data):
+    global merge_dict
+    if sacn_data["cid"] not in merge_dict[sacn_data["universe"]]:
+        merge_dict[sacn_data["universe"]][sacn_data["cid"]] = {}
+    # merge_dict[sacn_data["universe"]][sacn_data["cid"]] = {"priority": sacn_data["per_channel_priority"]}
+    merge_dict[sacn_data["universe"]][sacn_data["cid"]] = {"priority": sacn_data["per_channel_priority"]}
+    return merge_dict[sacn_data["universe"]][sacn_data["cid"]]["priority"]
 
 
 def identify_sacn_startcode(sacn_input):

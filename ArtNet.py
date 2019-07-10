@@ -68,7 +68,7 @@ def artpollreply_output(target_ip='255.255.255.255', universe=0, ubea_version=0,
     # 5:        VersInfoH (High Byte of Nodes firmware revision. Controller should use this field to decide if a
     # 6:        VersInfoL firmware update should proceed. Convention: Higher number = More recent release.)
     # 7:        NetSwitch (Bits 14-8 of the 15 bit Port address are encoded into the bottom 7 bits of this field.
-    #          This is used in combination with Subswitch and SwIn[] or SwOut[] th produce the full input_data address.)
+    #          This is used in combination with Subswitch and SwIn[] or SwOut[] th produce the full merge_dict address.)
     # 8:        SubSwitch (Bits 7-4 of the 15 bit Port address are encoded into the bottom 7 bits of this field.)
     # 9:        OemHi (High byte of the Oem value)
     # 10:       OemLo (Low byte of the Oem value. Current OEM Codes in file Oem_Codes.py)
@@ -433,7 +433,7 @@ def artaddress_output(target_ip='255.255.255.255', net_switch=0x7f, bind_index=1
     # 3:        ProtVerHi (0x0)
     # 4:        ProtVerLo (14)
     # 5:        NetSwitch (Bits 14-8 of the 15 bit Port address are encoded into the bottom 7 bits of this field.
-    #          This is used in combination with Subswitch and SwIn[] or SwOut[] th produce the full input_data address.
+    #          This is used in combination with Subswitch and SwIn[] or SwOut[] th produce the full merge_dict address.
     #          Value is ignored unless bit 7 is high -> to send 0x07, send 0x87. 0x00 = Reset to physical switch
     #          setting, 0x7f = No change)
     # 6:        Bind Index (Defines the bound node which originated this packet and is used to uniquely identify the
@@ -1263,7 +1263,7 @@ def identify_artnet_packet(input):
         if debug_level >= 3:
             print("ART TRIGGER")
     elif input[8] == OP_DMX[1] and input[9] == OP_DMX[0]:
-        if debug_level >= 3:
+        if debug_level >= 4:
             print("DMX PACKET")
     elif input[8] == OP_SYNC[1] and input[9] == OP_SYNC[0]:
         if debug_level >= 3:
