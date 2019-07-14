@@ -1,4 +1,5 @@
 import socket
+
 from params import ArtNetParams, sACNParams
 from params.UserParams import *
 
@@ -18,11 +19,11 @@ def sacn_socket_setup(udp_ip="127.0.0.1", min_universe=universe_min, max_univers
     try:
         sacn_sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         # Reuse address if already taken by another application
-    except:
+    except RuntimeWarning:
         if debug_level >= 1:
             print(f"Address can't be reused! Please close all applications that are assigned to Port \
             {sacn_port}")
-    sacn_sock.bind((udp_ip, sacn_port))     # Calculate multicast addresses and bind to it
+    sacn_sock.bind((udp_ip, sacn_port))  # Calculate multicast addresses and bind to it
     multicast_list = []
     if debug_level >= 3:
         print(f"Listening to sACN on Universe {min_universe} thru {max_universe}")

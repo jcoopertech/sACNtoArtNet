@@ -1,12 +1,10 @@
-from uuid import getnode as get_mac
 import socket
-import socket_settings
+from uuid import getnode as get_mac
+
 from params.ArtNetParams import *
-from params.UserParams import *
 from params.RDMParams import *
-
-
-set_artnet_sock = socket_settings.artnet_socket_setup(socket_settings.ip)
+from params.UserParams import *
+from setup import *
 
 
 def get_mac_ip():
@@ -44,7 +42,7 @@ def artpoll_output(target_ip="255.255.255.255", art_poll_reply=1, diagnostics=0,
     artnet_packet.append(OP_POLL[0])  # OPCode Hi
     artnet_packet.append(PROT_VER_HI)  # ProtVerHi
     artnet_packet.append(PROT_VER_LO)  # ProtVerLo
-    artnet_packet.append(talk_to_me)   # TalkToMe
+    artnet_packet.append(talk_to_me)  # TalkToMe
     artnet_packet.append(priority)  # Priority
 
     artnet_output(artnet_packet, target_ip)
@@ -175,7 +173,9 @@ def artpollreply_output(target_ip='255.255.255.255', universe=0, ubea_version=0,
     port3 = int(f"{artnet_out[2]}{artnet_in[2]}{protocol_flag}", 2)
     port4 = int(f"{artnet_out[3]}{artnet_in[3]}{protocol_flag}", 2)
     good_input = int(f"{input_received}{input_test_packet}{input_sip}{input_text}{input_disabled}{input_error}00", 2)
-    good_output = int(f"{output_received}{output_test_packet}{output_sip}{output_text}{output_merging}{output_short}{output_ltp}{output_sacn}", 2)
+    good_output = int(
+        f"{output_received}{output_test_packet}{output_sip}{output_text}{output_merging}{output_short}{output_ltp}{output_sacn}",
+        2)
     good_input1 = good_input
     good_input2 = good_input
     good_input3 = good_input
@@ -206,27 +206,27 @@ def artpollreply_output(target_ip='255.255.255.255', universe=0, ubea_version=0,
     artnet_packet.extend(ID)
     artnet_packet.append(OP_POLL_REPLY[1])  # OPCode Lo
     artnet_packet.append(OP_POLL_REPLY[0])  # OPCode Hi
-    artnet_packet.append(int(ip[0]))    # IP A
-    artnet_packet.append(int(ip[1]))    # IP B
-    artnet_packet.append(int(ip[2]))    # IP C
-    artnet_packet.append(int(ip[3]))    # IP D
+    artnet_packet.append(int(ip[0]))  # IP A
+    artnet_packet.append(int(ip[1]))  # IP B
+    artnet_packet.append(int(ip[2]))  # IP C
+    artnet_packet.append(int(ip[3]))  # IP D
     artnet_packet.append(port[1])  # Port Lo
     artnet_packet.append(port[0])  # Port Hi
     artnet_packet.append(vers_info[0])  # VersInfo Hi
     artnet_packet.append(vers_info[1])  # VersInfo Lo
     artnet_packet.append(net_switch[1])  # Net Switch Lo <- ToDo
     artnet_packet.append(net_switch[0])  # Net Switch Hi
-    artnet_packet.append(oem[0])    # OEM Hi
-    artnet_packet.append(oem[1])    # OEM Lo
+    artnet_packet.append(oem[0])  # OEM Hi
+    artnet_packet.append(oem[1])  # OEM Lo
     artnet_packet.append(ubea_version)  # ubea
-    artnet_packet.append(status1)   # status1
+    artnet_packet.append(status1)  # status1
     artnet_packet.append(esta_manufacturer[1])  # ESTA Lo
     artnet_packet.append(esta_manufacturer[0])  # Esta Hi
-    artnet_packet.extend(short)    # short (17 char+null) <- ToDo
+    artnet_packet.extend(short)  # short (17 char+null) <- ToDo
     artnet_packet.append(0x0)
-    artnet_packet.extend(long)     # long (63 char+null) <- ToDo
+    artnet_packet.extend(long)  # long (63 char+null) <- ToDo
     artnet_packet.append(0x0)
-    artnet_packet.extend(node)   # report (64 char) <- ToDo
+    artnet_packet.extend(node)  # report (64 char) <- ToDo
     artnet_packet.append(0x0)  # NumPorts Hi
     artnet_packet.append(num_ports)  # NumPorts Lo
     artnet_packet.append(port1)
@@ -256,12 +256,12 @@ def artpollreply_output(target_ip='255.255.255.255', universe=0, ubea_version=0,
     artnet_packet.append(SPARE)
     artnet_packet.append(SPARE)
     artnet_packet.append(style_code)
-    artnet_packet.append(mac_u)    # MAC Hi
+    artnet_packet.append(mac_u)  # MAC Hi
     artnet_packet.append(mac_v)
     artnet_packet.append(mac_w)
     artnet_packet.append(mac_x)
     artnet_packet.append(mac_y)
-    artnet_packet.append(mac_z)    # MAC Lo
+    artnet_packet.append(mac_z)  # MAC Lo
     artnet_packet.append(int(ip[0]))  # Bind IP A
     artnet_packet.append(int(ip[1]))  # Bind IP B
     artnet_packet.append(int(ip[2]))  # Bind IP C
@@ -343,26 +343,26 @@ def artipprog_output(target_ip="255.255.255.255", any_programming=0, dhcp_enable
 
     artnet_packet = bytearray()
     artnet_packet.extend(ID)
-    artnet_packet.append(OP_IP_PROG[1])     # OPCode Lo
-    artnet_packet.append(OP_IP_PROG[0])     # OPCode Hi
-    artnet_packet.append(PROT_VER_HI)       # ProtVerHi
-    artnet_packet.append(PROT_VER_LO)       # ProtVerLo
-    artnet_packet.append(0x00)              # Filler 1
-    artnet_packet.append(0x00)              # Filler 2
-    artnet_packet.append(command)           # Command
-    artnet_packet.append(0x00)              # Filler 4
-    artnet_packet.append(prog_ip[0])        # Prog IP Hi
+    artnet_packet.append(OP_IP_PROG[1])  # OPCode Lo
+    artnet_packet.append(OP_IP_PROG[0])  # OPCode Hi
+    artnet_packet.append(PROT_VER_HI)  # ProtVerHi
+    artnet_packet.append(PROT_VER_LO)  # ProtVerLo
+    artnet_packet.append(0x00)  # Filler 1
+    artnet_packet.append(0x00)  # Filler 2
+    artnet_packet.append(command)  # Command
+    artnet_packet.append(0x00)  # Filler 4
+    artnet_packet.append(prog_ip[0])  # Prog IP Hi
     artnet_packet.append(prog_ip[1])
     artnet_packet.append(prog_ip[2])
-    artnet_packet.append(prog_ip[3])        # Prog IP Lo
-    artnet_packet.append(prog_sm[0])        # Prog Sm Hi
+    artnet_packet.append(prog_ip[3])  # Prog IP Lo
+    artnet_packet.append(prog_sm[0])  # Prog Sm Hi
     artnet_packet.append(prog_sm[1])
     artnet_packet.append(prog_sm[2])
-    artnet_packet.append(prog_sm[3])        # Prog Sm Lo
-    artnet_packet.append(0x00)              # Prog Port Hi (Deprecated)
-    artnet_packet.append(0x00)              # Prog Port Lo (Deprecated)
+    artnet_packet.append(prog_sm[3])  # Prog Sm Lo
+    artnet_packet.append(0x00)  # Prog Port Hi (Deprecated)
+    artnet_packet.append(0x00)  # Prog Port Lo (Deprecated)
     for i in range(8):
-        artnet_packet.append(0x00)          # Spare 1-8
+        artnet_packet.append(0x00)  # Spare 1-8
 
     artnet_output(artnet_packet, target_ip)
 
@@ -488,7 +488,7 @@ def artaddress_output(target_ip='255.255.255.255', net_switch=0x7f, bind_index=1
     artnet_packet.append(PROT_VER_HI)  # ProtVerHi
     artnet_packet.append(PROT_VER_LO)  # ProtVerLo
     artnet_packet.append(net_switch)  # Net Switch Lo <- ToDo
-    artnet_packet.append(bind_index)    # Bind Index
+    artnet_packet.append(bind_index)  # Bind Index
     artnet_packet.extend(short)  # short (17 char+null) <- ToDo
     artnet_packet.append(0x0)
     artnet_packet.extend(long)  # long (63 char+null) <- ToDo
@@ -502,7 +502,7 @@ def artaddress_output(target_ip='255.255.255.255', net_switch=0x7f, bind_index=1
     artnet_packet.append(sw_out3)  # SwOut3
     artnet_packet.append(sw_out4)  # SwOut4
     artnet_packet.append(sub_switch)  # Subswitch
-    artnet_packet.append(0x00)       # SwVideo
+    artnet_packet.append(0x00)  # SwVideo
     artnet_packet.append(command)
 
     artnet_output(artnet_packet, target_ip)
@@ -524,7 +524,7 @@ def artdiagdata_output(target_ip="255.255.255.255", priority=DP_LOW, data="Every
 
     if len(data) > 511:
         data = data[0:511]
-    data_length = calculate_hibyte(len(data)+1)
+    data_length = calculate_hibyte(len(data) + 1)
 
     artnet_packet = bytearray()
     artnet_packet.extend(ID)
@@ -615,8 +615,8 @@ def artcommand_output(target_ip="255.255.255.255", esta_code=0xFFFF, art_command
     artnet_packet.append(esta_code[1])  # EstaManHi
     artnet_packet.append(esta_code[0])  # EstaManLo
     artnet_packet.append(data_length[1])  # Length Hi
-    artnet_packet.append(data_length[0])   # Length Lo
-    artnet_packet.extend(art_command)   # Art Command
+    artnet_packet.append(data_length[0])  # Length Lo
+    artnet_packet.extend(art_command)  # Art Command
 
     artnet_output(artnet_packet, target_ip)
 
@@ -655,7 +655,7 @@ def arttrigger_output(target_ip="255.255.255.255", oem_code=0xFFFF, key=255, sub
     artnet_packet.append(0x00)  # Filler 1
     artnet_packet.append(0x00)  # Filler 2
     artnet_packet.append(oem_code[1])  # OEM Code Hi
-    artnet_packet.append(oem_code[0])   # OEM Code Lo
+    artnet_packet.append(oem_code[0])  # OEM Code Lo
     artnet_packet.append(key)
     artnet_packet.append(subkey)
     if oem_code != 0xFFFF or key > 3:
@@ -846,8 +846,8 @@ def artinput_output(target_ip="255.255.255.255", bind_index=1,
     artnet_packet.append(OP_INPUT[0])  # OPCode Hi
     artnet_packet.append(PROT_VER_HI)  # ProtVerHi
     artnet_packet.append(PROT_VER_LO)  # ProtVerLo
-    artnet_packet.append(0x0)          # Filler1
-    artnet_packet.append(bind_index)   # Bind Index
+    artnet_packet.append(0x0)  # Filler1
+    artnet_packet.append(bind_index)  # Bind Index
     artnet_packet.append(input_ports[0])  # NumPortsHi
     artnet_packet.append(input_ports[1])  # NumPortsLo
     artnet_packet.append(input1)
@@ -909,17 +909,17 @@ def artfirmwaremaster_output(target_ip="255.255.255.255", firmware_type="FirmCon
     artnet_packet.append(OP_FIRMWARE_MASTER[0])  # OPCode Hi
     artnet_packet.append(PROT_VER_HI)  # ProtVerHi
     artnet_packet.append(PROT_VER_LO)  # ProtVerLo
-    artnet_packet.append(0x0)          # Filler1
-    artnet_packet.append(0x0)          # Filler2
+    artnet_packet.append(0x0)  # Filler1
+    artnet_packet.append(0x0)  # Filler2
     artnet_packet.append(firmware_type)  # Type
-    artnet_packet.append(block_id)     # BlockId
+    artnet_packet.append(block_id)  # BlockId
     artnet_packet.append(firmware_length3)
     artnet_packet.append(firmware_length2)
     artnet_packet.append(firmware_length1)
     artnet_packet.append(firmware_length0)
     for i in range(20):
         artnet_packet.append(0x0)  # Spare
-    artnet_packet.extend(data)     # Data
+    artnet_packet.extend(data)  # Data
 
     artnet_output(artnet_packet, target_ip)
 
@@ -1238,7 +1238,7 @@ def identify_artnet_packet(input):
         if debug_level >= 3:
             print("ART POLL")
         # artpollreply_output(PRIMARY_ARTNET_ADDRESS,)
-    elif input[8] == OP_POLL_REPLY[1]and input[9] == OP_POLL_REPLY[0]:
+    elif input[8] == OP_POLL_REPLY[1] and input[9] == OP_POLL_REPLY[0]:
         if debug_level >= 3:
             print("ART POLL REPLY")
     elif input[8] == OP_IP_PROG[1] and input[9] == OP_IP_PROG[0]:

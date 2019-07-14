@@ -1,15 +1,9 @@
 import socket
-import sACN
+
 import ArtNet
-import socket_settings
+import sACN
 from params.UserParams import *
-from params.sACNParams import *
-
-"""SETUP"""
-# Set up Socket for ArtNet and sACN
-set_acn_sock = socket_settings.sacn_socket_setup(socket_settings.ip)
-set_artnet_sock = socket_settings.artnet_socket_setup(socket_settings.ip)
-
+from setup import *
 
 while True:
     if sacn_to_artnet is True and artnet_to_sacn is True:
@@ -48,10 +42,10 @@ while True:
 
         elif sACN_packet_type == "sACN_EXTENDED_SYNCHRONIZATION":
             if debug_level >= 4:
-                print(f"{sACN_packet_type}") # ToDo
+                print(f"{sACN_packet_type}")  # ToDo
         elif sACN_packet_type == "sACN_EXTENDED_DISCOVERY":
             if debug_level >= 4:
-                print(f"{sACN_packet_type}") # ToDo
+                print(f"{sACN_packet_type}")  # ToDo
 
         '''Receive ArtNet Poll packets and send corresponding ArtNet Poll Reply packets'''
         try:

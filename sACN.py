@@ -1,7 +1,8 @@
-from params.sACNParams import *
-import socket_settings
-from params.UserParams import *
 import time
+
+from params.UserParams import *
+from params.sACNParams import *
+from setup import *
 
 
 def flush_buffer(buffer_size):
@@ -11,20 +12,7 @@ def flush_buffer(buffer_size):
     return buffer
 
 
-def calculate_hibit(byte: int):
-    hibyte = (byte >> 8)
-    lobyte = (byte & 0xFF)
-    return hibyte, lobyte
-
-
-merge_dict = {}  # Create an empty byte for the merge function
-for universes in range(socket_settings.universe_max + 1):  # It is as long as the highest possible universe.
-    universe = calculate_hibit(universes)
-    merge_dict[universe[0], universe[1]] = {}
-
-
 def merge_sacn_inputs(sacn_data):  # Input Universe, CID and DMX data
-    global merge_dict
     if merge is True:
         if sacn_data["cid"] not in merge_dict[sacn_data["universe"]]:
             merge_dict[sacn_data["universe"]].update({sacn_data["cid"]: {}})
@@ -84,14 +72,13 @@ def merge_sacn_inputs(sacn_data):  # Input Universe, CID and DMX data
 
 
 def add_sacn_priority(sacn_data):
-    global merge_dict
     if sacn_data["cid"] not in merge_dict[sacn_data["universe"]]:
         merge_dict[sacn_data["universe"]] = {sacn_data["cid"]: {}}
         # Create new entry for this CID if not already created
     per_channel_priority = bytearray()
     for i in range(512):
         per_channel_priority.append(sacn_data["per_channel_priority"][i])
-    merge_dict[sacn_data["universe"]][sacn_data["cid"]].update(priority=per_channel_priority, time = time.time())
+    merge_dict[sacn_data["universe"]][sacn_data["cid"]].update(priority=per_channel_priority, time=time.time())
 
 
 def identify_sacn_startcode(sacn_input):
