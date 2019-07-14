@@ -707,7 +707,7 @@ def artnzs_output(artnet_data, target_ip="255.255.255.255"):
     artnet_packet.append(OP_NZS[0])  # OPCode Hi
     artnet_packet.append(PROT_VER_HI)  # ProtVerHi
     artnet_packet.append(PROT_VER_LO)  # ProtVerLo
-    artnet_packet.append(artnet_data["sequence_number"])  # Sequence <- ToDo
+    artnet_packet.append(artnet_data["sequence_number"])  # Sequence
     artnet_packet.append(artnet_data["start_code"])  # Start code
     artnet_packet.append(artnet_data["universe_lobyte"])  # SubUni
     artnet_packet.append(artnet_data["universe_hibyte"])  # Net

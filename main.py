@@ -1,29 +1,20 @@
 import socket
 import sACN
-from params.sACNParams import *
 import ArtNet
-import time
 import socket_settings
 from params.UserParams import *
+from params.sACNParams import *
 
-
-def set_fps(fps=45):
-    loop_time = time.time() + (1/fps)
-    return loop_time
-
-
-def clear_dmx_data():
-    dmx_data = bytearray()  # Flush DMX data
-    for i in range(512):
-        dmx_data.append(0)
-    return dmx_data
-
-
+"""SETUP"""
+# Set up Socket for ArtNet and sACN
 set_acn_sock = socket_settings.sacn_socket_setup(socket_settings.ip)
 set_artnet_sock = socket_settings.artnet_socket_setup(socket_settings.ip)
-# Setting up Socket for ArtNet and sACN
+
 
 while True:
+    if sacn_to_artnet is True and artnet_to_sacn is True:
+        raise RuntimeError("Both conversion directions are enabled! Disable one conversion direction")
+
     if sacn_to_artnet is True:
         '''Receive sACN packets and send corresponding ArtNet packet'''
         try:
@@ -50,19 +41,17 @@ while True:
                 sACN.add_sacn_priority(sACN_data)
                 # If the START_CODE is 0xDD, update the Priority for the universe
             elif sACN_start_code == "RDM":
-                pass  # ToDo
+                pass  # ToDo for when E1.33 is published
             elif sACN_start_code == "ALTERNATE":
                 ArtNet.artnzs_output(sACN_data)
                 # If the START_CODE is alternating, send a Non-Zero-Start-Code packet.
 
         elif sACN_packet_type == "sACN_EXTENDED_SYNCHRONIZATION":
             if debug_level >= 4:
-                print(f"{sACN_packet_type}")
-            pass  # ToDo
+                print(f"{sACN_packet_type}") # ToDo
         elif sACN_packet_type == "sACN_EXTENDED_DISCOVERY":
             if debug_level >= 4:
-                print(f"{sACN_packet_type}")
-            pass  # ToDo
+                print(f"{sACN_packet_type}") # ToDo
 
         '''Receive ArtNet Poll packets and send corresponding ArtNet Poll Reply packets'''
         try:
@@ -73,3 +62,6 @@ while True:
                 print("Timeout")
             continue
         artnet_data = ArtNet.identify_artnet_packet(artnet_input_packet)
+
+    elif artnet_to_sacn is True:
+        pass
