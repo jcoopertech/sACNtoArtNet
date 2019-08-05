@@ -45,6 +45,7 @@ def artnet_socket_setup(udp_ip="127.0.0.1", artnet_port=ArtNetParams.UDP_PORT):
         print("RUNNING ART-NET SOCKET SETUP...")
     artnet_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)  # Set up socket
     artnet_sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, True)  # Broadcast for ArtNet-Broadcast sending
+    artnet_sock.setblocking(False)
     try:
         artnet_sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         # Reuse address if already taken by another application
@@ -52,7 +53,27 @@ def artnet_socket_setup(udp_ip="127.0.0.1", artnet_port=ArtNetParams.UDP_PORT):
         if debug_level >= 1:
             print(f"Address can't be reused! Please close all applications that are assigned to Port \
             {artnet_port}")
-    artnet_sock.bind((udp_ip, artnet_port))  # Calculate multicast addresses and bind to it
+    artnet_sock.bind((udp_ip, artnet_port))
+    if debug_level >= 3:
+        print(f"UDP target IP: {udp_ip}")
+        print(f"UDP target Port: {artnet_port}")
+    return artnet_sock
+
+
+def artnet_socket_unicast_setup(udp_ip="127.0.0.1", artnet_port=ArtNetParams.UDP_PORT):
+    """ART-NET SOCKET"""
+    if debug_level >= 3:
+        print("RUNNING ART-NET SOCKET SETUP...")
+    artnet_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)  # Set up socket
+    artnet_sock.setblocking(False)
+    try:
+        artnet_sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        # Reuse address if already taken by another application
+    except:
+        if debug_level >= 1:
+            print(f"Address can't be reused! Please close all applications that are assigned to Port \
+            {artnet_port}")
+    artnet_sock.bind((udp_ip, artnet_port))
     if debug_level >= 3:
         print(f"UDP target IP: {udp_ip}")
         print(f"UDP target Port: {artnet_port}")
