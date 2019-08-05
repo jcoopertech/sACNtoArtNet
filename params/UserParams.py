@@ -5,7 +5,7 @@ use_per_channel_priority = True  # Activate to use per channel priority packets 
 merge = True  # Activate if using more than one source in the network
 artnet_to_sacn = False
 sacn_to_artnet = True
-broadcast = True  # Normally, unicast should be used to talk to ArtNet devices. Some old devices don't send ArtPolls,
+broadcast = False  # Normally, unicast should be used to talk to ArtNet devices. Some old devices don't send ArtPolls,
 #                   # so you have to disable unicast and send broadcast.
 ip = "0.0.0.0"  # Your IP. Set to "0.0.0.0" to use your device IP
 debug_level = 3  # 1 = Print critical errors, 2 = Print all errors, 3 = Print errors and info messages,
