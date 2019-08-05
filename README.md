@@ -19,18 +19,21 @@ The script will print out the type of received packet. Edit **socket_settings.py
 
 ## Currently working features:
 - Convert sACN to ArtNet
+- Send Art-Net as Unicast or Broadcast
 - sACN priorities
-- Answer to ArtPoll packets
+- sACN per-channel-priorities
+- Send ArtPoll packets and send Unicast to ArtPollReply senders
 
 ## Known Problems:
-- ArtNet will always send Broadcast
+- Unicast sending was not tested with more than one receiver yet.
+- There is no timeout option for ArtNet receivers yet.
 
 ## Work in progress:
 - Convert ArtNet to sACN
 - Universe shifting
 - GUI for the settings
-- Unicast / Broadcast
 - Make an Input-Patch for every single address
+- Answer to ArtPoll packets
 
 ## Upcoming features:
 - E1.33 packets, as soon it gets ratified by ESTA
