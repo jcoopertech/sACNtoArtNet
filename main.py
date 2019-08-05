@@ -1,9 +1,9 @@
 import socket
-
 import ArtNet
 import sACN
 from params.UserParams import *
 from setup import *
+
 
 while True:
     if sacn_to_artnet is True and artnet_to_sacn is True:
@@ -17,6 +17,8 @@ while True:
             if debug_level >= 1:
                 print("Timeout")
             continue
+
+        """Identify the sACN packets"""
         sACN_packet_type = sACN.identify_sacn_packet(sacn_input_packet)
         if sACN_packet_type == "sACN_DATA_PACKET":
             sACN_start_code = sACN.identify_sacn_startcode(sacn_input_packet)
@@ -49,13 +51,21 @@ while True:
 
         '''Receive ArtNet Poll packets and send corresponding ArtNet Poll Reply packets'''
         try:
-            artnet_input_packet, artnet_ip_input = set_artnet_sock.recvfrom(1143)
+            artnet_input_packet, artnet_ip_input = set_artnet_sock.recvfrom(1024)
             # Don't know what the maximum length is yet. <- ToDo
         except socket.timeout:
             if debug_level >= 1:
                 print("Timeout")
             continue
-        artnet_data = ArtNet.identify_artnet_packet(artnet_input_packet)
-
+        except BlockingIOError:
+            if debug_level >= 4:
+                print("Packet Collision!")
+            continue
+        """Identify the ArtNet packets"""
+        artnet_packet_type = ArtNet.identify_artnet_packet(artnet_input_packet)
+        if (artnet_packet_type == "ART_POLL") and (artnet_ip_input not in unicast_ips) and (broadcast is False):
+            # Add an entry to the Unicast list, if an ArtPoll packet arrives
+            unicast_ips[artnet_ip_input] = {}
+            print(f"Added {artnet_ip_input} to unicast list.")
     elif artnet_to_sacn is True:
         pass
