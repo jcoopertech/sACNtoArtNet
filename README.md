@@ -6,9 +6,11 @@ It is necessary to run Python 3.6 or later for the script to run!
 
 
 ## Installation:
-Download or clone the repository. Run **main.py** Thats it. 
+1. Download Python from https://www.python.org/downloads/
+2. Download or clone the repository. 
+3. From the terminal, run **main.py** Thats it.
 
-The script will print out the type of received packet. Edit **socket_settings.py** to change the input universes (*universe_min* and *universe_max*) or the IP addresses to listen and send to. Please note: sACNtoArtNet will automatically bind to the needed multicast addresses for the universes between *universe_min* and *universe_max*.
+The script will print out the type of received packet. Edit **socket_settings.py** to change the input universes (*universe_min* and *universe_max*), the merge mode (*merge* and *use_per_channel_priority* or the IP addresses to listen and send to. Please note: sACNtoArtNet will automatically bind to the needed multicast addresses for the universes between *universe_min* and *universe_max*.
 
 ### Tested platforms
 - Windows 10
@@ -17,11 +19,14 @@ The script will print out the type of received packet. Edit **socket_settings.py
 
 ## Currently working features:
 - Convert sACN to ArtNet
+- sACN priorities
 - Answer to ArtPoll packets
+
+## Known Problems:
+- ArtNet will always send Broadcast
 
 ## Work in progress:
 - Convert ArtNet to sACN
-- sACN priorities
 - Universe shifting
 - GUI for the settings
 - Unicast / Broadcast
