@@ -1237,71 +1237,100 @@ def identify_artnet_packet(input):
     if input[8] == OP_POLL[1] and input[9] == OP_POLL[0]:
         if debug_level >= 3:
             print("ART POLL")
-        # artpollreply_output(PRIMARY_ARTNET_ADDRESS,)
+        return "ART_POLL"
     elif input[8] == OP_POLL_REPLY[1] and input[9] == OP_POLL_REPLY[0]:
         if debug_level >= 3:
             print("ART POLL REPLY")
+        return "ART_POLL_REPLY"
     elif input[8] == OP_IP_PROG[1] and input[9] == OP_IP_PROG[0]:
         if debug_level >= 3:
             print("ART IP PROG")
+        return "ART_IP_PROG"
     elif input[8] == OP_IP_PROG_REPLY[1] and input[9] == OP_IP_PROG_REPLY[0]:
         if debug_level >= 3:
             print("ART IP PROG REPLY")
+        return "ART_IP_PROG_REPLY"
     elif input[8] == OP_ADDRESS[1] and input[9] == OP_ADDRESS[0]:
         if debug_level >= 3:
             print("ART ADDRESS")
+        return "ART_ADDRESS"
     elif input[8] == OP_DIAG_DATA[1] and input[9] == OP_DIAG_DATA[0]:
         if debug_level >= 3:
             print("ART DIAG DATA")
+        return "ART_DIAG_DATA"
     elif input[8] == OP_TIME_CODE[1] and input[9] == OP_TIME_CODE[0]:
         if debug_level >= 3:
             print("ART POLL")
+        return "ART_POLL"
     elif input[8] == OP_COMMAND[1] and input[9] == OP_COMMAND[0]:
         if debug_level >= 3:
             print("ART COMMAND")
+        return "ART_COMMAND"
     elif input[8] == OP_TRIGGER[1] and input[9] == OP_TRIGGER[0]:
         if debug_level >= 3:
             print("ART TRIGGER")
+        return "ART_TRIGGER"
     elif input[8] == OP_DMX[1] and input[9] == OP_DMX[0]:
         if debug_level >= 4:
             print("DMX PACKET")
+        return "DMX_PACKET"
     elif input[8] == OP_SYNC[1] and input[9] == OP_SYNC[0]:
         if debug_level >= 3:
             print("ART SYNC")
+        return "ART_SYNC"
     elif input[8] == OP_NZS[1] and input[9] == OP_NZS[0]:
         if debug_level >= 3:
             print("ART NZS or ART VLC")
+        return "ART_NZS"  # <- ToDO
     elif input[8] == OP_INPUT[1] and input[9] == OP_INPUT[0]:
         if debug_level >= 3:
             print("ART INPUT")
+        return "ART_INPUT"
     elif input[8] == OP_FIRMWARE_MASTER[1] and input[9] == OP_FIRMWARE_MASTER[0]:
         if debug_level >= 3:
             print("ART FIRMWARE MASTER")
+        return "ART_FIRMWARE_MASTER"
     elif input[8] == OP_FIRMWARE_REPLY[1] and input[9] == OP_FIRMWARE_REPLY[0]:
         if debug_level >= 3:
             print("ART FIRMWARE REPLY")
+        return "ART_FIRMWARE_REPLY"
     elif input[8] == OP_TOD_REQUEST[1] and input[9] == OP_TOD_REQUEST[0]:
         if debug_level >= 3:
             print("ART TOD REQUEST")
+        return "ART_TOD_REQUEST"
     elif input[8] == OP_TOD_DATA[1] and input[9] == OP_TOD_DATA[0]:
         if debug_level >= 3:
             print("ART TOD DATA")
+        return "ART_TOD_DATA"
     elif input[8] == OP_TOD_CONTROL[1] and input[9] == OP_TOD_CONTROL[0]:
         if debug_level >= 3:
             print("ART TOD CONTROL")
+        return "ART_TOD_CONTROL"
     elif input[8] == OP_RDM[1] and input[9] == OP_RDM[0]:
         if debug_level >= 3:
             print("RDM PACKET")
+        return "RDM_PACKET"
     elif input[8] == OP_RDM_SUB[1] and input[9] == OP_RDM_SUB[0]:
         if debug_level >= 3:
             print("RDM SUB PACKET")
+        return "RDM_SUB_PACKET"
 
 
 def artnet_output(artnet_packet, target_ip):
-    try:
-        set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))
-        if debug_level >= 4:
-            print(f"Sending {artnet_packet} to {target_ip}")
-    except Exception as exception:
-        if debug_level >= 1:
-            print(f"Socket error: {exception}")
+    if broadcast is True:
+        try:
+            set_artnet_sock.sendto(artnet_packet, (target_ip, UDP_PORT))
+            #if debug_level >= 4:
+            print(f"Sending {artnet_packet} to {target_ip, UDP_PORT}")
+        except Exception as exception:
+            if debug_level >= 1:
+                print(f"Socket error: {exception}")
+    elif broadcast is False:
+        for ips in unicast_ips:
+            try:
+                set_artnet_unicast_sock.sendto(artnet_packet, ips)
+                #if debug_level >= 4:
+                print(f"Sending {artnet_packet} to {ips}")
+            except Exception as exception:
+                if debug_level >= 1:
+                    print(f"Socket error: {exception}")
