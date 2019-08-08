@@ -1,4 +1,5 @@
 import socket
+import time
 from uuid import getnode as get_mac
 
 from params.ArtNetParams import *
@@ -1325,12 +1326,28 @@ def artnet_output(artnet_packet, target_ip):
         except Exception as exception:
             if debug_level >= 1:
                 print(f"Socket error: {exception}")
+
     elif broadcast is False:
+        if len(unicast_ips) > 40:
+            # Send broadcast if there are more than 40 receivers.
+            pass  # Todo
+            # broadcast = True
         for ips in unicast_ips:
+            if time.time() - unicast_ips[ips]["time"] > ART_POLL_TIMEOUT:
+                # Remove IP when there is a timeout
+                print(f"Deleting {ips}. Timeout after {time.time() - unicast_ips[ips]['time']} seconds.")
+                global delete_list
+                delete_list[ips] = unicast_ips[ips]
             try:
                 set_artnet_unicast_sock.sendto(artnet_packet, ips)
-                #if debug_level >= 4:
-                print(f"Sending {artnet_packet} to {ips}")
+                if debug_level >= 4:
+                    print(f"Sending {artnet_packet} to {ips}")
             except Exception as exception:
                 if debug_level >= 1:
                     print(f"Socket error: {exception}")
+
+        if delete_list:
+            # If there is a receiver that timed out, delete it.
+            for ips in delete_list:
+                del unicast_ips[ips]
+            delete_list.clear()
