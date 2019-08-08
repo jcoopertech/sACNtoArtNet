@@ -5,6 +5,10 @@
 '''LOCAL VARS'''
 VERSION = 1
 
+'''TIMEOUTS'''
+ART_POLL_TIMEOUT = 3  # If the Controller doesn't receive response in time it should consider Node to be disconnected
+MERGE_TIMEOUT = 10  # If, during the 10 second timeout, the failed source returns, Merge mode continues.
+
 '''SOCKET PARAMETER'''
 UDP_PORT = 6454
 LIMITED_BROADCAST_ADDRESS = "255.255.255.255"
