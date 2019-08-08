@@ -14,6 +14,7 @@ def flush_buffer(buffer_size):
 
 def merge_sacn_inputs(sacn_data):  # Input Universe, CID and DMX data
     if merge is True:
+        # Merge can be enabled and disabled in the UserParams.py
         if sacn_data["cid"] not in merge_dict[sacn_data["universe"]]:
             merge_dict[sacn_data["universe"]].update({sacn_data["cid"]: {}})
             # Create new entry for this CID if not already created
@@ -30,6 +31,7 @@ def merge_sacn_inputs(sacn_data):  # Input Universe, CID and DMX data
         for cids in merge_dict[sacn_data["universe"]]:  # Loop for every CID input on this universe
             for dmx_length in range(512):  # Loop for every position of the DMX packet
                 if use_per_channel_priority is True:
+                    # Merge mode can be changed in the UserParams.py
                     if output_priority[dmx_length] < merge_dict[sacn_data["universe"]][cids]["priority"][dmx_length]:
                         # If priority is higher, overwrite output.
                         output_priority[dmx_length] = merge_dict[sacn_data["universe"]][cids]["priority"][dmx_length]
