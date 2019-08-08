@@ -2,7 +2,6 @@ import socket_settings
 
 '''SETUP'''
 
-
 def calculate_hibit(byte: int):
     hibyte = (byte >> 8)
     lobyte = (byte & 0xFF)
@@ -26,3 +25,4 @@ for elements in merge_dict:
 
 """ARTNET SETUP"""
 unicast_ips = {}
+delete_list = {}

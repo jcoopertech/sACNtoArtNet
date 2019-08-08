@@ -1,4 +1,5 @@
 import socket
+import time
 import ArtNet
 import sACN
 from params.UserParams import *
@@ -63,9 +64,13 @@ while True:
             continue
         """Identify the ArtNet packets"""
         artnet_packet_type = ArtNet.identify_artnet_packet(artnet_input_packet)
-        if (artnet_packet_type == "ART_POLL") and (artnet_ip_input not in unicast_ips) and (broadcast is False):
-            # Add an entry to the Unicast list, if an ArtPoll packet arrives
-            unicast_ips[artnet_ip_input] = {}
-            print(f"Added {artnet_ip_input} to unicast list.")
+        if broadcast is False:
+            if (artnet_packet_type == "ART_POLL") and (artnet_ip_input not in unicast_ips):
+                # Add an entry to the Unicast list, if an ArtPoll packet arrives
+                unicast_ips[artnet_ip_input] = {"time": time.time()}
+                print(f"Added {artnet_ip_input} to unicast list.")
+                print(unicast_ips[artnet_ip_input]["time"])
+            elif (artnet_packet_type == "ART_POLL") and (artnet_ip_input in unicast_ips):
+                unicast_ips[artnet_ip_input].update(time=time.time())
     elif artnet_to_sacn is True:
         pass
