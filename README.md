@@ -26,7 +26,6 @@ The script will print out the type of received packet. Edit **socket_settings.py
 
 ## Known Problems:
 - Unicast sending was not tested with more than one receiver yet.
-- There is no timeout option for ArtNet receivers yet.
 
 ## Work in progress:
 - Convert ArtNet to sACN
