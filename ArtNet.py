@@ -19,6 +19,11 @@ def calculate_hibyte(byte: int):  # Returns a list with the hibyte[0] and the lo
     return hibyte, lobyte
 
 
+def calculate_decimal(bothbytes):
+    result = (bothbytes[0] << 8) + bothbytes[1]  # Converts a tuple back to an int
+    return result
+
+
 def artpoll_output(target_ip="255.255.255.255", art_poll_reply=1, diagnostics=0, unicast=1, vlc=1, priority=DP_LOW):
     # BROADCAST
     # 1:        ID[8] ('A''r''t''-''N''e''t' 0x00)
@@ -291,21 +296,24 @@ def artdmx_output(artnet_data, target_ip="255.255.255.255", physical=0):
 
     length = calculate_hibyte(512)
 
-    artnet_packet = bytearray()
-    artnet_packet.extend(ID)
-    artnet_packet.append(OP_DMX[1])  # OPCode Lo
-    artnet_packet.append(OP_DMX[0])  # OPCode Hi
-    artnet_packet.append(PROT_VER_HI)  # ProtVerHi
-    artnet_packet.append(PROT_VER_LO)  # ProtVerLo
-    artnet_packet.append(artnet_data["sequence_number"])  # Sequence <- ToDo
-    artnet_packet.append(physical)  # Physical
-    artnet_packet.append(artnet_data["universe_lobyte"])  # SubUni
-    artnet_packet.append(artnet_data["universe_hibyte"])  # Net
-    artnet_packet.append(length[0])  # LengthHi
-    artnet_packet.append(length[1])  # Length
-    artnet_packet.extend(bytearray(artnet_data["dmx_data"]))
+    universe_dec = calculate_decimal(artnet_data["universe"])
+    for universes in universe_dict[universe_dec]:
+        universe = calculate_hibit(universes)
+        artnet_packet = bytearray()
+        artnet_packet.extend(ID)
+        artnet_packet.append(OP_DMX[1])  # OPCode Lo
+        artnet_packet.append(OP_DMX[0])  # OPCode Hi
+        artnet_packet.append(PROT_VER_HI)  # ProtVerHi
+        artnet_packet.append(PROT_VER_LO)  # ProtVerLo
+        artnet_packet.append(artnet_data["sequence_number"])  # Sequence <- ToDo
+        artnet_packet.append(physical)  # Physical
+        artnet_packet.append(universe[1])  # SubUni
+        artnet_packet.append(universe[0])  # Net
+        artnet_packet.append(length[0])  # LengthHi
+        artnet_packet.append(length[1])  # Length
+        artnet_packet.extend(bytearray(artnet_data["dmx_data"]))
 
-    artnet_output(artnet_packet, target_ip)
+        artnet_output(artnet_packet, target_ip)
 
 
 def artipprog_output(target_ip="255.255.255.255", any_programming=0, dhcp_enable=0, default_reset=0,

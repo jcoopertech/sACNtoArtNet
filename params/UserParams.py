@@ -1,6 +1,9 @@
 """USER Defined Parameters"""
 universe_min = 1
-universe_max = 20
+universe_max = 10
+
+universe_dict = {1: [1], 2: [2], 3: [3], 4: [4], 5: [5], 6: [6], 7: [7], 8: [8], 9: [9], 10: [10, 11]}
+
 use_per_channel_priority = True  # Activate to use per channel priority packets (0xDD start code packets)
 merge = True  # Activate if using more than one source in the network
 artnet_to_sacn = False
