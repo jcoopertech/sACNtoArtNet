@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="{{url_for('static', filename='img/favicon.ico')}}">
+    <!-- BOOTSTRAP STYLES-->
+    <link href="{{url_for('static', filename='bootstrap.css')}}" rel="stylesheet" type="text/css"/>
+     <!-- FONTAWESOME STYLES-->
+    <link href="{{url_for('static', filename='font-awesome.css')}}" rel="stylesheet" type="text/css"/>
+        <!-- CUSTOM STYLES-->
+    <link href="{{url_for('static', filename='custom.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{url_for('static', filename='style.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{url_for('static', filename='switches.css')}}" rel="stylesheet" type="text/css"/>
+
+    {% if title %}
+    <title>{{ title }}</title>
+    {% else %}
+    <title>Area 31</title>
+    {% endif%}
+</head>
+<body>
+<!--- NAV TOP --->
+    <div id="wrapper">
+         <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="adjust-nav">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">
+                        <img src="{{url_for('static', filename='img/logo.png')}}" class="logo"/>
+                    </a>
+                </div>
+                <span class="logout-spn">
+                    <a href="{{url_for('home')}}" class="btn-small btn">⌂ Home</a>
+                    <a href="{{url_for('settings')}}" class="btn-small btn">⚙ Settings</a>
+                    <a href="{{url_for('logout')}}" class="btn"> Log Out</a>
+                </span>
+            </div>
+        </div>
+        <!-- /. TITLE ROW  -->
+        <div id="page-wrapper" >
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{category}}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <div id="page-inner">
+                    {% block content %}
+                    {% endblock %}
+         <!-- /. PAGE WRAPPER  -->
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="row">
+                <div class="col-lg-6" >
+                    &copy;  2019 Area31
+                    <br>
+                    Nicolas Bartels | About | Design by: <a href="http://binarytheme.com" style="color:#fff;"  target="_blank">www.binarytheme.com</a>
+                </div>
+                <div class="col-lg-3">
+                </div>
+                <!---<div class="col-lg-3">
+                    sACN and Art-Net traffic:
+                    <br>
+                    <div class="progress progress-striped active">
+                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: {{mbps}}%">
+                            {{mbps}} MB/s
+                        </div>
+                    </div>
+                </div> --->
+            </div>
+        </div>
+    </div>
+<!-- /. WRAPPER  -->
+<!-- JQUERY SCRIPTS -->
+<script src="/static/js/jquery-1.10.2.js"></script>
+<!-- BOOTSTRAP SCRIPTS -->
+<script src="/static/js/bootstrap.min.js"></script>
+<!-- CUSTOM SCRIPTS -->
+<script src="/static/js/custom.js"></script>
+</body>
+</html>

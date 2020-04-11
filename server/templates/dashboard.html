@@ -1,0 +1,107 @@
+﻿
+{%extends "layout_home.html"%}
+{%block content%}
+<!-- /. sACN  -->
+<div class="row">
+    <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12">
+        <div class="buttontext">
+            <label class="switch">
+            {%if sacn_to_artnet == True%}
+            <input type="checkbox" name="activated" checked="checked" onclick="location.href='deactivate_sacn_to_artnet';">
+            {%else %}
+            <input type="checkbox" name="deactivated" onclick="location.href='activate_sacn_to_artnet';">
+            {%endif%}
+                <span class="slider round">
+
+                </span>
+            </label>  Convert sACN to Art-Net
+        </div>
+
+        {% if sacn_error%}
+            <div class="input-group-addon error">{{sacn_error}}</div>
+        {% endif %}
+
+        {% if sacn_success%}
+            <div class="input-group-addon success">{{sacn_success}}</div>
+        {% endif %}
+
+        {%for elements in sacndict%}
+        {%for universes in sacndict[elements]%}
+        <form method="post" action="change_sacn_entry">
+            <div class="input-group">
+                <span class="input-group-addon sacn">sACN</span>
+                <input type="text" class="form-control" value="{{elements}}" name="sacn" />
+                <input type="hidden" value="{{elements}}" name="sacn_old_value"/>
+                <span class="input-group-addon artnet">⇨ Art-Net</span>
+                <input type="text" class="form-control" value="{{universes}}" name="artnet"/>
+                <input type="hidden" value="{{universes}}" name="artnet_old_value"/>
+                <span class="input-group-addon interact_field">
+                    <input type="submit" name="add" value="✔" class="input-group-addon add">
+                    <input type="submit" name="delete" value="x" class="input-group-addon delete">
+                    <input type="submit" name="reset" value="↺" class="input-group-addon reset">
+                </span>
+            </div>
+        </form>
+        {%endfor%}
+        {%endfor%}
+        <br>
+        <div>
+            <a href="add_sacn_universe" class="btn btn-success">+ Add Universe</a>
+            <br>
+            <br>
+        </div>
+    </div>
+
+     <!-- /. Art-Net  -->
+    <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12">
+        <div class="buttontext">
+            <label class="switch">
+            {%if artnet_to_sacn == True%}
+            <input type="checkbox" name="activated" checked="checked" onclick="location.href='deactivate_artnet_to_sacn';">
+            {%else %}
+            <input type="checkbox" name="deactivated" onclick="location.href='activate_artnet_to_sacn';">
+            {%endif%}
+                <span class="slider round">
+
+                </span>
+            </label>  Convert Art-Net to sACN
+        </div>
+
+
+        {% if artnet_error%}
+            <div class="input-group-addon error">{{artnet_error}}</div>
+        {% endif %}
+
+        {% if artnet_success%}
+            <div class="input-group-addon success">{{artnet_success}}</div>
+        {% endif %}
+
+        {%for elements in artnetdict%}
+        {%for universes in artnetdict[elements]%}
+        <form method="post" action="change_artnet_entry">
+            <div class="input-group">
+                <span class="input-group-addon sacn">Art-Net</span>
+                <input type="text" class="form-control" value="{{elements}}" name="artnet" />
+                <input type="hidden" value="{{elements}}" name="artnet_old_value"/>
+                <span class="input-group-addon artnet">⇨ sACN</span>
+                <input type="text" class="form-control" value="{{universes}}" name="sacn"/>
+                <input type="hidden" value="{{universes}}" name="sacn_old_value"/>
+                <span class="input-group-addon interact_field">
+                    <input type="submit" name="add" value="✔" class="input-group-addon add">
+                    <input type="submit" name="delete" value="x" class="input-group-addon delete">
+                    <input type="submit" name="reset" value="↺" class="input-group-addon reset">
+                </span>
+            </div>
+        </form>
+        {%endfor%}
+        {%endfor%}
+        <br>
+        <div>
+            <a href="add_artnet_universe" class="btn btn-success">+ Add Universe</a>
+            <br>
+            <br>
+        </div>
+    </div>
+<!-- /. ROW  -->
+</div>
+{%endblock content%}

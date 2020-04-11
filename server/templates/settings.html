@@ -1,0 +1,117 @@
+﻿{%extends "layout_home.html"%}
+{%block content%}
+
+<!-- /. Settings -->
+<div class="row">
+    <div class="col-lg-4 col-md-5 col-sm-9 col-xs-12">
+        <form method="post" action="change_password">
+            <h2>Change Password</h2>
+            {% if password_error %}
+                <div class="input-group-addon error">{{password_error}}</div>
+            {% endif %}
+
+
+            <div class="login-form">
+                {{ form.csrf_token }}
+                {{ form.username(class="login-field", placeholder="New Username") }}
+                {% if form.username.errors %}
+                <div class="invalid-feedback">
+                    {% for errors in form.username.errors %}
+                    <span>{{ errors }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+
+                {{ form.password(class="login-field", placeholder=" New Password") }}
+                {% if form.password.errors %}
+                <div class="invalid-feedback">
+                    {% for errors in form.password.errors %}
+                    <span>{{ errors }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                {{ form.confirm_password(class="login-field", placeholder="Confirm Password") }}
+                {% if form.confirm_password.errors %}
+                <div class="invalid-feedback">
+                    {% for errors in form.confirm_password.errors %}
+                    <span>{{ errors }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                {{ form.submit(class="btn btn-primary") }}
+            </div>
+            <br>
+        </form>
+
+    </div>
+
+    <div class="col-lg-4 col-md-5 col-sm-9 col-xs-12">
+        <h2>sACN Settings</h2>
+        <div class="buttontext">
+            <label class="switch">
+                {%if KeepLoggedIn == True%}
+                <input type="checkbox" name="activated" checked="checked" onclick="">
+                {%else %}
+                <input type="checkbox" name="deactivated" onclick="">
+                {%endif%}
+                <span class="slider round">
+                </span>
+            </label>  Activate Merging for more than one sACN input source
+            <br>
+            <label class="switch">
+                {%if KeepLoggedIn == True%}
+                <input type="checkbox" name="activated" checked="checked" onclick="">
+                {%else %}
+                <input type="checkbox" name="deactivated" onclick="">
+                {%endif%}
+                <span class="slider round">
+                </span>
+            </label>  Use per-channel-priority packets. Activate when using senders by ETC!
+        </div>
+    </div>
+            <br>
+    <div class="col-lg-4 col-md-5 col-sm-9 col-xs-12">
+        <h2>Art-Net Settings</h2>
+        <div class="buttontext">
+            <label class="switch">
+                {%if KeepLoggedIn == True%}
+                <input type="checkbox" name="activated" checked="checked" onclick="">
+                {%else %}
+                <input type="checkbox" name="deactivated" onclick="">
+                {%endif%}
+                <span class="slider round">
+                </span>
+            </label>  Send broadcast instead of unicast. Can cause a lot of network traffic. Only use with old Art-Net
+            nodes on Art-Net version I.
+            <br>
+            <label class="switch">
+                {%if KeepLoggedIn == True%}
+                <input type="checkbox" name="activated" checked="checked" onclick="">
+                {%else %}
+                <input type="checkbox" name="deactivated" onclick="">
+                {%endif%}
+                <span class="slider round">
+                </span>
+            </label>  Use per-channel-priority packets. Activate when using senders by ETC!
+        </div>
+    </div>
+<div class="col-lg-4 col-md-5 col-sm-9 col-xs-12">
+    <h2>Reset to factory settings</h2>
+    <div align="center">
+        <button class="btn btn-danger" onclick="confirm_reset()">Reset</button>
+    </div>
+
+<script>
+function confirm_reset() {
+  var txt;
+  var r = confirm("Are you sure you want to reset? All settings will be lost!");
+  if (r == true) {
+    location.href='restore_factory_settings';
+  }
+  document.getElementById("feedback").innerHTML = txt;
+}
+</script>
+</div>
+        {%endblock content%}

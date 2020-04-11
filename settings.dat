@@ -1,0 +1,8 @@
+[sACN]
+sacn_to_artnet = True
+sacndict = {1: [1], 2: [2]}
+
+[Art-Net]
+artnet_to_sacn = True
+artnetdict = {3: [3], 4: [4], 5: []}
+

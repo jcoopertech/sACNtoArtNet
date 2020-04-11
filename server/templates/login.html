@@ -1,0 +1,60 @@
+{%extends "layout_login.html"%}
+{%block content%}
+<form action="/login" method="POST">
+    {{ form.hidden_tag() }}
+<div class="login">
+    <div class="login-screen">
+        <div class="app-title">
+            <h1>Login</h1>
+        </div>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{category}}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        <div class="login-form">
+            <div class="control-group">
+                {{ form.csrf_token }}
+                {{ form.username(class="login-field", placeholder="Username") }}
+                {% if form.username.errors %}
+                <div class="invalid-feedback">
+                    {% for errors in form.username.errors %}
+                    <span>{{ errors }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+            <div class="control-group">
+                {{ form.password(class="login-field", placeholder="Password") }}
+                {% if form.password.errors %}
+                <div class="invalid-feedback">
+                    {% for errors in form.password.errors %}
+                    <span>{{ errors }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+            <div>
+                <div class="buttontext">
+                    <label class="switch">
+                        {%if KeepLoggedIn == True%}
+                        <input type="checkbox" name="activated" checked="checked" onclick="">
+                        {%else %}
+                        <input type="checkbox" name="deactivated" onclick="">
+                        {%endif%}
+                        <span class="slider round">
+                        </span>
+                    </label>  Keep logged in
+                </div>
+                <br>
+            </div>
+            {{ form.submit(class="btn btn-primary btn-large btn-block") }}
+        </div>
+    </div>
+</div>
+</form>
+{%endblock content%}
